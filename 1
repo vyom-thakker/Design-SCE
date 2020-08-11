@@ -1,0 +1,6 @@
+import pandas as pd
+
+A=pd.read_excel("techMatrix3.xlsx",skiprows=[0,1],header=None,usecols=range(2,139),name=range(0,136));
+B=pd.read_excel("intMatrix3.xlsx",skiprows=[0,1],header=None,usecols=range(2,139),name=range(0,136));
+C=pd.read_excel("CharacFactors3.xlsx",skiprows=[0,1,2,3,4,6,7,8,9,10,11],header=None,usecols=range(2,len(B)),name=range(0,len(B)-3));
+print(C);
