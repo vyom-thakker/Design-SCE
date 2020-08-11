@@ -535,10 +535,11 @@ execute_unload 'Sankey_%fileS%.gdx', cD,from;
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
 execute 'mv Sankey_%fileS%.csv ./%file%/'
-execute_unload 'Sankey_%fileS1%.gdx', s; 
-execute 'gdxdump Sankey_%fileS1%.gdx output=Sankey_%fileS1%.csv symb=s format=csv'
-execute 'rm Sankey_%fileS1%.gdx'
-execute 'mv Sankey_%fileS1%.csv ./%file%/'
+execute 'rm scalingVector.csv'
+execute_unload 'scalingVector.gdx', s; 
+execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
+execute 'rm scalingVector.gdx'
+execute 'python hotspotFinder.py scalingVector.csv'
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
