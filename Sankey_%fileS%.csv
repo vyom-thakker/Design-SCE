@@ -154,7 +154,7 @@
 "Paper","PP",0
 "Paper","PLA",0
 "Paper","Paper",0
-"Paper","Households",6.519
+"Paper","Households",10.7722
 "Paper","Curbside Collection",0
 "Paper","Dropoff",0
 "Paper","Segregation",0
@@ -176,7 +176,7 @@
 "Households","PLA",0
 "Households","Paper",0
 "Households","Households",0
-"Households","Curbside Collection",5.7452
+"Households","Curbside Collection",0
 "Households","Dropoff",0
 "Households","Segregation",0
 "Households","rHDPE",0
@@ -187,10 +187,10 @@
 "Households","Compost",0
 "Households","Clinker",0
 "Households","Lumber",0
-"Households","Losses",0.7739
-"Curbside Collection","Pyrolysis",0
-"Curbside Collection","Landfill",0
-"Curbside Collection","Incineration",0
+"Households","Losses",10.7722
+"Curbside Collection","Pyrolysis",Undf
+"Curbside Collection","Landfill",Undf
+"Curbside Collection","Incineration",Undf
 "Curbside Collection","HDPE",0
 "Curbside Collection","LDPE",0
 "Curbside Collection","PP",0
@@ -199,7 +199,7 @@
 "Curbside Collection","Households",0
 "Curbside Collection","Curbside Collection",0
 "Curbside Collection","Dropoff",0
-"Curbside Collection","Segregation",5.2381
+"Curbside Collection","Segregation",Undf
 "Curbside Collection","rHDPE",0
 "Curbside Collection","rLDPE",0
 "Curbside Collection","rPP",0
@@ -208,10 +208,10 @@
 "Curbside Collection","Compost",0
 "Curbside Collection","Clinker",0
 "Curbside Collection","Lumber",0
-"Curbside Collection","Losses",0.4623
-"Dropoff","Pyrolysis",0
-"Dropoff","Landfill",0
-"Dropoff","Incineration",0
+"Curbside Collection","Losses",0
+"Dropoff","Pyrolysis",Undf
+"Dropoff","Landfill",Undf
+"Dropoff","Incineration",Undf
 "Dropoff","HDPE",0
 "Dropoff","LDPE",0
 "Dropoff","PP",0
@@ -220,7 +220,7 @@
 "Dropoff","Households",0
 "Dropoff","Curbside Collection",0
 "Dropoff","Dropoff",0
-"Dropoff","Segregation",0
+"Dropoff","Segregation",Undf
 "Dropoff","rHDPE",0
 "Dropoff","rLDPE",0
 "Dropoff","rPP",0
@@ -231,7 +231,7 @@
 "Dropoff","Lumber",0
 "Dropoff","Losses",0
 "Segregation","Pyrolysis",0
-"Segregation","Landfill",0.9245
+"Segregation","Landfill",0
 "Segregation","Incineration",0
 "Segregation","HDPE",0
 "Segregation","LDPE",0
@@ -246,7 +246,7 @@
 "Segregation","rLDPE",0
 "Segregation","rPP",0
 "Segregation","rPLA",0
-"Segregation","rPaper",4.3136
+"Segregation","rPaper",0
 "Segregation","Compost",0
 "Segregation","Clinker",0
 "Segregation","Lumber",0
@@ -342,7 +342,7 @@
 "rPaper","LDPE",0
 "rPaper","PP",0
 "rPaper","PLA",0
-"rPaper","Paper",4.2532
+"rPaper","Paper",0
 "rPaper","Households",0
 "rPaper","Curbside Collection",0
 "rPaper","Dropoff",0
@@ -355,7 +355,7 @@
 "rPaper","Compost",0
 "rPaper","Clinker",0
 "rPaper","Lumber",0
-"rPaper","Losses",0.0561
+"rPaper","Losses",0
 "Compost","Pyrolysis",0
 "Compost","Landfill",0
 "Compost","Incineration",0
