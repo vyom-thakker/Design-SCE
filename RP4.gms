@@ -31,7 +31,7 @@ A(ecoinventI,'P80')=0;
 $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
-B(k,j) = round(B(k,j), 3);
+B(k,j) = round(B(k,j), 4);
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
