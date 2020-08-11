@@ -17,11 +17,9 @@ for j in range(137):
     for i in range(len(B)):
         h[j]=h[j]+(C.iloc[0,i]*B.iloc[i,j]);
     sumH=sumH+(h[j]*s.iloc[j,0]);
-print(h);
-print(h[131]);
 count=0;
 for j in range(137):
-    f[j]=h[j]*s.iloc[j,0]*100/abs(sumH);
+    f[j]=h[j]*s.iloc[j,0];
     if abs(f[j])>2:
         count=count+1;
 
@@ -52,7 +50,8 @@ ax.set_ylabel="GWP contribution in %";
 plt.title("GWP contribution in %");
 #plt.text(0,0,labe,ha='left',va='bottom',transform=ax.transAxes);
 plt.text(1,1,labe,ha='right',va='top',transform=ax.transAxes);
-
-plt.show();
+plt.savefig('fig.png');
+plt.savefig('fig.svg')
+#plt.show();
 
 

@@ -540,6 +540,8 @@ execute_unload 'scalingVector.gdx', s;
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
 execute 'rm scalingVector.gdx'
 execute 'python hotspotFinder.py scalingVector.csv'
+execute 'mv fig.png ./sankeyFiles/hotspot_%fileS%.png'
+execute 'mv fig.svg ./sankeyFiles/hotspot_%fileS%.svg'
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
