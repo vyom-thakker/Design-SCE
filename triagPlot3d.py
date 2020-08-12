@@ -30,10 +30,10 @@ triang = mtri.Triangulation(x, y)
 #plt.show()
 
 
-isBad = np.where((x<1) | (x>99) | (y<1) | (y>99), True, False)
+#isBad = np.where((x<1) | (x>99) | (y<1) | (y>99), True, False)
 
-mask = np.any(isBad[triang.triangles],axis=1)
-triang.set_mask(mask)
+#mask = np.any(isBad[triang.triangles],axis=1)
+#triang.set_mask(mask)
 
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1, projection='3d')

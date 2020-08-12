@@ -19,7 +19,7 @@ for j in range(137):
     sumH=sumH+(h[j]*s.iloc[j,0]);
 count=0;
 for j in range(137):
-    f[j]=h[j]*s.iloc[j,0];
+    f[j]=h[j]*s.iloc[j,0]*100/abs(sumH);
     if abs(f[j])>2:
         count=count+1;
 

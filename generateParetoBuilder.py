@@ -22,14 +22,15 @@ df=pd.read_csv("paretoEdgePts"+"_"+sys.argv[2]+".txt", sep=',',header =None,name
 
 di=str(int(sys.argv[2][1])+3)
 
-x1=np.linspace(min(df['GWP']),max(df['GWP']),int(sys.argv[3]));
-x2=np.linspace(min(df['Cost']),max(df['Cost']),int(sys.argv[3]));
+x1=np.linspace(min(df['GWP'])*0.995,max(df['GWP'])*0.995,int(sys.argv[3]));
+x2=np.linspace(min(df['Cost'])*1.005,max(df['Cost'])*0.995,int(sys.argv[3]));
 
 X,Y = np.meshgrid(x1,x2,sparse=True);
 k=1;
 for x in X[0]:
     for y in Y:
-        commands.extend("gams rp"+di+".gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file --fileS="+str(k)+"$file --fileS1="+str(k)+"g$file parmfile=moreOptions.txt \n");
+        #commands.extend("gams RP"+di+".gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file parmfile=moreOptions.txt \n");
+        commands.extend("gams RP"+di+".gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file --fileS="+str(k)+"$file --fileS1="+str(k)+"g$file parmfile=moreOptions.txt \n");
         k=k+1;
 
 

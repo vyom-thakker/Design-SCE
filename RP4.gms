@@ -107,11 +107,11 @@ variables
 *s.l(j)=0;
 
 *type of bags
-s.fx('P82')=0;
-s.fx('P83')=0;
-s.fx('P84')=0;
-s.fx('P85')=0;
-s.fx('P86')=0;
+*s.fx('P82')=0;
+*s.fx('P83')=0;
+*s.fx('P84')=0;
+*s.fx('P85')=0;
+*s.fx('P86')=0;
 *s.fx('P132')=0;
 
 
@@ -357,7 +357,7 @@ eps1.. epsObj=e=DoC+eps*(slack1+slack2);
 	Option NLP=BARON;
 $onecho > baron.opt
 DoLocal 0
-*NumLoc 0
+NumLoc 0
 $offecho
 	ToyProblem.OptFile=1;
 *	Option limrow=120;
@@ -534,14 +534,16 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
-execute 'mv Sankey_%fileS%.csv ./%file%/'
+execute 'sh removeUndf.sh Sankey_%fileS%.csv'
+execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
+execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
 execute 'rm scalingVector.gdx'
 execute 'python hotspotFinder.py scalingVector.csv'
-execute 'mv fig.png ./sankeyFiles/hotspot_%fileS%.png'
-execute 'mv fig.svg ./sankeyFiles/hotspot_%fileS%.svg'
+execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
+execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
