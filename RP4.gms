@@ -31,7 +31,7 @@ A(ecoinventI,'P80')=0;
 $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
-B(k,j) = round(B(k,j), 4);
+B(k,j) = round(B(k,j), 6);
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -359,7 +359,7 @@ $onecho > baron.opt
 DoLocal 0
 NumLoc 0
 $offecho
-	ToyProblem.OptFile=1;
+*	ToyProblem.OptFile=1;
 *	Option limrow=120;
 *    Option resLim=5000;
 *    Option optcr=0.1;
@@ -538,12 +538,15 @@ execute 'sh removeUndf.sh Sankey_%fileS%.csv'
 execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
 execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
-execute_unload 'scalingVector.gdx', s; 
-execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
-execute 'rm scalingVector.gdx'
-execute 'python hotspotFinder.py scalingVector.csv'
-execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
-execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
+*execute_unload 'scalingVector.gdx', s; 
+*execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
+*execute 'rm scalingVector.gdx'
+*execute 'python hotspotFinder.py scalingVector.csv'
+*execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
+*execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
+*execute_unload 'Intervention.gdx', g; 
+*execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
+*execute 'rm Intervention.gdx'
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
