@@ -1,2 +1,2 @@
 resLim=500
-optCR=0.35
+optCR=0.2

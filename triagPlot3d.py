@@ -7,7 +7,7 @@ import sys
 
 #https://fabrizioguerrieri.com/blog/surface-graphs-with-irregular-dataset/
 
-data=pd.read_csv("paretoEdgePts_"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
+data=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
 data1=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
@@ -38,13 +38,13 @@ triang = mtri.Triangulation(x, y)
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1, projection='3d')
 
-ax.plot_trisurf(triang, z, cmap='jet')
-ax.scatter(x,y,z, marker='.', s=10, c="black", alpha=0.5)
+ax.plot_trisurf(triang, z, cmap='viridis_r')
+ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
 ax.view_init(elev=60, azim=-45)
 
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
+ax.set_xlabel('Life Cycle Cost ($/house-yr)')
+ax.set_ylabel('Global Warming Potential (kgCO2eq/house-yr)')
+ax.set_zlabel('Degree of Circularity (Industrial Perspective)')
 plt.savefig("pareto"+sys.argv[1]+".svg",format='svg')
 plt.show()
 

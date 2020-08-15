@@ -18,6 +18,7 @@ set HCon(i,j) /#supplies.#homes/;
 set SWast(i,j) /#sortedStuff.P92/;
 
 parameter A(i,j),B(k,j),C(l,k);
+parameter s1(j);
 
 $GDXIN techMatrix3.gdx
 $LOAD A
@@ -36,7 +37,11 @@ B(k,j) = round(B(k,j), 6);
 $GDXIN CharacFactors3.gdx
 $LOAD C
 $GDXIN
-C(l,k) = round(C(l,k), 3);
+C(l,k) = round(C(l,k), 2);
+
+*$GDXIN scalingVector.gdx
+*$LOAD s1
+*$GDXIN
 
 *A('E97','P91')=0.08825;
 *A('E97','P89')=-1.0968;
@@ -104,7 +109,7 @@ positive variables
 variables
 	f(i) final demand;	
 
-*s.l(j)=0;
+s.l(j)=0;
 
 *type of bags
 *s.fx('P82')=0;
@@ -112,7 +117,10 @@ variables
 *s.fx('P84')=0;
 *s.fx('P85')=0;
 *s.fx('P86')=0;
-*s.fx('P132')=0;
+
+set paperJ(j) /P131*P137/;
+A(i,paperJ)=0;
+s.fx('P131')=0;
 
 
 
@@ -165,7 +173,7 @@ eqnPchoiceitems(i)$supplies(i).. pchoiceitems(i)=e=techMat(i,'P87')*s('P87');
 variable normalizedcostInput;
 equation costInput;
 set bagRatioProduction(i) /E92*E96,E128/;
-parameter offsetCostInput(i) /E92 [900*%q1%],E93 [990*%q2%],E94 [1080*%q3%],E95 [1240*%q4%],E96 2500,E128 [445*%q5%]/;
+parameter offsetCostInput(i) /E92 [800*%q1%],E93 [990*%q2%],E94 [1080*%q3%],E95 [1240*%q4%],E96 2500,E128 [445*%q5%]/;
 costInput.. normalizedcostinput=e=sum(i$bagRatioProduction(i),techMat(i,'P92')*offsetCostInput(i)/(0.99));
 
 variable productionCostResin;
@@ -189,9 +197,9 @@ loss_l.. lossLandfill=e=907.18*sum(j$lfill_indices(j),s(j));
 s.fx('P81')=0;
 *incineration
 set ifill_indices(j) /P108*P112,P137/;
-parameter offsetCost(j) /P108 [900*%q1%],P109 [990*%q2%],P110 [1080*%q3%],P111 [1240*%q4%], P112 2500,P137 [445*%q5%]/;
+parameter offsetCost(j) /P108 [800*%q1%],P109 [990*%q2%],P110 [1080*%q3%],P111 [1240*%q4%], P112 2500,P137 [445*%q5%]/;
 set ifill_indices_new(j) /P118*P121,P137/;
-parameter offsetCost_new(j) /P118 [900*%q1%],P119 [990*%q2%],P120 [1080*%q3%],P121 [1240*%q4%], P137 [445*%q5%]/;
+parameter offsetCost_new(j) /P118 [800*%q1%],P119 [990*%q2%],P120 [1080*%q3%],P121 [1240*%q4%], P137 [445*%q5%]/;
 variable lossIncineration;
 equations eqi1,eqi2,eqi3,eqi4,eqi5,eqi6,eqi7,loss_i;
 eqi1.. s('P108')*sum(j$bagAmnts(j), s(j))=e=s('P82')*sum(j$ifill_indices(j), s(j));
@@ -538,12 +546,12 @@ execute 'sh removeUndf.sh Sankey_%fileS%.csv'
 execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
 execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
-*execute_unload 'scalingVector.gdx', s; 
-*execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
+execute_unload 'scalingVector.gdx', s; 
+execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
 *execute 'rm scalingVector.gdx'
-*execute 'python hotspotFinder.py scalingVector.csv'
-*execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
-*execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
+execute 'python hotspotFinder.py scalingVector.csv'
+execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
+execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'

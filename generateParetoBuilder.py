@@ -8,7 +8,7 @@ commands=["file=$1\nfilename=\"pareto\"\nfilename=\"$filename$file\"\nmkdir $fil
 
 import pandas as pd
 
-df=pd.read_csv("paretoEdgePts"+"_"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
+df=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
 
 
@@ -20,7 +20,7 @@ df=pd.read_csv("paretoEdgePts"+"_"+sys.argv[2]+".txt", sep=',',header =None,name
 #x2[0]=0.784;
 #x2[30]=9.32;
 
-di=str(int(sys.argv[2][1])+3)
+di=str(int(sys.argv[2][len(sys.argv[2])-1])+3)
 
 x1=np.linspace(min(df['GWP'])*0.995,max(df['GWP'])*0.995,int(sys.argv[3]));
 x2=np.linspace(min(df['Cost'])*1.005,max(df['Cost'])*0.995,int(sys.argv[3]));
