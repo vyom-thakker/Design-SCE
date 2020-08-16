@@ -20,4 +20,3 @@ GWP LDPE only,
 GWP PP only,
 GWP PLA only,
 Waste methods only,
-

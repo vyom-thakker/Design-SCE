@@ -113,14 +113,14 @@ s.l(j)=0;
 
 *type of bags
 *s.fx('P82')=0;
-*s.fx('P83')=0;
-*s.fx('P84')=0;
-*s.fx('P85')=0;
-*s.fx('P86')=0;
+s.fx('P83')=0;
+s.fx('P84')=0;
+s.fx('P85')=0;
+s.fx('P86')=0;
 
-*set paperJ(j) /P131*P137/;
-*A(i,paperJ)=0;
-*s.fx('P131')=0;
+set paperJ(j) /P131*P137/;
+A(i,paperJ)=0;
+s.fx('P131')=0;
 
 
 
@@ -278,9 +278,9 @@ costCl1.. costCl=e=s('P129')*clinkerCost/1000;
 costLu1.. costLu=e=s('P130')*lumberCost;
 *pyrolysis 0.044 kg biofuel generated, 7.3 lb/gal density, 3$/gal
 *degreeofcircularity
-DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
+*DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
