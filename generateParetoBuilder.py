@@ -22,7 +22,7 @@ df=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','
 
 di=str(int(sys.argv[2][len(sys.argv[2])-1])+3)
 #min GWP multiplied by 0.995 because min GWP with paper is negative. If positive, make 1.005
-x1=np.linspace(min(df['GWP'])*0.995,max(df['GWP'])*0.995,int(sys.argv[3]));
+x1=np.linspace(min(df['GWP'])*1.005,max(df['GWP'])*1.005,int(sys.argv[3]));
 x2=np.linspace(min(df['Cost'])*1.005,max(df['Cost'])*0.995,int(sys.argv[3]));
 
 X,Y = np.meshgrid(x1,x2,sparse=True);

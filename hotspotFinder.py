@@ -10,7 +10,7 @@ names=pd.read_excel("techMatrix3.xlsx",skiprows=range(2,132),header=None,usecols
 B=pd.read_excel("intMatrix5.xlsx",skiprows=[0,1],header=None,usecols=range(2,139));
 B.iloc[0,14]=0.0;
 B.iloc[0,15]=0.0;
-
+B.iloc[1764,:]=0.0;
 C=pd.read_excel("CharacFactors3.xlsx",skiprows=[0,1,2,3,4,6,7,8,9,10,11],header=None,usecols=range(2,len(B)+2));
 s=pd.read_csv("scalingVector.csv",skiprows=[0],header=None,usecols=[1]);
 h=[0]*137;

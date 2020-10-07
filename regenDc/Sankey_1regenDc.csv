@@ -91,7 +91,7 @@
 "LDPE","PP",0
 "LDPE","PLA",0
 "LDPE","Paper",0
-"LDPE","Households",0
+"LDPE","Households",0.0419
 "LDPE","Curbside Collection",0
 "LDPE","Dropoff",0
 "LDPE","Segregation",0
@@ -133,7 +133,7 @@
 "PLA","PP",0
 "PLA","PLA",0
 "PLA","Paper",0
-"PLA","Households",0
+"PLA","Households",3.9115
 "PLA","Curbside Collection",0
 "PLA","Dropoff",0
 "PLA","Segregation",0
@@ -187,7 +187,7 @@
 "Households","Compost",0
 "Households","Clinker",0
 "Households","Lumber",0
-"Households","Losses",0
+"Households","Losses",3.9534
 "Curbside Collection","Pyrolysis",0
 "Curbside Collection","Landfill",0
 "Curbside Collection","Incineration",0

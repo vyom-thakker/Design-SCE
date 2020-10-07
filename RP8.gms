@@ -124,7 +124,11 @@ positive variables
 variables
 	f(i) final demand;	
 
-s.l(j)=0;
+*s.l(j)=0;
+
+$onlisting
+$include scalingVector.inc
+$offlisting
 
 *type of bags
 *s.fx('P82')=0;
@@ -388,14 +392,14 @@ $onecho > baron.opt
 DoLocal 0
 NumLoc 0
 $offecho
-*	ToyProblem.OptFile=1;
+	ToyProblem.OptFile=1;
 *	Option limrow=120;
 *    Option resLim=5000;
 *    Option optcr=0.1;
 parameter zD,zG,zC;
 *******************************************Objectives**********************************************
 DoC.lo=0;
-DoC.up=2;
+DoC.up=1;
 If(docC<0, Solve ToyProblem Using NLP maximizing DoC; 
 zD = DoC.l;
 DoC.lo=zD;
