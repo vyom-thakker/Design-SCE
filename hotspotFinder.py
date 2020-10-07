@@ -1,4 +1,7 @@
 import pandas as pd
+import matplotlib
+matplotlib.use("agg");
+import matplotlib.pyplot as plt
 import numpy as np
 #pd.options.display.float_format='{:.4f}'.format;
 
@@ -43,13 +46,12 @@ labe="\n\n Total GWP = "+str(sumH)+"\n";
 for i in range(count):
     labe=labe+"\n"+f_id[i]+"-"+f_name[i];
 
-import matplotlib.pyplot as plt
 fig,ax=plt.subplots();
 plt.bar(f_id,f_sig);
 ax.set_ylabel="GWP contribution in %";
 plt.title("GWP contribution in %");
-#plt.text(0,0,labe,ha='left',va='bottom',transform=ax.transAxes);
-plt.text(1,1,labe,ha='right',va='top',transform=ax.transAxes);
+plt.text(0,0,labe,ha='left',va='bottom',transform=ax.transAxes);
+#plt.text(1,1,labe,ha='right',va='top',transform=ax.transAxes);
 plt.savefig('fig.png');
 plt.savefig('fig.svg')
 #plt.show();
