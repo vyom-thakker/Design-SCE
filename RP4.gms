@@ -127,7 +127,10 @@ positive variables
 variables
 	f(i) final demand;	
 
-s.l(j)=0;
+*s.l(j)=0;
+$onlisting
+$include scalingVector.inc
+$offlisting
 
 *type of bags
 *s.fx('P82')=0;
@@ -574,6 +577,7 @@ execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
 *execute 'rm scalingVector.gdx'
+execute 'python initialGuessSV.py'
 execute 'python hotspotFinder.py scalingVector.csv'
 execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
 execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
