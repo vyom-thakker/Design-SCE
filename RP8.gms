@@ -44,7 +44,11 @@ parameter absLandfill(j) /P82 0.9,P83 0.9,P84 0.95, P85 0.2,P86 0.3,P132 0/;
 $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
-B(k,j) = round(B(k,j), 6);
+B(k,j) = round(B(k,j), 5);
+
+set noAlloc(j) /P103,P106,P114/;
+B(k,noAlloc)=0;
+B(k,'P115')=B(k,'P115')/6;
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -145,6 +149,9 @@ $offlisting
 
 *s.fx('P130')=0;
 *s.fx('P115')=0;
+
+
+
 
 $ontext
 equation litt;
@@ -392,14 +399,14 @@ $onecho > baron.opt
 DoLocal 0
 NumLoc 0
 $offecho
-	ToyProblem.OptFile=1;
+*	ToyProblem.OptFile=1;
 *	Option limrow=120;
 *    Option resLim=5000;
 *    Option optcr=0.1;
 parameter zD,zG,zC;
 *******************************************Objectives**********************************************
 DoC.lo=0;
-DoC.up=1;
+DoC.up=2;
 If(docC<0, Solve ToyProblem Using NLP maximizing DoC; 
 zD = DoC.l;
 DoC.lo=zD;

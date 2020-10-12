@@ -45,6 +45,9 @@ $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
 B(k,j) = round(B(k,j), 6);
+set noAlloc(j) /P103,P106,P114/;
+B(k,noAlloc)=0;
+B(k,'P115')=B(k,'P115')/6;
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -299,9 +302,9 @@ costCl1.. costCl=e=s('P129')*clinkerCost/1000;
 costLu1.. costLu=e=s('P130')*lumberCost;
 *pyrolysis 0.044 kg biofuel generated, 7.3 lb/gal density, 3$/gal
 *degreeofcircularity
-DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97',j)*s(j)*regenFact('E97',j))+lossLandfill*aggLFval);
+*DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97',j)*s(j)*regenFact('E97',j))+lossLandfill*aggLFval);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
