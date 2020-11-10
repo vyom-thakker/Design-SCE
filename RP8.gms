@@ -46,9 +46,11 @@ $LOAD B
 $GDXIN
 B(k,j) = round(B(k,j), 5);
 
-set noAlloc(j) /P103,P106,P114/;
-B(k,noAlloc)=0;
-B(k,'P115')=B(k,'P115')/6;
+
+*uncomment to remove food waste in mixed household waste
+*set noAlloc(j) /P103,P106,P114/;
+*B(k,noAlloc)=0;
+*B(k,'P115')=B(k,'P115')/6;
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -315,7 +317,12 @@ DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97'
 *DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
-
+variable losshotspot(j);
+variable sumlosses;
+equation sumlosseseq;
+equation losshotspoteq(j);
+sumlosseseq.. sumlosses=e=sum(j,A('E97',j)*s(j)*regenFact('E97',j));
+losshotspoteq(j).. losshotspot(j)*sumlosses=e=A('E97',j)*s(j)*regenFact('E97',j);
 
 $ontext
 equation dumm;
@@ -581,11 +588,16 @@ execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
-*execute 'rm scalingVector.gdx'
+execute_unload 'losshotspot.gdx', losshotspot; 
+execute 'gdxdump losshotspot.gdx output=losshotspot.csv symb=losshotspot format=csv'
+execute 'rm scalingVector.gdx'
 execute 'python initialGuessSV.py'
 execute 'python hotspotFinder.py scalingVector.csv'
+execute 'python circularityHotspotFinder.py scalingVector.csv'
 execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
 execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
+execute 'mv circularityfig.png ./%file%/circularityhotspot_%fileS%.png'
+execute 'mv circularityfig.svg ./%file%/circularityhotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'
