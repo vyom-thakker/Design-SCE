@@ -130,11 +130,11 @@ positive variables
 variables
 	f(i) final demand;	
 
-*s.l(j)=0;
 
 $onlisting
 $include scalingVector.inc
 $offlisting
+s.l(j)=0;
 
 *type of bags
 *s.fx('P82')=0;
@@ -281,7 +281,7 @@ processLCA(i).. f(i)=e=sum(j,techMat(i,j)*s(j));
 variables DoC,Cost;
 equations DoC_obj,Cost_obj;
 	DoC.lo=0;
-*	DoC.up=1;
+	DoC.up=2;
 
 set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
 parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
@@ -316,6 +316,12 @@ DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97'
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
 *DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
+
+*variable DoC1;
+*equation DoC_obj1;
+*DoC_obj1.. DoC1*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+
+
 
 variable losshotspot(j);
 variable sumlosses;
@@ -579,6 +585,10 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *put /;
 *Display from;
 
+*Display DoC1.l;
+
+*$onText
+
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
@@ -601,6 +611,7 @@ execute 'mv circularityfig.svg ./%file%/circularityhotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'
+*$offText
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
