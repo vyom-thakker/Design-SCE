@@ -45,9 +45,14 @@ $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
 B(k,j) = round(B(k,j), 6);
+
+$onText
+*For allocation
 set noAlloc(j) /P103,P106,P114/;
 B(k,noAlloc)=0;
 B(k,'P115')=B(k,'P115')/6;
+$offText
+
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -127,10 +132,10 @@ positive variables
 variables
 	f(i) final demand;	
 
-*s.l(j)=0;
-$onlisting
-$include scalingVector.inc
-$offlisting
+s.l(j)=0;
+*$onlisting
+*$include scalingVector.inc
+*$offlisting
 
 *type of bags
 *s.fx('P82')=0;
@@ -308,6 +313,7 @@ costLu1.. costLu=e=s('P130')*lumberCost;
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97',j)*s(j)*regenFact('E97',j))+lossLandfill*aggLFval);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
 DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy-(0.89*sum(j,A('E97',j)*s(j)*regenFact('E97',j)));
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
@@ -474,6 +480,7 @@ $if not set file $set file 0
 File pareto /pareto%file%.txt/;
 pareto.ap=1;
 pareto.nd=4;
+pareto.pw=32567;
 put pareto"";
 put Cost.l",";
 put DoC.l",";
@@ -567,6 +574,8 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *put /;
 *Display from;
 
+
+$onText
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
@@ -584,6 +593,8 @@ execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'
+$offText
+
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'

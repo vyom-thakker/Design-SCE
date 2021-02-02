@@ -1,0 +1,9 @@
+gams RPCTfs.gms --file=CTfs --files=1 --docC2=0.6444 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=2 --docC2=0.6803 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=3 --docC2=0.7162 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=4 --docC2=0.7521 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=5 --docC2=0.788 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=6 --docC2=0.8239 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=7 --docC2=0.8598 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=8 --docC2=0.8957 -optCR=0.2
+gams RPCTfs.gms --file=CTfs --files=9 --docC2=0.9316 -optCR=0.2
