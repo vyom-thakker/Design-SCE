@@ -6,12 +6,14 @@
 
       <script src="https://d3js.org/d3.v4.min.js"></script>
       <script src="d3-sankey-circular.js"></script>
+      <script src="d3-save-svg.js"></script>
       <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
       <script src="Sankey_1.js"></script>
 
       <link href="https://fonts.googleapis.com/css?family=Roboto:100i" rel="stylesheet">
 
       <title>Sankey with circular links</title>
+      <input id="d1" name="downloadButton" type="button" value="Download SVG">
       <style>
         body {
                   font-family: 'Roboto', sans-serif;
@@ -182,6 +184,14 @@
 
             }
 
+d3_save_svg.embedRasterImages(svg.node());
+
+d3.select('#d1').on('click',function(){
+    var config = {
+        filename: 'SankeySVG',
+    }
+    d3_save_svg.save(d3.select('svg').node(),config);
+});
 
   </script>
     </body>
