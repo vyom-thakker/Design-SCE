@@ -1,4 +1,4 @@
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 1
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ GDXIN   /home/vyom/Design-SCE/Design-SCE/CharacFactors3.gdx
 --- LOAD  C = 1:C
  195  C(l,k) = round(C(l,k), 2);
  196   
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 2
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -114,52 +114,52 @@ C o m p i l a t i o n
  268          f(i) final demand;
  269   
  270   
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 3
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
 INCLUDE    /home/vyom/Design-SCE/Design-SCE/scalingVector.inc
- 273  s.l('P1')=1.43;
- 274  s.l('P2')=1.94;
+ 273  s.l('P1')=3.52;
+ 274  s.l('P2')=7.09;
  275  s.l('P3')=0.0;
  276  s.l('P4')=0.0;
- 277  s.l('P5')=1.51;
- 278  s.l('P6')=0.01;
- 279  s.l('P7')=1.65;
- 280  s.l('P8')=0.01;
- 281  s.l('P9')=5.09;
+ 277  s.l('P5')=3.71;
+ 278  s.l('P6')=0.02;
+ 279  s.l('P7')=2.72;
+ 280  s.l('P8')=0.02;
+ 281  s.l('P9')=11.72;
  282  s.l('P10')=0.0;
- 283  s.l('P11')=0.36;
+ 283  s.l('P11')=0.55;
  284  s.l('P12')=0.0;
- 285  s.l('P13')=0.2;
+ 285  s.l('P13')=0.7;
  286  s.l('P14')=0.0;
- 287  s.l('P15')=0.0;
- 288  s.l('P16')=0.22;
- 289  s.l('P17')=6.88;
- 290  s.l('P18')=7.75;
- 291  s.l('P19')=0.19;
- 292  s.l('P20')=0.01;
- 293  s.l('P21')=0.08;
- 294  s.l('P22')=0.71;
+ 287  s.l('P15')=0.1;
+ 288  s.l('P16')=0.51;
+ 289  s.l('P17')=17.01;
+ 290  s.l('P18')=18.26;
+ 291  s.l('P19')=0.48;
+ 292  s.l('P20')=0.03;
+ 293  s.l('P21')=0.19;
+ 294  s.l('P22')=1.06;
  295  s.l('P23')=0.0;
- 296  s.l('P24')=0.41;
+ 296  s.l('P24')=0.69;
  297  s.l('P25')=0.0;
- 298  s.l('P26')=0.02;
- 299  s.l('P27')=0.01;
- 300  s.l('P28')=4.53;
+ 298  s.l('P26')=0.03;
+ 299  s.l('P27')=0.02;
+ 300  s.l('P28')=3.22;
  301  s.l('P29')=0.0;
  302  s.l('P30')=0.0;
  303  s.l('P31')=0.0;
- 304  s.l('P32')=6.41;
+ 304  s.l('P32')=19.68;
  305  s.l('P33')=0.0;
- 306  s.l('P34')=0.0;
- 307  s.l('P35')=0.93;
+ 306  s.l('P34')=0.01;
+ 307  s.l('P35')=0.0;
  308  s.l('P36')=0.0;
- 309  s.l('P37')=0.16;
- 310  s.l('P38')=0.04;
- 311  s.l('P39')=2.84;
- 312  s.l('P40')=0.01;
+ 309  s.l('P37')=0.39;
+ 310  s.l('P38')=0.27;
+ 311  s.l('P39')=2.01;
+ 312  s.l('P40')=0.04;
  313  s.l('P41')=0.0;
  314  s.l('P42')=0.0;
  315  s.l('P43')=0.0;
@@ -169,55 +169,55 @@ INCLUDE    /home/vyom/Design-SCE/Design-SCE/scalingVector.inc
  319  s.l('P47')=0.0;
  320  s.l('P48')=0.0;
  321  s.l('P49')=0.0;
- 322  s.l('P50')=1.6;
+ 322  s.l('P50')=0.0;
  323  s.l('P51')=0.0;
  324  s.l('P52')=0.0;
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 4
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
- 325  s.l('P53')=0.24;
- 326  s.l('P54')=0.05;
+ 325  s.l('P53')=0.0;
+ 326  s.l('P54')=0.0;
  327  s.l('P55')=0.0;
  328  s.l('P56')=0.0;
  329  s.l('P57')=0.0;
- 330  s.l('P58')=0.11;
- 331  s.l('P59')=5.12;
+ 330  s.l('P58')=0.26;
+ 331  s.l('P59')=10.39;
  332  s.l('P60')=0.0;
- 333  s.l('P61')=0.18;
+ 333  s.l('P61')=0.1;
  334  s.l('P62')=0.0;
- 335  s.l('P63')=2.19;
- 336  s.l('P64')=1.68;
+ 335  s.l('P63')=3.68;
+ 336  s.l('P64')=0.0;
  337  s.l('P65')=0.0;
- 338  s.l('P66')=0.36;
- 339  s.l('P67')=0.14;
- 340  s.l('P68')=3.22;
- 341  s.l('P69')=0.02;
- 342  s.l('P70')=1.36;
- 343  s.l('P71')=0.03;
+ 338  s.l('P66')=0.0;
+ 339  s.l('P67')=0.34;
+ 340  s.l('P68')=7.97;
+ 341  s.l('P69')=1.61;
+ 342  s.l('P70')=3.37;
+ 343  s.l('P71')=0.09;
  344  s.l('P72')=0.0;
  345  s.l('P73')=0.0;
- 346  s.l('P74')=0.05;
+ 346  s.l('P74')=0.56;
  347  s.l('P75')=0.0;
- 348  s.l('P76')=0.18;
- 349  s.l('P77')=1.7;
+ 348  s.l('P76')=0.42;
+ 349  s.l('P77')=0.0;
  350  s.l('P78')=0.0;
  351  s.l('P79')=0.0;
  352  s.l('P80')=0.0;
  353  s.l('P81')=0.0;
- 354  s.l('P82')=2.67;
+ 354  s.l('P82')=0.0;
  355  s.l('P83')=0.0;
  356  s.l('P84')=0.0;
  357  s.l('P85')=0.0;
  358  s.l('P86')=0.0;
- 359  s.l('P87')=2.36;
+ 359  s.l('P87')=7.5;
  360  s.l('P88')=0.0;
  361  s.l('P89')=0.0;
- 362  s.l('P90')=2.15;
+ 362  s.l('P90')=6.84;
  363  s.l('P91')=0.0;
- 364  s.l('P92')=2.15;
- 365  s.l('P93')=1.77;
+ 364  s.l('P92')=2.79;
+ 365  s.l('P93')=0.0;
  366  s.l('P94')=0.0;
  367  s.l('P95')=0.0;
  368  s.l('P96')=0.0;
@@ -227,16 +227,16 @@ C o m p i l a t i o n
  372  s.l('P100')=0.0;
  373  s.l('P101')=0.0;
  374  s.l('P102')=0.0;
- 375  s.l('P103')=0.0;
+ 375  s.l('P103')=0.02;
  376  s.l('P104')=0.0;
  377  s.l('P105')=0.0;
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 5
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
  378  s.l('P106')=0.01;
- 379  s.l('P107')=5.28;
+ 379  s.l('P107')=0.0;
  380  s.l('P108')=0.0;
  381  s.l('P109')=0.0;
  382  s.l('P110')=0.0;
@@ -260,14 +260,14 @@ C o m p i l a t i o n
  400  s.l('P128')=0.0;
  401  s.l('P129')=0.0;
  402  s.l('P130')=0.0;
- 403  s.l('P131')=0.0;
- 404  s.l('P132')=0.0;
- 405  s.l('P133')=0.0;
- 406  s.l('P134')=0.0;
- 407  s.l('P135')=0.0;
+ 403  s.l('P131')=8.68;
+ 404  s.l('P132')=8.51;
+ 405  s.l('P133')=2.15;
+ 406  s.l('P134')=215.44;
+ 407  s.l('P135')=2.29;
  408  s.l('P136')=0.0;
  409  s.l('P137')=0.0;
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 6
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -282,151 +282,155 @@ Include File Summary
      6      272 INCLUDE        1     135  ./home/vyom/Design-SCE/Design-SCE/scalingVector.inc
 
 
-COMPILATION TIME     =        0.034 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 7
+COMPILATION TIME     =        0.029 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
 ---- processLCA  =E=  fundamental equation
 
-processLCA(E1)..  (0)*techMat(E1,P1) + (0)*techMat(E1,P2) + (0)*techMat(E1,P3) + (0)*techMat(E1,P4) + (0)*techMat(E1,P5) + (0)*techMat(E1,P6) + (0)*techMat(E1,P7) + (0)*techMat(E1,P8) + (0)*techMat(E1,P9) + (0)*techMat(E1,P10) + (0)*techMat(E1,P11)
+processLCA(E1)..  - (3.52)*techMat(E1,P1) - (7.09)*techMat(E1,P2) + (0)*techMat(E1,P3) + (0)*techMat(E1,P4) - (3.71)*techMat(E1,P5) - (0.02)*techMat(E1,P6) - (2.72)*techMat(E1,P7) - (0.02)*techMat(E1,P8) - (11.72)*techMat(E1,P9) + (0)*techMat(E1,P10)
      
-      + (0)*techMat(E1,P12) + (0)*techMat(E1,P13) + (0)*techMat(E1,P14) + (0)*techMat(E1,P15) + (0)*techMat(E1,P16) + (0)*techMat(E1,P17) + (0)*techMat(E1,P18) + (0)*techMat(E1,P19) + (0)*techMat(E1,P20) + (0)*techMat(E1,P21) + (0)*techMat(E1,P22)
+      - (0.55)*techMat(E1,P11) + (0)*techMat(E1,P12) - (0.7)*techMat(E1,P13) + (0)*techMat(E1,P14) - (0.1)*techMat(E1,P15) - (0.51)*techMat(E1,P16) - (17.01)*techMat(E1,P17) - (18.26)*techMat(E1,P18) - (0.48)*techMat(E1,P19) - (0.03)*techMat(E1,P20)
      
-      + (0)*techMat(E1,P23) + (0)*techMat(E1,P24) + (0)*techMat(E1,P25) + (0)*techMat(E1,P26) + (0)*techMat(E1,P27) + (0)*techMat(E1,P28) + (0)*techMat(E1,P29) + (0)*techMat(E1,P30) + (0)*techMat(E1,P31) + (0)*techMat(E1,P32) + (0)*techMat(E1,P33)
+      - (0.19)*techMat(E1,P21) - (1.06)*techMat(E1,P22) + (0)*techMat(E1,P23) - (0.69)*techMat(E1,P24) + (0)*techMat(E1,P25) - (0.03)*techMat(E1,P26) - (0.02)*techMat(E1,P27) - (3.22)*techMat(E1,P28) + (0)*techMat(E1,P29) + (0)*techMat(E1,P30)
      
-      + (0)*techMat(E1,P34) + (0)*techMat(E1,P35) + (0)*techMat(E1,P36) + (0)*techMat(E1,P37) + (0)*techMat(E1,P38) + (0)*techMat(E1,P39) + (0)*techMat(E1,P40) + (0)*techMat(E1,P41) + (0)*techMat(E1,P42) + (0)*techMat(E1,P43) + (0)*techMat(E1,P44)
+      + (0)*techMat(E1,P31) - (19.68)*techMat(E1,P32) + (0)*techMat(E1,P33) - (0.01)*techMat(E1,P34) + (0)*techMat(E1,P35) + (0)*techMat(E1,P36) - (0.39)*techMat(E1,P37) - (0.27)*techMat(E1,P38) - (2.01)*techMat(E1,P39) - (0.04)*techMat(E1,P40)
      
-      + (0)*techMat(E1,P45) + (0)*techMat(E1,P46) + (0)*techMat(E1,P47) + (0)*techMat(E1,P48) + (0)*techMat(E1,P49) + (0)*techMat(E1,P50) + (0)*techMat(E1,P51) + (0)*techMat(E1,P52) + (0)*techMat(E1,P53) + (0)*techMat(E1,P54) + (0)*techMat(E1,P55)
+      + (0)*techMat(E1,P41) + (0)*techMat(E1,P42) + (0)*techMat(E1,P43) + (0)*techMat(E1,P44) + (0)*techMat(E1,P45) + (0)*techMat(E1,P46) + (0)*techMat(E1,P47) + (0)*techMat(E1,P48) + (0)*techMat(E1,P49) + (0)*techMat(E1,P50) + (0)*techMat(E1,P51)
      
-      + (0)*techMat(E1,P56) + (0)*techMat(E1,P57) + (0)*techMat(E1,P58) + (0)*techMat(E1,P59) + (0)*techMat(E1,P60) + (0)*techMat(E1,P61) + (0)*techMat(E1,P62) + (0)*techMat(E1,P63) + (0)*techMat(E1,P64) + (0)*techMat(E1,P65) + (0)*techMat(E1,P66)
+      + (0)*techMat(E1,P52) + (0)*techMat(E1,P53) + (0)*techMat(E1,P54) + (0)*techMat(E1,P55) + (0)*techMat(E1,P56) + (0)*techMat(E1,P57) - (0.26)*techMat(E1,P58) - (10.39)*techMat(E1,P59) + (0)*techMat(E1,P60) - (0.1)*techMat(E1,P61)
      
-      + (0)*techMat(E1,P67) + (0)*techMat(E1,P68) + (0)*techMat(E1,P69) + (0)*techMat(E1,P70) + (0)*techMat(E1,P71) + (0)*techMat(E1,P72) + (0)*techMat(E1,P73) + (0)*techMat(E1,P74) + (0)*techMat(E1,P75) + (0)*techMat(E1,P76) + (0)*techMat(E1,P77)
+      + (0)*techMat(E1,P62) - (3.68)*techMat(E1,P63) + (0)*techMat(E1,P64) + (0)*techMat(E1,P65) + (0)*techMat(E1,P66) - (0.34)*techMat(E1,P67) - (7.97)*techMat(E1,P68) - (1.61)*techMat(E1,P69) - (3.37)*techMat(E1,P70) - (0.09)*techMat(E1,P71)
      
-      + (0)*techMat(E1,P78) + (0)*techMat(E1,P79) + (0)*techMat(E1,P80) + (0)*techMat(E1,P81) + (0)*techMat(E1,P82) + (0)*techMat(E1,P83) + (0)*techMat(E1,P84) + (0)*techMat(E1,P85) + (0)*techMat(E1,P86) + (0)*techMat(E1,P87) + (0)*techMat(E1,P88)
+      + (0)*techMat(E1,P72) + (0)*techMat(E1,P73) - (0.56)*techMat(E1,P74) + (0)*techMat(E1,P75) - (0.42)*techMat(E1,P76) + (0)*techMat(E1,P77) + (0)*techMat(E1,P78) + (0)*techMat(E1,P79) + (0)*techMat(E1,P80) + (0)*techMat(E1,P81) + (0)*techMat(E1,P82)
      
-      + (0)*techMat(E1,P89) + (0)*techMat(E1,P90) + (0)*techMat(E1,P91) + (0)*techMat(E1,P92) + (0)*techMat(E1,P93) + (0)*techMat(E1,P94) + (0)*techMat(E1,P95) + (0)*techMat(E1,P96) + (0)*techMat(E1,P97) + (0)*techMat(E1,P98) + (0)*techMat(E1,P99)
+      + (0)*techMat(E1,P83) + (0)*techMat(E1,P84) + (0)*techMat(E1,P85) + (0)*techMat(E1,P86) - (7.5)*techMat(E1,P87) + (0)*techMat(E1,P88) + (0)*techMat(E1,P89) - (6.84)*techMat(E1,P90) + (0)*techMat(E1,P91) - (2.79)*techMat(E1,P92) + (0)*techMat(E1,P93)
      
-      + (0)*techMat(E1,P100) + (0)*techMat(E1,P101) + (0)*techMat(E1,P102) + (0)*techMat(E1,P103) + (0)*techMat(E1,P104) + (0)*techMat(E1,P105) + (0)*techMat(E1,P106) + (0)*techMat(E1,P107) + (0)*techMat(E1,P108) + (0)*techMat(E1,P109)
+      + (0)*techMat(E1,P94) + (0)*techMat(E1,P95) + (0)*techMat(E1,P96) + (0)*techMat(E1,P97) + (0)*techMat(E1,P98) + (0)*techMat(E1,P99) + (0)*techMat(E1,P100) + (0)*techMat(E1,P101) + (0)*techMat(E1,P102) - (0.02)*techMat(E1,P103) + (0)*techMat(E1,P104)
      
-      + (0)*techMat(E1,P110) + (0)*techMat(E1,P111) + (0)*techMat(E1,P112) + (0)*techMat(E1,P113) + (0)*techMat(E1,P114) + (0)*techMat(E1,P115) + (0)*techMat(E1,P116) + (0)*techMat(E1,P117) + (0)*techMat(E1,P118) + (0)*techMat(E1,P119)
+      + (0)*techMat(E1,P105) - (0.01)*techMat(E1,P106) + (0)*techMat(E1,P107) + (0)*techMat(E1,P108) + (0)*techMat(E1,P109) + (0)*techMat(E1,P110) + (0)*techMat(E1,P111) + (0)*techMat(E1,P112) + (0)*techMat(E1,P113) + (0)*techMat(E1,P114)
      
-      + (0)*techMat(E1,P120) + (0)*techMat(E1,P121) + (0)*techMat(E1,P122) + (0)*techMat(E1,P123) + (0)*techMat(E1,P124) + (0)*techMat(E1,P125) + (0)*techMat(E1,P126) + (0)*techMat(E1,P127) + (0)*techMat(E1,P128) + (0)*techMat(E1,P129)
+      + (0)*techMat(E1,P115) + (0)*techMat(E1,P116) + (0)*techMat(E1,P117) + (0)*techMat(E1,P118) + (0)*techMat(E1,P119) + (0)*techMat(E1,P120) + (0)*techMat(E1,P121) + (0)*techMat(E1,P122) + (0)*techMat(E1,P123) + (0)*techMat(E1,P124)
      
-      + (0)*techMat(E1,P130) + (0)*techMat(E1,P131) + (0)*techMat(E1,P132) + (0)*techMat(E1,P133) + (0)*techMat(E1,P134) + (0)*techMat(E1,P135) + (0)*techMat(E1,P136) + (0)*techMat(E1,P137) - (1)*s(P1) + (0)*s(P2) + (0)*s(P3) + (0)*s(P4) + (0)*s(P5)
+      + (0)*techMat(E1,P125) + (0)*techMat(E1,P126) + (0)*techMat(E1,P127) + (0)*techMat(E1,P128) + (0)*techMat(E1,P129) + (0)*techMat(E1,P130) - (8.68)*techMat(E1,P131) - (8.51)*techMat(E1,P132) - (2.15)*techMat(E1,P133) - (215.44)*techMat(E1,P134)
      
-      + (0)*s(P6) + (0)*s(P7) + (0)*s(P8) + (0)*s(P9) + (1)*s(P10) + (0)*s(P11) + (0)*s(P12) + (0)*s(P13) + (0)*s(P14) + (0)*s(P15) + (0)*s(P16) + (0)*s(P17) + (0)*s(P18) + (0)*s(P19) + (0)*s(P20) + (0)*s(P21) + (0)*s(P22) + (0)*s(P23) + (0)*s(P24)
+      - (2.29)*techMat(E1,P135) + (0)*techMat(E1,P136) + (0)*techMat(E1,P137) - (1)*s(P1) + (0)*s(P2) + (0)*s(P3) + (0)*s(P4) + (0)*s(P5) + (0)*s(P6) + (0)*s(P7) + (0)*s(P8) + (0)*s(P9) + (1)*s(P10) + (0)*s(P11) + (0)*s(P12) + (0)*s(P13) + (0)*s(P14)
      
-      + (0)*s(P25) + (0)*s(P26) + (0)*s(P27) + (0)*s(P28) + (0)*s(P29) + (0)*s(P30) + (0)*s(P31) + (0)*s(P32) + (0)*s(P33) + (0)*s(P34) + (0)*s(P35) + (0)*s(P36) + (0)*s(P37) + (0)*s(P38) + (0)*s(P39) + (0)*s(P40) + (0)*s(P41) + (0)*s(P42) + (0)*s(P43)
+      + (0)*s(P15) + (0)*s(P16) + (0)*s(P17) + (0)*s(P18) + (0)*s(P19) + (0)*s(P20) + (0)*s(P21) + (0)*s(P22) + (0)*s(P23) + (0)*s(P24) + (0)*s(P25) + (0)*s(P26) + (0)*s(P27) + (0)*s(P28) + (0)*s(P29) + (0)*s(P30) + (0)*s(P31) + (0)*s(P32) + (0)*s(P33)
      
-      + (0)*s(P44) + (0)*s(P45) + (0)*s(P46) + (0)*s(P47) + (0)*s(P48) + (0)*s(P49) + (0)*s(P50) + (0)*s(P51) + (0)*s(P52) + (0)*s(P53) + (0)*s(P54) + (0)*s(P55) + (0)*s(P56) + (0)*s(P57) + (0)*s(P58) + (0)*s(P59) + (0)*s(P60) + (0)*s(P61) + (0)*s(P62)
+      + (0)*s(P34) + (0)*s(P35) + (0)*s(P36) + (0)*s(P37) + (0)*s(P38) + (0)*s(P39) + (0)*s(P40) + (0)*s(P41) + (0)*s(P42) + (0)*s(P43) + (0)*s(P44) + (0)*s(P45) + (0)*s(P46) + (0)*s(P47) + (0)*s(P48) + (0)*s(P49) + (0)*s(P50) + (0)*s(P51) + (0)*s(P52)
      
-      + (0)*s(P63) + (0)*s(P64) + (0)*s(P65) + (0)*s(P66) + (0)*s(P67) + (0.44186)*s(P68) + (0)*s(P69) + (0)*s(P70) + (0)*s(P71) + (0)*s(P72) + (0)*s(P73) + (0)*s(P74) + (0)*s(P75) + (0)*s(P76) + (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80)
+      + (0)*s(P53) + (0)*s(P54) + (0)*s(P55) + (0)*s(P56) + (0)*s(P57) + (0)*s(P58) + (0)*s(P59) + (0)*s(P60) + (0)*s(P61) + (0)*s(P62) + (0)*s(P63) + (0)*s(P64) + (0)*s(P65) + (0)*s(P66) + (0)*s(P67) + (0.44186)*s(P68) + (0)*s(P69) + (0)*s(P70)
      
-      + (0)*s(P81) + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P89) + (0)*s(P90) + (0)*s(P91) + (0)*s(P92) + (0)*s(P93) + (0)*s(P94) + (0)*s(P95) + (0)*s(P96) + (0)*s(P97) + (0)*s(P98) + (0)*s(P99)
+      + (0)*s(P71) + (0)*s(P72) + (0)*s(P73) + (0)*s(P74) + (0)*s(P75) + (0)*s(P76) + (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81) + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P89)
      
-      + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P103) + (0)*s(P104) + (0)*s(P105) + (0)*s(P106) + (0)*s(P107) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P113) + (0)*s(P114) + (0)*s(P115) + (0)*s(P116)
+      + (0)*s(P90) + (0)*s(P91) + (0)*s(P92) + (0)*s(P93) + (0)*s(P94) + (0)*s(P95) + (0)*s(P96) + (0)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P103) + (0)*s(P104) + (0)*s(P105) + (0)*s(P106) + (0)*s(P107)
      
-      + (0)*s(P117) + (0)*s(P118) + (0)*s(P119) + (0)*s(P120) + (0)*s(P121) + (0)*s(P122) + (0)*s(P123) + (0)*s(P124) + (0)*s(P125) + (0)*s(P126) + (0)*s(P127) + (0)*s(P128) + (0)*s(P129) + (0)*s(P130) + (0)*s(P131) + (0)*s(P132) + (0)*s(P133)
+      + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P113) + (0)*s(P114) + (0)*s(P115) + (0)*s(P116) + (0)*s(P117) + (0)*s(P118) + (0)*s(P119) + (0)*s(P120) + (0)*s(P121) + (0)*s(P122) + (0)*s(P123) + (0)*s(P124)
      
-      + (0)*s(P134) + (0)*s(P135) + (0)*s(P136) + (0)*s(P137) + f(E1) =E= 0 ; (LHS = 0)
+      + (0)*s(P125) + (0)*s(P126) + (0)*s(P127) + (0)*s(P128) + (0)*s(P129) + (0)*s(P130) + (0)*s(P131) + (0)*s(P132) + (0)*s(P133) + (0)*s(P134) + (0)*s(P135) + (0)*s(P136) + (0)*s(P137) + f(E1) =E= 0 ;
      
-processLCA(E2)..  (0)*techMat(E2,P1) + (0)*techMat(E2,P2) + (0)*techMat(E2,P3) + (0)*techMat(E2,P4) + (0)*techMat(E2,P5) + (0)*techMat(E2,P6) + (0)*techMat(E2,P7) + (0)*techMat(E2,P8) + (0)*techMat(E2,P9) + (0)*techMat(E2,P10) + (0)*techMat(E2,P11)
+      (LHS = 0.00162419999999974, INFES = 0.00162419999999974 ****)
      
-      + (0)*techMat(E2,P12) + (0)*techMat(E2,P13) + (0)*techMat(E2,P14) + (0)*techMat(E2,P15) + (0)*techMat(E2,P16) + (0)*techMat(E2,P17) + (0)*techMat(E2,P18) + (0)*techMat(E2,P19) + (0)*techMat(E2,P20) + (0)*techMat(E2,P21) + (0)*techMat(E2,P22)
+processLCA(E2)..  - (3.52)*techMat(E2,P1) - (7.09)*techMat(E2,P2) + (0)*techMat(E2,P3) + (0)*techMat(E2,P4) - (3.71)*techMat(E2,P5) - (0.02)*techMat(E2,P6) - (2.72)*techMat(E2,P7) - (0.02)*techMat(E2,P8) - (11.72)*techMat(E2,P9) + (0)*techMat(E2,P10)
      
-      + (0)*techMat(E2,P23) + (0)*techMat(E2,P24) + (0)*techMat(E2,P25) + (0)*techMat(E2,P26) + (0)*techMat(E2,P27) + (0)*techMat(E2,P28) + (0)*techMat(E2,P29) + (0)*techMat(E2,P30) + (0)*techMat(E2,P31) + (0)*techMat(E2,P32) + (0)*techMat(E2,P33)
+      - (0.55)*techMat(E2,P11) + (0)*techMat(E2,P12) - (0.7)*techMat(E2,P13) + (0)*techMat(E2,P14) - (0.1)*techMat(E2,P15) - (0.51)*techMat(E2,P16) - (17.01)*techMat(E2,P17) - (18.26)*techMat(E2,P18) - (0.48)*techMat(E2,P19) - (0.03)*techMat(E2,P20)
      
-      + (0)*techMat(E2,P34) + (0)*techMat(E2,P35) + (0)*techMat(E2,P36) + (0)*techMat(E2,P37) + (0)*techMat(E2,P38) + (0)*techMat(E2,P39) + (0)*techMat(E2,P40) + (0)*techMat(E2,P41) + (0)*techMat(E2,P42) + (0)*techMat(E2,P43) + (0)*techMat(E2,P44)
+      - (0.19)*techMat(E2,P21) - (1.06)*techMat(E2,P22) + (0)*techMat(E2,P23) - (0.69)*techMat(E2,P24) + (0)*techMat(E2,P25) - (0.03)*techMat(E2,P26) - (0.02)*techMat(E2,P27) - (3.22)*techMat(E2,P28) + (0)*techMat(E2,P29) + (0)*techMat(E2,P30)
      
-      + (0)*techMat(E2,P45) + (0)*techMat(E2,P46) + (0)*techMat(E2,P47) + (0)*techMat(E2,P48) + (0)*techMat(E2,P49) + (0)*techMat(E2,P50) + (0)*techMat(E2,P51) + (0)*techMat(E2,P52) + (0)*techMat(E2,P53) + (0)*techMat(E2,P54) + (0)*techMat(E2,P55)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 8
+      + (0)*techMat(E2,P31) - (19.68)*techMat(E2,P32) + (0)*techMat(E2,P33) - (0.01)*techMat(E2,P34) + (0)*techMat(E2,P35) + (0)*techMat(E2,P36) - (0.39)*techMat(E2,P37) - (0.27)*techMat(E2,P38) - (2.01)*techMat(E2,P39) - (0.04)*techMat(E2,P40)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
      processLCA  =E=  fundamental equation     
      
-      + (0)*techMat(E2,P56) + (0)*techMat(E2,P57) + (0)*techMat(E2,P58) + (0)*techMat(E2,P59) + (0)*techMat(E2,P60) + (0)*techMat(E2,P61) + (0)*techMat(E2,P62) + (0)*techMat(E2,P63) + (0)*techMat(E2,P64) + (0)*techMat(E2,P65) + (0)*techMat(E2,P66)
+      + (0)*techMat(E2,P41) + (0)*techMat(E2,P42) + (0)*techMat(E2,P43) + (0)*techMat(E2,P44) + (0)*techMat(E2,P45) + (0)*techMat(E2,P46) + (0)*techMat(E2,P47) + (0)*techMat(E2,P48) + (0)*techMat(E2,P49) + (0)*techMat(E2,P50) + (0)*techMat(E2,P51)
      
-      + (0)*techMat(E2,P67) + (0)*techMat(E2,P68) + (0)*techMat(E2,P69) + (0)*techMat(E2,P70) + (0)*techMat(E2,P71) + (0)*techMat(E2,P72) + (0)*techMat(E2,P73) + (0)*techMat(E2,P74) + (0)*techMat(E2,P75) + (0)*techMat(E2,P76) + (0)*techMat(E2,P77)
+      + (0)*techMat(E2,P52) + (0)*techMat(E2,P53) + (0)*techMat(E2,P54) + (0)*techMat(E2,P55) + (0)*techMat(E2,P56) + (0)*techMat(E2,P57) - (0.26)*techMat(E2,P58) - (10.39)*techMat(E2,P59) + (0)*techMat(E2,P60) - (0.1)*techMat(E2,P61)
      
-      + (0)*techMat(E2,P78) + (0)*techMat(E2,P79) + (0)*techMat(E2,P80) + (0)*techMat(E2,P81) + (0)*techMat(E2,P82) + (0)*techMat(E2,P83) + (0)*techMat(E2,P84) + (0)*techMat(E2,P85) + (0)*techMat(E2,P86) + (0)*techMat(E2,P87) + (0)*techMat(E2,P88)
+      + (0)*techMat(E2,P62) - (3.68)*techMat(E2,P63) + (0)*techMat(E2,P64) + (0)*techMat(E2,P65) + (0)*techMat(E2,P66) - (0.34)*techMat(E2,P67) - (7.97)*techMat(E2,P68) - (1.61)*techMat(E2,P69) - (3.37)*techMat(E2,P70) - (0.09)*techMat(E2,P71)
      
-      + (0)*techMat(E2,P89) + (0)*techMat(E2,P90) + (0)*techMat(E2,P91) + (0)*techMat(E2,P92) + (0)*techMat(E2,P93) + (0)*techMat(E2,P94) + (0)*techMat(E2,P95) + (0)*techMat(E2,P96) + (0)*techMat(E2,P97) + (0)*techMat(E2,P98) + (0)*techMat(E2,P99)
+      + (0)*techMat(E2,P72) + (0)*techMat(E2,P73) - (0.56)*techMat(E2,P74) + (0)*techMat(E2,P75) - (0.42)*techMat(E2,P76) + (0)*techMat(E2,P77) + (0)*techMat(E2,P78) + (0)*techMat(E2,P79) + (0)*techMat(E2,P80) + (0)*techMat(E2,P81) + (0)*techMat(E2,P82)
      
-      + (0)*techMat(E2,P100) + (0)*techMat(E2,P101) + (0)*techMat(E2,P102) + (0)*techMat(E2,P103) + (0)*techMat(E2,P104) + (0)*techMat(E2,P105) + (0)*techMat(E2,P106) + (0)*techMat(E2,P107) + (0)*techMat(E2,P108) + (0)*techMat(E2,P109)
+      + (0)*techMat(E2,P83) + (0)*techMat(E2,P84) + (0)*techMat(E2,P85) + (0)*techMat(E2,P86) - (7.5)*techMat(E2,P87) + (0)*techMat(E2,P88) + (0)*techMat(E2,P89) - (6.84)*techMat(E2,P90) + (0)*techMat(E2,P91) - (2.79)*techMat(E2,P92) + (0)*techMat(E2,P93)
      
-      + (0)*techMat(E2,P110) + (0)*techMat(E2,P111) + (0)*techMat(E2,P112) + (0)*techMat(E2,P113) + (0)*techMat(E2,P114) + (0)*techMat(E2,P115) + (0)*techMat(E2,P116) + (0)*techMat(E2,P117) + (0)*techMat(E2,P118) + (0)*techMat(E2,P119)
+      + (0)*techMat(E2,P94) + (0)*techMat(E2,P95) + (0)*techMat(E2,P96) + (0)*techMat(E2,P97) + (0)*techMat(E2,P98) + (0)*techMat(E2,P99) + (0)*techMat(E2,P100) + (0)*techMat(E2,P101) + (0)*techMat(E2,P102) - (0.02)*techMat(E2,P103) + (0)*techMat(E2,P104)
      
-      + (0)*techMat(E2,P120) + (0)*techMat(E2,P121) + (0)*techMat(E2,P122) + (0)*techMat(E2,P123) + (0)*techMat(E2,P124) + (0)*techMat(E2,P125) + (0)*techMat(E2,P126) + (0)*techMat(E2,P127) + (0)*techMat(E2,P128) + (0)*techMat(E2,P129)
+      + (0)*techMat(E2,P105) - (0.01)*techMat(E2,P106) + (0)*techMat(E2,P107) + (0)*techMat(E2,P108) + (0)*techMat(E2,P109) + (0)*techMat(E2,P110) + (0)*techMat(E2,P111) + (0)*techMat(E2,P112) + (0)*techMat(E2,P113) + (0)*techMat(E2,P114)
      
-      + (0)*techMat(E2,P130) + (0)*techMat(E2,P131) + (0)*techMat(E2,P132) + (0)*techMat(E2,P133) + (0)*techMat(E2,P134) + (0)*techMat(E2,P135) + (0)*techMat(E2,P136) + (0)*techMat(E2,P137) + (0)*s(P1) - (0.000252345277453289)*s(P2) + (0)*s(P3)
+      + (0)*techMat(E2,P115) + (0)*techMat(E2,P116) + (0)*techMat(E2,P117) + (0)*techMat(E2,P118) + (0)*techMat(E2,P119) + (0)*techMat(E2,P120) + (0)*techMat(E2,P121) + (0)*techMat(E2,P122) + (0)*techMat(E2,P123) + (0)*techMat(E2,P124)
      
-      + (0)*s(P4) + (6.482E-6)*s(P5) + (0)*s(P6) + (0)*s(P7) + (0)*s(P8) + (0)*s(P9) + (0)*s(P10) + (0)*s(P11) + (0)*s(P12) + (0)*s(P13) + (0)*s(P14) + (0)*s(P15) + (0)*s(P16) + (0)*s(P17) + (0)*s(P18) + (0)*s(P19) + (0.001)*s(P20) + (0)*s(P21)
+      + (0)*techMat(E2,P125) + (0)*techMat(E2,P126) + (0)*techMat(E2,P127) + (0)*techMat(E2,P128) + (0)*techMat(E2,P129) + (0)*techMat(E2,P130) - (8.68)*techMat(E2,P131) - (8.51)*techMat(E2,P132) - (2.15)*techMat(E2,P133) - (215.44)*techMat(E2,P134)
      
-      + (0)*s(P22) + (0)*s(P23) + (2.7224E-5)*s(P24) + (0)*s(P25) + (0)*s(P26) + (0)*s(P27) + (0)*s(P28) + (0)*s(P29) + (0)*s(P30) + (0)*s(P31) + (5.8338E-5)*s(P32) + (0)*s(P33) + (0)*s(P34) + (0)*s(P35) + (0)*s(P36) + (0)*s(P37) + (9.5933E-6)*s(P38)
+      - (2.29)*techMat(E2,P135) + (0)*techMat(E2,P136) + (0)*techMat(E2,P137) + (0)*s(P1) - (0.000252345277453289)*s(P2) + (0)*s(P3) + (0)*s(P4) + (6.482E-6)*s(P5) + (0)*s(P6) + (0)*s(P7) + (0)*s(P8) + (0)*s(P9) + (0)*s(P10) + (0)*s(P11) + (0)*s(P12)
      
-      + (0)*s(P39) + (0.001)*s(P40) + (0)*s(P41) + (0)*s(P42) + (0)*s(P43) + (0)*s(P44) + (0)*s(P45) + (0.0829)*s(P46) + (0)*s(P47) + (0)*s(P48) + (0)*s(P49) + (0)*s(P50) + (0)*s(P51) + (0)*s(P52) + (0)*s(P53) + (0.00118109589872716)*s(P54) + (0)*s(P55)
+      + (0)*s(P13) + (0)*s(P14) + (0)*s(P15) + (0)*s(P16) + (0)*s(P17) + (0)*s(P18) + (0)*s(P19) + (0.001)*s(P20) + (0)*s(P21) + (0)*s(P22) + (0)*s(P23) + (2.7224E-5)*s(P24) + (0)*s(P25) + (0)*s(P26) + (0)*s(P27) + (0)*s(P28) + (0)*s(P29) + (0)*s(P30)
      
-      + (0)*s(P56) + (0)*s(P57) + (0)*s(P58) + (0)*s(P59) + (0)*s(P60) + (0)*s(P61) + (0)*s(P62) + (0)*s(P63) + (0)*s(P64) + (0)*s(P65) + (0)*s(P66) + (0)*s(P67) + (0)*s(P68) + (0.00033261)*s(P69) + (0)*s(P70) + (0)*s(P71) + (0)*s(P72) + (0)*s(P73)
+      + (0)*s(P31) + (5.8338E-5)*s(P32) + (0)*s(P33) + (0)*s(P34) + (0)*s(P35) + (0)*s(P36) + (0)*s(P37) + (9.5933E-6)*s(P38) + (0)*s(P39) + (0.001)*s(P40) + (0)*s(P41) + (0)*s(P42) + (0)*s(P43) + (0)*s(P44) + (0)*s(P45) + (0.0829)*s(P46) + (0)*s(P47)
      
-      + (0)*s(P74) + (0)*s(P75) + (0)*s(P76) + (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81) + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P89) + (0)*s(P90) + (0)*s(P91) + (0)*s(P92)
+      + (0)*s(P48) + (0)*s(P49) + (0)*s(P50) + (0)*s(P51) + (0)*s(P52) + (0)*s(P53) + (0.00118109589872716)*s(P54) + (0)*s(P55) + (0)*s(P56) + (0)*s(P57) + (0)*s(P58) + (0)*s(P59) + (0)*s(P60) + (0)*s(P61) + (0)*s(P62) + (0)*s(P63) + (0)*s(P64)
      
-      + (0)*s(P93) + (0)*s(P94) + (0)*s(P95) + (0)*s(P96) + (0)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P103) + (0)*s(P104) + (0)*s(P105) + (0)*s(P106) + (0)*s(P107) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110)
+      + (0)*s(P65) + (0)*s(P66) + (0)*s(P67) + (0)*s(P68) + (0.00033261)*s(P69) + (0)*s(P70) + (0)*s(P71) + (0)*s(P72) + (0)*s(P73) + (0)*s(P74) + (0)*s(P75) + (0)*s(P76) + (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81) + (0)*s(P82)
      
-      + (0)*s(P111) + (0)*s(P112) + (0)*s(P113) + (0)*s(P114) + (0)*s(P115) - (2.75E-5)*s(P116) + (0)*s(P117) + (0)*s(P118) + (0)*s(P119) + (0)*s(P120) + (0)*s(P121) + (0)*s(P122) + (0)*s(P123) + (0)*s(P124) + (0)*s(P125) + (0)*s(P126) + (0)*s(P127)
+      + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P89) + (0)*s(P90) + (0)*s(P91) + (0)*s(P92) + (0)*s(P93) + (0)*s(P94) + (0)*s(P95) + (0)*s(P96) + (0)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101)
      
-      + (0)*s(P128) + (0)*s(P129) + (0)*s(P130) + (0)*s(P131) + (0)*s(P132) + (0)*s(P133) + (0)*s(P134) + (0)*s(P135) + (0)*s(P136) + (0)*s(P137) + f(E2) =E= 0 ; (LHS = 0)
+      + (0)*s(P102) + (0)*s(P103) + (0)*s(P104) + (0)*s(P105) + (0)*s(P106) + (0)*s(P107) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P113) + (0)*s(P114) + (0)*s(P115) - (2.75E-5)*s(P116) + (0)*s(P117) + (0)*s(P118)
      
-processLCA(E3)..  (0)*techMat(E3,P1) + (0)*techMat(E3,P2) + (0)*techMat(E3,P3) + (0)*techMat(E3,P4) + (0)*techMat(E3,P5) + (0)*techMat(E3,P6) + (0)*techMat(E3,P7) + (0)*techMat(E3,P8) + (0)*techMat(E3,P9) + (0)*techMat(E3,P10) + (0)*techMat(E3,P11)
+      + (0)*s(P119) + (0)*s(P120) + (0)*s(P121) + (0)*s(P122) + (0)*s(P123) + (0)*s(P124) + (0)*s(P125) + (0)*s(P126) + (0)*s(P127) + (0)*s(P128) + (0)*s(P129) + (0)*s(P130) + (0)*s(P131) + (0)*s(P132) + (0)*s(P133) + (0)*s(P134) + (0)*s(P135)
      
-      + (0)*techMat(E3,P12) + (0)*techMat(E3,P13) + (0)*techMat(E3,P14) + (0)*techMat(E3,P15) + (0)*techMat(E3,P16) + (0)*techMat(E3,P17) + (0)*techMat(E3,P18) + (0)*techMat(E3,P19) + (0)*techMat(E3,P20) + (0)*techMat(E3,P21) + (0)*techMat(E3,P22)
+      + (0)*s(P136) + (0)*s(P137) + f(E2) =E= 0 ; (LHS = 9.88889385618134E-6, INFES = 9.88889385618134E-6 ****)
      
-      + (0)*techMat(E3,P23) + (0)*techMat(E3,P24) + (0)*techMat(E3,P25) + (0)*techMat(E3,P26) + (0)*techMat(E3,P27) + (0)*techMat(E3,P28) + (0)*techMat(E3,P29) + (0)*techMat(E3,P30) + (0)*techMat(E3,P31) + (0)*techMat(E3,P32) + (0)*techMat(E3,P33)
+processLCA(E3)..  - (3.52)*techMat(E3,P1) - (7.09)*techMat(E3,P2) + (0)*techMat(E3,P3) + (0)*techMat(E3,P4) - (3.71)*techMat(E3,P5) - (0.02)*techMat(E3,P6) - (2.72)*techMat(E3,P7) - (0.02)*techMat(E3,P8) - (11.72)*techMat(E3,P9) + (0)*techMat(E3,P10)
      
-      + (0)*techMat(E3,P34) + (0)*techMat(E3,P35) + (0)*techMat(E3,P36) + (0)*techMat(E3,P37) + (0)*techMat(E3,P38) + (0)*techMat(E3,P39) + (0)*techMat(E3,P40) + (0)*techMat(E3,P41) + (0)*techMat(E3,P42) + (0)*techMat(E3,P43) + (0)*techMat(E3,P44)
+      - (0.55)*techMat(E3,P11) + (0)*techMat(E3,P12) - (0.7)*techMat(E3,P13) + (0)*techMat(E3,P14) - (0.1)*techMat(E3,P15) - (0.51)*techMat(E3,P16) - (17.01)*techMat(E3,P17) - (18.26)*techMat(E3,P18) - (0.48)*techMat(E3,P19) - (0.03)*techMat(E3,P20)
      
-      + (0)*techMat(E3,P45) + (0)*techMat(E3,P46) + (0)*techMat(E3,P47) + (0)*techMat(E3,P48) + (0)*techMat(E3,P49) + (0)*techMat(E3,P50) + (0)*techMat(E3,P51) + (0)*techMat(E3,P52) + (0)*techMat(E3,P53) + (0)*techMat(E3,P54) + (0)*techMat(E3,P55)
+      - (0.19)*techMat(E3,P21) - (1.06)*techMat(E3,P22) + (0)*techMat(E3,P23) - (0.69)*techMat(E3,P24) + (0)*techMat(E3,P25) - (0.03)*techMat(E3,P26) - (0.02)*techMat(E3,P27) - (3.22)*techMat(E3,P28) + (0)*techMat(E3,P29) + (0)*techMat(E3,P30)
      
-      + (0)*techMat(E3,P56) + (0)*techMat(E3,P57) + (0)*techMat(E3,P58) + (0)*techMat(E3,P59) + (0)*techMat(E3,P60) + (0)*techMat(E3,P61) + (0)*techMat(E3,P62) + (0)*techMat(E3,P63) + (0)*techMat(E3,P64) + (0)*techMat(E3,P65) + (0)*techMat(E3,P66)
+      + (0)*techMat(E3,P31) - (19.68)*techMat(E3,P32) + (0)*techMat(E3,P33) - (0.01)*techMat(E3,P34) + (0)*techMat(E3,P35) + (0)*techMat(E3,P36) - (0.39)*techMat(E3,P37) - (0.27)*techMat(E3,P38) - (2.01)*techMat(E3,P39) - (0.04)*techMat(E3,P40)
      
-      + (0)*techMat(E3,P67) + (0)*techMat(E3,P68) + (0)*techMat(E3,P69) + (0)*techMat(E3,P70) + (0)*techMat(E3,P71) + (0)*techMat(E3,P72) + (0)*techMat(E3,P73) + (0)*techMat(E3,P74) + (0)*techMat(E3,P75) + (0)*techMat(E3,P76) + (0)*techMat(E3,P77)
+      + (0)*techMat(E3,P41) + (0)*techMat(E3,P42) + (0)*techMat(E3,P43) + (0)*techMat(E3,P44) + (0)*techMat(E3,P45) + (0)*techMat(E3,P46) + (0)*techMat(E3,P47) + (0)*techMat(E3,P48) + (0)*techMat(E3,P49) + (0)*techMat(E3,P50) + (0)*techMat(E3,P51)
      
-      + (0)*techMat(E3,P78) + (0)*techMat(E3,P79) + (0)*techMat(E3,P80) + (0)*techMat(E3,P81) + (0)*techMat(E3,P82) + (0)*techMat(E3,P83) + (0)*techMat(E3,P84) + (0)*techMat(E3,P85) + (0)*techMat(E3,P86) + (0)*techMat(E3,P87) + (0)*techMat(E3,P88)
+      + (0)*techMat(E3,P52) + (0)*techMat(E3,P53) + (0)*techMat(E3,P54) + (0)*techMat(E3,P55) + (0)*techMat(E3,P56) + (0)*techMat(E3,P57) - (0.26)*techMat(E3,P58) - (10.39)*techMat(E3,P59) + (0)*techMat(E3,P60) - (0.1)*techMat(E3,P61)
      
-      + (0)*techMat(E3,P89) + (0)*techMat(E3,P90) + (0)*techMat(E3,P91) + (0)*techMat(E3,P92) + (0)*techMat(E3,P93) + (0)*techMat(E3,P94) + (0)*techMat(E3,P95) + (0)*techMat(E3,P96) + (0)*techMat(E3,P97) + (0)*techMat(E3,P98) + (0)*techMat(E3,P99)
+      + (0)*techMat(E3,P62) - (3.68)*techMat(E3,P63) + (0)*techMat(E3,P64) + (0)*techMat(E3,P65) + (0)*techMat(E3,P66) - (0.34)*techMat(E3,P67) - (7.97)*techMat(E3,P68) - (1.61)*techMat(E3,P69) - (3.37)*techMat(E3,P70) - (0.09)*techMat(E3,P71)
      
-      + (0)*techMat(E3,P100) + (0)*techMat(E3,P101) + (0)*techMat(E3,P102) + (0)*techMat(E3,P103) + (0)*techMat(E3,P104) + (0)*techMat(E3,P105) + (0)*techMat(E3,P106) + (0)*techMat(E3,P107) + (0)*techMat(E3,P108) + (0)*techMat(E3,P109)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/24/20 19:21:52 Page 9
+      + (0)*techMat(E3,P72) + (0)*techMat(E3,P73) - (0.56)*techMat(E3,P74) + (0)*techMat(E3,P75) - (0.42)*techMat(E3,P76) + (0)*techMat(E3,P77) + (0)*techMat(E3,P78) + (0)*techMat(E3,P79) + (0)*techMat(E3,P80) + (0)*techMat(E3,P81) + (0)*techMat(E3,P82)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/19/21 11:55:14 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
      processLCA  =E=  fundamental equation     
      
-      + (0)*techMat(E3,P110) + (0)*techMat(E3,P111) + (0)*techMat(E3,P112) + (0)*techMat(E3,P113) + (0)*techMat(E3,P114) + (0)*techMat(E3,P115) + (0)*techMat(E3,P116) + (0)*techMat(E3,P117) + (0)*techMat(E3,P118) + (0)*techMat(E3,P119)
+      + (0)*techMat(E3,P83) + (0)*techMat(E3,P84) + (0)*techMat(E3,P85) + (0)*techMat(E3,P86) - (7.5)*techMat(E3,P87) + (0)*techMat(E3,P88) + (0)*techMat(E3,P89) - (6.84)*techMat(E3,P90) + (0)*techMat(E3,P91) - (2.79)*techMat(E3,P92) + (0)*techMat(E3,P93)
      
-      + (0)*techMat(E3,P120) + (0)*techMat(E3,P121) + (0)*techMat(E3,P122) + (0)*techMat(E3,P123) + (0)*techMat(E3,P124) + (0)*techMat(E3,P125) + (0)*techMat(E3,P126) + (0)*techMat(E3,P127) + (0)*techMat(E3,P128) + (0)*techMat(E3,P129)
+      + (0)*techMat(E3,P94) + (0)*techMat(E3,P95) + (0)*techMat(E3,P96) + (0)*techMat(E3,P97) + (0)*techMat(E3,P98) + (0)*techMat(E3,P99) + (0)*techMat(E3,P100) + (0)*techMat(E3,P101) + (0)*techMat(E3,P102) - (0.02)*techMat(E3,P103) + (0)*techMat(E3,P104)
      
-      + (0)*techMat(E3,P130) + (0)*techMat(E3,P131) + (0)*techMat(E3,P132) + (0)*techMat(E3,P133) + (0)*techMat(E3,P134) + (0)*techMat(E3,P135) + (0)*techMat(E3,P136) + (0)*techMat(E3,P137) + (0)*s(P1) + (0)*s(P2) - (907.18)*s(P3) + (0)*s(P4) + (0)*s(P5)
+      + (0)*techMat(E3,P105) - (0.01)*techMat(E3,P106) + (0)*techMat(E3,P107) + (0)*techMat(E3,P108) + (0)*techMat(E3,P109) + (0)*techMat(E3,P110) + (0)*techMat(E3,P111) + (0)*techMat(E3,P112) + (0)*techMat(E3,P113) + (0)*techMat(E3,P114)
      
-      + (0)*s(P6) + (0)*s(P7) + (0)*s(P8) + (0)*s(P9) + (0)*s(P10) + (0)*s(P11) + (0)*s(P12) + (0)*s(P13) + (0)*s(P14) + (0)*s(P15) + (0)*s(P16) + (0)*s(P17) + (0)*s(P18) + (0)*s(P19) + (0)*s(P20) + (0)*s(P21) + (0)*s(P22) + (0)*s(P23) + (0)*s(P24)
+      + (0)*techMat(E3,P115) + (0)*techMat(E3,P116) + (0)*techMat(E3,P117) + (0)*techMat(E3,P118) + (0)*techMat(E3,P119) + (0)*techMat(E3,P120) + (0)*techMat(E3,P121) + (0)*techMat(E3,P122) + (0)*techMat(E3,P123) + (0)*techMat(E3,P124)
      
-      + (0)*s(P25) + (0)*s(P26) + (0)*s(P27) + (0)*s(P28) + (0)*s(P29) + (0)*s(P30) + (0)*s(P31) + (0)*s(P32) + (0)*s(P33) + (0)*s(P34) + (0)*s(P35) + (0)*s(P36) + (0)*s(P37) + (0)*s(P38) + (0)*s(P39) + (0)*s(P40) + (0)*s(P41) + (0)*s(P42) + (0)*s(P43)
+      + (0)*techMat(E3,P125) + (0)*techMat(E3,P126) + (0)*techMat(E3,P127) + (0)*techMat(E3,P128) + (0)*techMat(E3,P129) + (0)*techMat(E3,P130) - (8.68)*techMat(E3,P131) - (8.51)*techMat(E3,P132) - (2.15)*techMat(E3,P133) - (215.44)*techMat(E3,P134)
      
-      + (0)*s(P44) + (0)*s(P45) + (0)*s(P46) + (0)*s(P47) + (0)*s(P48) + (0)*s(P49) + (0)*s(P50) + (0)*s(P51) + (0)*s(P52) + (0)*s(P53) + (0)*s(P54) + (0)*s(P55) + (0)*s(P56) + (0)*s(P57) + (0)*s(P58) + (0)*s(P59) + (0)*s(P60) + (0)*s(P61) + (0)*s(P62)
+      - (2.29)*techMat(E3,P135) + (0)*techMat(E3,P136) + (0)*techMat(E3,P137) + (0)*s(P1) + (0)*s(P2) - (907.18)*s(P3) + (0)*s(P4) + (0)*s(P5) + (0)*s(P6) + (0)*s(P7) + (0)*s(P8) + (0)*s(P9) + (0)*s(P10) + (0)*s(P11) + (0)*s(P12) + (0)*s(P13) + (0)*s(P14)
      
-      + (0)*s(P63) + (0)*s(P64) + (0)*s(P65) + (0)*s(P66) + (0)*s(P67) + (0)*s(P68) + (0)*s(P69) + (0)*s(P70) + (0)*s(P71) + (0)*s(P72) + (0)*s(P73) + (0)*s(P74) + (0)*s(P75) + (0)*s(P76) + (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81)
+      + (0)*s(P15) + (0)*s(P16) + (0)*s(P17) + (0)*s(P18) + (0)*s(P19) + (0)*s(P20) + (0)*s(P21) + (0)*s(P22) + (0)*s(P23) + (0)*s(P24) + (0)*s(P25) + (0)*s(P26) + (0)*s(P27) + (0)*s(P28) + (0)*s(P29) + (0)*s(P30) + (0)*s(P31) + (0)*s(P32) + (0)*s(P33)
      
-      + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P89) + (0)*s(P90) + (0)*s(P91) + (0)*s(P92) + (0)*s(P93) + (0)*s(P94) + (0)*s(P95) + (0)*s(P96) + (0)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100)
+      + (0)*s(P34) + (0)*s(P35) + (0)*s(P36) + (0)*s(P37) + (0)*s(P38) + (0)*s(P39) + (0)*s(P40) + (0)*s(P41) + (0)*s(P42) + (0)*s(P43) + (0)*s(P44) + (0)*s(P45) + (0)*s(P46) + (0)*s(P47) + (0)*s(P48) + (0)*s(P49) + (0)*s(P50) + (0)*s(P51) + (0)*s(P52)
      
-      + (0)*s(P101) + (0)*s(P102) + (0)*s(P103) + (0)*s(P104) + (0)*s(P105) + (0)*s(P106) + (0)*s(P107) + (907.18)*s(P108) + (907.18)*s(P109) + (907.18)*s(P110) + (907.18)*s(P111) + (907.18)*s(P112) + (0)*s(P113) + (907.18)*s(P114) + (0)*s(P115)
+      + (0)*s(P53) + (0)*s(P54) + (0)*s(P55) + (0)*s(P56) + (0)*s(P57) + (0)*s(P58) + (0)*s(P59) + (0)*s(P60) + (0)*s(P61) + (0)*s(P62) + (0)*s(P63) + (0)*s(P64) + (0)*s(P65) + (0)*s(P66) + (0)*s(P67) + (0)*s(P68) + (0)*s(P69) + (0)*s(P70) + (0)*s(P71)
      
-      + (0)*s(P116) + (0)*s(P117) + (907.18)*s(P118) + (907.18)*s(P119) + (907.18)*s(P120) + (907.18)*s(P121) + (0)*s(P122) + (0)*s(P123) + (0)*s(P124) + (0)*s(P125) + (0)*s(P126) + (0)*s(P127) + (0)*s(P128) + (0)*s(P129) + (0)*s(P130) + (0)*s(P131)
+      + (0)*s(P72) + (0)*s(P73) + (0)*s(P74) + (0)*s(P75) + (0)*s(P76) + (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81) + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P89) + (0)*s(P90)
      
-      + (0)*s(P132) + (0)*s(P133) + (0)*s(P134) + (0)*s(P135) + (0)*s(P136) + (0)*s(P137) + f(E3) =E= 0 ; (LHS = 0)
+      + (0)*s(P91) + (0)*s(P92) + (0)*s(P93) + (0)*s(P94) + (0)*s(P95) + (0)*s(P96) + (0)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P103) + (0)*s(P104) + (0)*s(P105) + (0)*s(P106) + (0)*s(P107) + (907.18)*s(P108)
+     
+      + (907.18)*s(P109) + (907.18)*s(P110) + (907.18)*s(P111) + (907.18)*s(P112) + (0)*s(P113) + (907.18)*s(P114) + (0)*s(P115) + (0)*s(P116) + (0)*s(P117) + (907.18)*s(P118) + (907.18)*s(P119) + (907.18)*s(P120) + (907.18)*s(P121) + (0)*s(P122)
+     
+      + (0)*s(P123) + (0)*s(P124) + (0)*s(P125) + (0)*s(P126) + (0)*s(P127) + (0)*s(P128) + (0)*s(P129) + (0)*s(P130) + (0)*s(P131) + (0)*s(P132) + (0)*s(P133) + (0)*s(P134) + (0)*s(P135) + (0)*s(P136) + (0)*s(P137) + f(E3) =E= 0 ; (LHS = 0)
      
 REMAINING 128 ENTRIES SKIPPED
 
@@ -444,29 +448,26 @@ REMAINING 105 ENTRIES SKIPPED
 
 ---- homeDemand  =E=  home demand constraint
 
-homeDemand(P87)..  (0)*techMat(E84,P87) + (0)*techMat(E85,P87) + (0)*techMat(E86,P87) + (0)*techMat(E87,P87) + (0)*techMat(E88,P87) + (0)*techMat(E127,P87) + (22072)*s(P87) =E= 3878 ; (LHS = 0, INFES = 3878 ****)
+homeDemand(P87)..  - (82.5)*techMat(E84,P87) - (1758)*techMat(E85,P87) - (5196)*techMat(E86,P87) - (84)*techMat(E87,P87) - (84)*techMat(E88,P87) - (135)*techMat(E127,P87) + (22072)*s(P87) =E= 3878 ; (LHS = 165540, INFES = 161662 ****)
      
 
 ---- stockEqns  =E=  percent stock constraint
 
-stockEqns..  (0)*techMat(E97,P87) - s(P82) - s(P83) - s(P84) - s(P85) - s(P86) + (1.1347)*s(P87) - s(P132) =E= 0 ; (LHS = 0)
+stockEqns..  (7.5)*techMat(E97,P87) - s(P82) - s(P83) - s(P84) - s(P85) - s(P86) + (1.1347)*s(P87) - s(P132) =E= 0 ; (LHS = 0.000250000000001194, INFES = 0.000250000000001194 ****)
      
-
----- absLoss  =E=  collected waste
-
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 10
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
-     absLoss  =E=  collected waste
+---- absLoss  =E=  collected waste
 
-absLoss..  - (0.995)*s(P82) - (0.995)*s(P83) - (0.94)*s(P84) - (0.4)*s(P85) - (0.3)*s(P86) - (0.15)*s(P132) + (0)*aggWasteLossVal =E= 0 ; (LHS = 0)
+absLoss..  - (0.995)*s(P82) - (0.995)*s(P83) - (0.94)*s(P84) - (0.4)*s(P85) - (0.3)*s(P86) - (0.15)*s(P132) + (8.51)*aggWasteLossVal =E= 0 ; (LHS = -1.2765, INFES = 1.2765 ****)
      
 
 ---- absLF  =E=  
 
-absLF..  - (0.9)*s(P82) - (0.9)*s(P83) - (0.95)*s(P84) - (0.2)*s(P85) - (0.3)*s(P86) + (0)*s(P132) + (0)*aggLFval =E= 0 ; (LHS = 0)
+absLF..  - (0.9)*s(P82) - (0.9)*s(P83) - (0.95)*s(P84) - (0.2)*s(P85) - (0.3)*s(P86) + (0)*s(P132) + (8.51)*aggLFval =E= 0 ; (LHS = 0)
      
 
 ---- absLoss1  =E=  regenFactCollected
@@ -482,50 +483,50 @@ REMAINING 14 ENTRIES SKIPPED
 
 ---- eqs1  =E=  
 
-eqs1..  (0)*techMat(E92,P92) + (0)*techMat(E97,P92) + (0.1765)*s(P82) + (1)*s(P83) + (1)*s(P84) + (1)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 0)
+eqs1..  (8.51)*techMat(E92,P92) + (0)*techMat(E97,P92) + (0.1765)*s(P82) + (1)*s(P83) + (1)*s(P84) + (1)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 8.51, INFES = 8.51 ****)
      
 
 ---- eqs2  =E=  
 
-eqs2..  (0)*techMat(E93,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (0.1765)*s(P83) + (1)*s(P84) + (1)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 0)
+eqs2..  (8.51)*techMat(E93,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (0.1765)*s(P83) + (1)*s(P84) + (1)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 8.51, INFES = 8.51 ****)
      
 
 ---- eqs3  =E=  
 
-eqs3..  (0)*techMat(E94,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (1)*s(P83) + (0.1765)*s(P84) + (1)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 0)
+eqs3..  (8.51)*techMat(E94,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (1)*s(P83) + (0.1765)*s(P84) + (1)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 8.51, INFES = 8.51 ****)
      
 
 ---- eqs4  =E=  
 
-eqs4..  (0)*techMat(E95,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (1)*s(P83) + (1)*s(P84) + (0.1765)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 0)
+eqs4..  (8.51)*techMat(E95,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (1)*s(P83) + (1)*s(P84) + (0.1765)*s(P85) + (1)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 8.51, INFES = 8.51 ****)
      
 
 ---- eqs5  =E=  
 
-eqs5..  (0)*techMat(E96,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (1)*s(P83) + (1)*s(P84) + (1)*s(P85) + (0.1765)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 0)
+eqs5..  (8.51)*techMat(E96,P92) + (0)*techMat(E97,P92) + (1)*s(P82) + (1)*s(P83) + (1)*s(P84) + (1)*s(P85) + (0.1765)*s(P86) + (1)*s(P132) =E= 0 ; (LHS = 8.51, INFES = 8.51 ****)
      
 
 ---- eqs6  =E=  
 
-eqs6..  (0)*techMat(E97,P92) + (0)*techMat(E128,P92) + (1)*s(P82) + (1)*s(P83) + (1)*s(P84) + (1)*s(P85) + (1)*s(P86) + (0.1765)*s(P132) =E= 0 ; (LHS = 0)
+eqs6..  (8.51)*techMat(E97,P92) + (8.51)*techMat(E128,P92) + (1)*s(P82) + (1)*s(P83) + (1)*s(P84) + (1)*s(P85) + (1)*s(P86) + (0.1765)*s(P132) =E= 0 ; (LHS = 1.502015, INFES = 1.502015 ****)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 11
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 11
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
 ---- eqs7  =E=  
 
-eqs7..  (0)*techMat(E97,P92) - (4.1175)*s(P92) + 907.18*s(P106) =E= 0 ; (LHS = 0)
+eqs7..  (13.95)*techMat(E97,P92) - (4.1175)*s(P92) + 907.18*s(P106) =E= 0 ; (LHS = -2.416025, INFES = 2.416025 ****)
      
 
 ---- eqnPchoiceitems  =E=  
 
-eqnPchoiceitems(E84)..  (0)*techMat(E84,P87) + (20)*s(P87) + pchoiceitems(E84) =E= 0 ; (LHS = 0)
+eqnPchoiceitems(E84)..  - (7.5)*techMat(E84,P87) + (20)*s(P87) + pchoiceitems(E84) =E= 0 ; (LHS = 150, INFES = 150 ****)
      
-eqnPchoiceitems(E85)..  (0)*techMat(E85,P87) + (30)*s(P87) + pchoiceitems(E85) =E= 0 ; (LHS = 0)
+eqnPchoiceitems(E85)..  - (7.5)*techMat(E85,P87) + (30)*s(P87) + pchoiceitems(E85) =E= 0 ; (LHS = 225, INFES = 225 ****)
      
-eqnPchoiceitems(E86)..  (0)*techMat(E86,P87) + (20)*s(P87) + pchoiceitems(E86) =E= 0 ; (LHS = 0)
+eqnPchoiceitems(E86)..  - (7.5)*techMat(E86,P87) + (20)*s(P87) + pchoiceitems(E86) =E= 0 ; (LHS = 150, INFES = 150 ****)
      
 REMAINING 3 ENTRIES SKIPPED
 
@@ -539,49 +540,48 @@ costInput..  - 808.080808080808*techMat(E92,P92) - 1000*techMat(E93,P92) - 1090.
 
 ---- pdtcost  =E=  
 
-pdtcost..  (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81) - 0.05*s(P82) - 0.05*s(P83) - 0.05*s(P84) - 0.05*s(P85) - 0.05*s(P86) - (0.05)*s(P132) + (0)*normalizedcostInput + productionCostResin =E= 0 ; (LHS = 0)
+pdtcost..  (0)*s(P77) + (0)*s(P78) + (0)*s(P79) + (0)*s(P80) + (0)*s(P81) - 0.05*s(P82) - 0.05*s(P83) - 0.05*s(P84) - 0.05*s(P85) - 0.05*s(P86) - (0.05)*s(P132) - (0.00938071826980313)*normalizedcostInput + productionCostResin =E= 0 ;
+     
+      (LHS = -0.4255, INFES = 0.4255 ****)
      
 
 ---- eql1  =E=  
 
-eql1..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
+eql1..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (8.51)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
      
 
 ---- eql2  =E=  
 
-eql2..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
+eql2..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (8.51)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
      
 
 ---- eql3  =E=  
 
-eql3..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
+eql3..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (8.51)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
      
 
 ---- eql4  =E=  
 
-eql4..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
+eql4..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (8.51)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
      
-
----- eql5  =E=  
-
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 12
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 12
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
-     eql5  =E=  
+---- eql5  =E=  
 
-eql5..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
+eql5..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (8.51)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
      
 
 ---- eql6  =E=  
 
-eql6..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
+eql6..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) - (8.51)*s(P98) - (8.51)*s(P99) - (8.51)*s(P100) - (8.51)*s(P101) - (8.51)*s(P102) + (0)*s(P132) + (0)*s(P136) =E= 0 ; (LHS = 0)
      
 
 ---- eql7  =E=  
 
-eql7..  - 5*s(P98) - 5*s(P99) - 5*s(P100) - 5*s(P101) - 5*s(P102) + s(P103) - 5*s(P136) =E= 0 ; (LHS = 0)
+eql7..  - 5*s(P98) - 5*s(P99) - 5*s(P100) - 5*s(P101) - 5*s(P102) + s(P103) - 5*s(P136) =E= 0 ; (LHS = 0.02, INFES = 0.02 ****)
      
 
 ---- loss_l  =E=  
@@ -591,34 +591,34 @@ loss_l..  - 907.18*s(P98) - 907.18*s(P99) - 907.18*s(P100) - 907.18*s(P101) - 90
 
 ---- eqi1  =E=  
 
-eqi1..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
+eqi1..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (8.51)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
      
 
 ---- eqi2  =E=  
 
-eqi2..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
+eqi2..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (8.51)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
      
 
 ---- eqi3  =E=  
 
-eqi3..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
+eqi3..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (8.51)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
      
 
 ---- eqi4  =E=  
 
-eqi4..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
+eqi4..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (8.51)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
      
 
 ---- eqi5  =E=  
 
-eqi5..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
+eqi5..  (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (8.51)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
      
 
 ---- eqi6  =E=  
 
-eqi6..  (0)*s(P32) + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P132) + (0)*s(P137) =E= 0 ; (LHS = 0)
+eqi6..  (0)*s(P32) + (0)*s(P82) + (0)*s(P83) + (0)*s(P84) + (0)*s(P85) + (0)*s(P86) - (19.68)*s(P108) - (19.68)*s(P109) - (19.68)*s(P110) - (19.68)*s(P111) - (19.68)*s(P112) + (0)*s(P132) - (11.17)*s(P137) =E= 0 ; (LHS = 0)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 13
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 13
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
@@ -659,21 +659,21 @@ loss_c..  (0)*s(P104) + (0)*s(P105) + (0)*s(P117) + (0)*costBenifitCompost + (0)
 
 ---- DoC_obj  =E=  
 
-DoC_obj..  (0)*regenFact(E97,P87) + (0)*regenFact(E97,P88) + (0)*regenFact(E97,P90) + (0)*regenFact(E97,P91) + (0)*regenFact(E97,P92) + (0)*regenFact(E97,P93) + (0)*regenFact(E97,P94) + (0)*regenFact(E97,P95) + (0)*regenFact(E97,P96)
+DoC_obj..  (1.01025)*regenFact(E97,P87) + (0)*regenFact(E97,P88) + (0.60363)*regenFact(E97,P90) + (0)*regenFact(E97,P91) + (0.492435)*regenFact(E97,P92) + (0)*regenFact(E97,P93) + (0)*regenFact(E97,P94) + (0)*regenFact(E97,P95) + (0)*regenFact(E97,P96)
      
       + (0)*regenFact(E97,P97) + (0)*regenFact(E97,P98) + (0)*regenFact(E97,P99) + (0)*regenFact(E97,P100) + (0)*regenFact(E97,P101) + (0)*regenFact(E97,P102) + (0)*regenFact(E97,P108) + (0)*regenFact(E97,P109) + (0)*regenFact(E97,P110)
      
       + (0)*regenFact(E97,P111) + (0)*regenFact(E97,P112) + (0)*regenFact(E97,P115) + (0)*regenFact(E97,P118) + (0)*regenFact(E97,P119) + (0)*regenFact(E97,P120) + (0)*regenFact(E97,P121) + (0)*regenFact(E97,P122) + (0)*regenFact(E97,P123)
      
-      + (0)*regenFact(E97,P124) + (0)*regenFact(E97,P125) + (0)*regenFact(E97,P135) + (0)*regenFact(E97,P136) + (0)*regenFact(E97,P137) - (1)*s(P82) - (1)*s(P83) - (1)*s(P84) - (1)*s(P85) - (1)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P90) + (0)*s(P91)
+      + (0)*regenFact(E97,P124) + (0)*regenFact(E97,P125) + (0.02977)*regenFact(E97,P135) + (0)*regenFact(E97,P136) + (0)*regenFact(E97,P137) - (1)*s(P82) - (1)*s(P83) - (1)*s(P84) - (1)*s(P85) - (1)*s(P86) + (0)*s(P87) + (0)*s(P88) + (0)*s(P90)
      
-      + (0)*s(P92) + (0.08955)*s(P93) + (0.10945)*s(P94) + (0.0752)*s(P95) + (0.028)*s(P96) + (0.027)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112)
+      + (0)*s(P91) + (0)*s(P92) + (0.08955)*s(P93) + (0.10945)*s(P94) + (0.0752)*s(P95) + (0.028)*s(P96) + (0.027)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111)
      
-      + (0)*s(P115) + (9.95)*s(P118) + (9.95)*s(P119) + (9.4)*s(P120) + (4)*s(P121) + (0.02761125)*s(P122) + (0.02761125)*s(P123) + (0.026085)*s(P124) + (0.0111)*s(P125) - (1)*s(P132) + (0.00195)*s(P135) + (4.5)*s(P136) + (4.5)*s(P137) + (0)*aggLFval
+      + (0)*s(P112) + (0)*s(P115) + (9.95)*s(P118) + (9.95)*s(P119) + (9.4)*s(P120) + (4)*s(P121) + (0.02761125)*s(P122) + (0.02761125)*s(P123) + (0.026085)*s(P124) + (0.0111)*s(P125) - (1)*s(P132) + (0.00195)*s(P135) + (4.5)*s(P136) + (4.5)*s(P137)
      
-      + (0)*lossLandfill + (0)*DoC =E= 0 ; (LHS = 0)
+      + (0)*aggLFval + (0)*lossLandfill + (8.51)*DoC =E= 0 ; (LHS = -8.5055345, INFES = 8.5055345 ****)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 14
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 14
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
@@ -682,7 +682,7 @@ Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 Cost_obj..  - 0.0496*s(P1) - 0.01624*s(P2) - 0.1766*s(P7) - 0.559977*s(P12) - 0.12996*s(P14) - 0.067*s(P17) - 0.37725*s(P18) - 0.067*s(P21) - 0.0287605*s(P26) - 0.1766*s(P39) - 110.2293*s(P42) - 0.12*s(P49) - 80*s(P52) - 0.13227*s(P57) - 0.022046*s(P58)
      
-      - 0.020923*s(P59) - 3.0442E-8*s(P76) + costBenifitCompost + Cost =E= 0 ; (LHS = 0)
+      - 0.020923*s(P59) - 3.0442E-8*s(P76) + costBenifitCompost + Cost =E= 0 ; (LHS = -9.39002135778564, INFES = 9.39002135778564 ****)
      
 
 ---- Cost_obj1  =E=  
@@ -692,7 +692,7 @@ Cost_obj1..  0.11*pchoiceitems(E84) + 0.18*pchoiceitems(E85) + 0.6*pchoiceitems(
 
 ---- costRecycled1  =E=  
 
-costRecycled1..  - 0.495*s(P93) - 0.5445*s(P94) - 0.594*s(P95) - 0.186*s(P96) - 0.43877*s(P135) + 0.90718*costRecycled =E= 0 ; (LHS = 0)
+costRecycled1..  - 0.495*s(P93) - 0.5445*s(P94) - 0.594*s(P95) - 0.186*s(P96) - 0.43877*s(P135) + 0.90718*costRecycled =E= 0 ; (LHS = -1.0047833, INFES = 1.0047833 ****)
      
 
 ---- costIn1  =E=  
@@ -719,26 +719,30 @@ costCl1..  - 0.034*s(P129) + costCl =E= 0 ; (LHS = 0)
 costLu1..  - 0.036*s(P130) + costLu =E= 0 ; (LHS = 0)
      
 
+---- DoC_obj1  =E=  
+
+DoC_obj1..  (0)*productionCostResin - costBenifitCompost - (1)*costRecycled - costIn - costPy - costCl - costLu + (0)*DoC1 =E= 0 ; (LHS = 0)
+     
+
 ---- sumlosseseq  =E=  
 
-sumlosseseq..  (0)*regenFact(E97,P87) + (0)*regenFact(E97,P88) + (0)*regenFact(E97,P90) + (0)*regenFact(E97,P91) + (0)*regenFact(E97,P92) + (0)*regenFact(E97,P93) + (0)*regenFact(E97,P94) + (0)*regenFact(E97,P95) + (0)*regenFact(E97,P96)
+sumlosseseq..  - (1.01025)*regenFact(E97,P87) + (0)*regenFact(E97,P88) - (0.60363)*regenFact(E97,P90) + (0)*regenFact(E97,P91) - (0.492435)*regenFact(E97,P92) + (0)*regenFact(E97,P93) + (0)*regenFact(E97,P94) + (0)*regenFact(E97,P95)
      
-      + (0)*regenFact(E97,P97) + (0)*regenFact(E97,P98) + (0)*regenFact(E97,P99) + (0)*regenFact(E97,P100) + (0)*regenFact(E97,P101) + (0)*regenFact(E97,P102) + (0)*regenFact(E97,P108) + (0)*regenFact(E97,P109) + (0)*regenFact(E97,P110)
+      + (0)*regenFact(E97,P96) + (0)*regenFact(E97,P97) + (0)*regenFact(E97,P98) + (0)*regenFact(E97,P99) + (0)*regenFact(E97,P100) + (0)*regenFact(E97,P101) + (0)*regenFact(E97,P102) + (0)*regenFact(E97,P108) + (0)*regenFact(E97,P109)
      
-      + (0)*regenFact(E97,P111) + (0)*regenFact(E97,P112) + (0)*regenFact(E97,P115) + (0)*regenFact(E97,P118) + (0)*regenFact(E97,P119) + (0)*regenFact(E97,P120) + (0)*regenFact(E97,P121) + (0)*regenFact(E97,P122) + (0)*regenFact(E97,P123)
-     
-      + (0)*regenFact(E97,P124) + (0)*regenFact(E97,P125) + (0)*regenFact(E97,P135) + (0)*regenFact(E97,P136) + (0)*regenFact(E97,P137) + (0)*s(P87) + (0)*s(P88) + (0)*s(P90) + (0)*s(P91) + (0)*s(P92) - (0.08955)*s(P93) - (0.10945)*s(P94)
-     
-      - (0.0752)*s(P95) - (0.028)*s(P96) - (0.027)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P115) - (9.95)*s(P118) - (9.95)*s(P119)
-     
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 15
+      + (0)*regenFact(E97,P110) + (0)*regenFact(E97,P111) + (0)*regenFact(E97,P112) + (0)*regenFact(E97,P115) + (0)*regenFact(E97,P118) + (0)*regenFact(E97,P119) + (0)*regenFact(E97,P120) + (0)*regenFact(E97,P121) + (0)*regenFact(E97,P122)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 15
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
 
      sumlosseseq  =E=       
      
-      - (9.4)*s(P120) - (4)*s(P121) - (0.02761125)*s(P122) - (0.02761125)*s(P123) - (0.026085)*s(P124) - (0.0111)*s(P125) - (0.00195)*s(P135) - (4.5)*s(P136) - (4.5)*s(P137) + sumlosses =E= 0 ; (LHS = 0)
+      + (0)*regenFact(E97,P123) + (0)*regenFact(E97,P124) + (0)*regenFact(E97,P125) - (0.02977)*regenFact(E97,P135) + (0)*regenFact(E97,P136) + (0)*regenFact(E97,P137) + (0)*s(P87) + (0)*s(P88) + (0)*s(P90) + (0)*s(P91) + (0)*s(P92) - (0.08955)*s(P93)
+     
+      - (0.10945)*s(P94) - (0.0752)*s(P95) - (0.028)*s(P96) - (0.027)*s(P97) + (0)*s(P98) + (0)*s(P99) + (0)*s(P100) + (0)*s(P101) + (0)*s(P102) + (0)*s(P108) + (0)*s(P109) + (0)*s(P110) + (0)*s(P111) + (0)*s(P112) + (0)*s(P115) - (9.95)*s(P118)
+     
+      - (9.95)*s(P119) - (9.4)*s(P120) - (4)*s(P121) - (0.02761125)*s(P122) - (0.02761125)*s(P123) - (0.026085)*s(P124) - (0.0111)*s(P125) - (0.00195)*s(P135) - (4.5)*s(P136) - (4.5)*s(P137) + sumlosses =E= 0 ; (LHS = -0.0044655, INFES = 0.0044655 ****)
      
 
 ---- losshotspoteq  =E=  
@@ -765,12 +769,12 @@ REMAINING 3 ENTRIES SKIPPED
 
 ---- eqtotpdtmass  =E=  
 
-eqtotpdtmass..  - s(P82) - s(P83) - s(P84) - s(P85) - s(P86) - s(P132) + totpdtmass =E= 0 ; (LHS = 0)
+eqtotpdtmass..  - s(P82) - s(P83) - s(P84) - s(P85) - s(P86) - s(P132) + totpdtmass =E= 0 ; (LHS = -8.51, INFES = 8.51 ****)
      
 
 ---- eqw1  =E=  
 
-eqw1..  (0)*techMat(E97,P92) - (0.8235)*s(P92) + wasteMgmtValues(Reprocess) =E= 0 ; (LHS = 0)
+eqw1..  (2.79)*techMat(E97,P92) - (0.8235)*s(P92) + wasteMgmtValues(Reprocess) =E= 0 ; (LHS = -2.297565, INFES = 2.297565 ****)
      
 
 ---- eqw2  =E=  
@@ -784,7 +788,7 @@ eqw3..  (0)*techMat(E97,P98) + (0)*techMat(E97,P99) + (0)*techMat(E97,P100) + (0
      
       - 907.18*s(P113) + 45*s(P114) - (877.18)*s(P136) + wasteMgmtValues(Landfill) =E= 0 ; (LHS = 0)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 16
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 16
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
@@ -802,7 +806,7 @@ impactValues(I1)..  0.73*s(P12) + g(I1) =E= 0 ; (LHS = 0)
      
 impactValues(I2)..  - 0.00027*s(P12) + g(I2) =E= 0 ; (LHS = 0)
      
-impactValues(I3)..  - 0.00041*s(P12) - 0.167*s(P42) - 0.45359*s(P46) - 3E-5*s(P52) - 2E-5*s(P66) - 4E-5*s(P71) + g(I3) =E= 0 ; (LHS = 0)
+impactValues(I3)..  - 0.00041*s(P12) - 0.167*s(P42) - 0.45359*s(P46) - 3E-5*s(P52) - 2E-5*s(P66) - 4E-5*s(P71) + g(I3) =E= 0 ; (LHS = -3.6E-6, INFES = 3.6E-6 ****)
      
 REMAINING 2910 ENTRIES SKIPPED
 
@@ -841,7 +845,7 @@ eq_gwp..  - mp_indicators(MPI4) + gwp =E= 0 ; (LHS = 0)
 
                 NONE
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 17
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 17
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ToyProblem Using NLP From line 697
 
@@ -856,11 +860,31 @@ Equation Listing    SOLVE ToyProblem Using NLP From line 697
                 NONE
 
 
+---- elmc1  =G=  
+
+elmc1..  - 0.14*s(P90) - 0.14*s(P91) + 907.18*s(P108) + 907.18*s(P109) + 907.18*s(P110) + 907.18*s(P111) + 907.18*s(P112) + 907.18*s(P137) =G= 0 ; (LHS = -0.9576, INFES = 0.9576 ****)
+     
+
+---- elmc2  =E=  
+
+elmc2..  - 0.5*s(P90) - 0.5*s(P91) + 907.18*s(P98) + 907.18*s(P99) + 907.18*s(P100) + 907.18*s(P101) + 907.18*s(P102) + 907.18*s(P136) =E= 0 ; (LHS = -3.42, INFES = 3.42 ****)
+     
+
+---- elmc3  =E=  
+
+elmc3..  - 0.14*s(P90) - 0.14*s(P91) + s(P92) =E= 0 ; (LHS = 1.8324, INFES = 1.8324 ****)
+     
+
+---- elmc4  =E=  
+
+elmc4..  - 0.01*s(P90) - 0.01*s(P91) + s(P115) =E= 0 ; (LHS = -0.0684, INFES = 0.0684 ****)
+     
+
 ---- eps1  =E=  
 
 eps1..  - DoC + EPS*slack1 + EPS*slack2 + epsObj =E= 0 ; (LHS = 0)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 18
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 18
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -870,9 +894,9 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
 regenFact(E97,P87)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
         1       absLoss1(P87)
-       (0)      DoC_obj
-       (0)      sumlosseseq
-       (0)      losshotspoteq(P87)
+       (1.0102) DoC_obj
+      (-1.0102) sumlosseseq
+      (-1.0102) losshotspoteq(P87)
 
 regenFact(E97,P88)
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
@@ -891,11 +915,11 @@ REMAINING 30 ENTRIES SKIPPED
 
 techMat(E1,P1)
                 (.LO, .L, .UP, .M = 1, 1, 1, 0)
-       (0)      processLCA(E1)
+      (-3.52)   processLCA(E1)
 
 techMat(E1,P2)
                 (.LO, .L, .UP, .M = 0, 0, 0, 0)
-       (0)      processLCA(E1)
+      (-7.09)   processLCA(E1)
 
 techMat(E1,P3)
                 (.LO, .L, .UP, .M = 0, 0, 0, 0)
@@ -906,7 +930,7 @@ REMAINING 17944 ENTRIES SKIPPED
 ---- s  scaling factors
 
 s(P1)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+                (.LO, .L, .UP, .M = 0, 3.52, +INF, 0)
       (-1)      processLCA(E1)
        (0)      processLCA(E2)
        (0)      processLCA(E3)
@@ -918,7 +942,7 @@ s(P1)
        (0)      processLCA(E9)
        (0.0004) processLCA(E10)
        (0)      processLCA(E11)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 19
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 19
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -976,7 +1000,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      processLCA(E60)
        (0)      processLCA(E61)
        (0)      processLCA(E62)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 20
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 20
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1034,7 +1058,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      processLCA(E111)
        (0)      processLCA(E112)
        (0)      processLCA(E113)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 21
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 21
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1070,7 +1094,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
         0.235   impactValues(I1473)
 
 s(P2)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+                (.LO, .L, .UP, .M = 0, 7.09, +INF, 0)
        (0)      processLCA(E1)
       (-0.0003) processLCA(E2)
        (0)      processLCA(E3)
@@ -1092,7 +1116,7 @@ s(P2)
        (0)      processLCA(E19)
        (0)      processLCA(E20)
        (0)      processLCA(E21)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 22
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 22
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1150,7 +1174,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      processLCA(E70)
        (0)      processLCA(E71)
        (0)      processLCA(E72)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 23
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 23
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1208,7 +1232,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      processLCA(E121)
        (0)      processLCA(E122)
        (0)      processLCA(E123)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 24
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 24
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1266,7 +1290,7 @@ s(P3)
        (0)      processLCA(E21)
        (0)      processLCA(E22)
        (0)      processLCA(E23)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 25
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 25
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1324,7 +1348,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      processLCA(E72)
        (0)      processLCA(E73)
        (0)      processLCA(E74)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 26
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 26
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1382,7 +1406,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      processLCA(E123)
        (0)      processLCA(E124)
        (0)      processLCA(E125)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 27
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 27
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1422,7 +1446,7 @@ REMAINING 128 ENTRIES SKIPPED
 
 aggWasteLossVal
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       (0)      absLoss
+       (8.51)   absLoss
        -1       absLoss1(P87)
        -1       absLoss1(P88)
        -1       absLoss1(P89)
@@ -1440,7 +1464,7 @@ aggWasteLossVal
        -1       absLoss1(P111)
        -1       absLoss1(P112)
        -1       absLoss1(P115)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 28
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 28
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1453,7 +1477,7 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
 
 aggLFval
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       (0)      absLF
+       (8.51)   absLF
        (0)      DoC_obj
 
 
@@ -1481,7 +1505,7 @@ REMAINING 3 ENTRIES SKIPPED
 normalizedcostInput
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       costInput
-       (0)      pdtcost
+      (-0.0094) pdtcost
        (0)      loss_b
 
 
@@ -1490,6 +1514,7 @@ normalizedcostInput
 productionCostResin
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       pdtcost
+       (0)      DoC_obj1
 
 
 ---- lossLandfill  
@@ -1497,14 +1522,14 @@ productionCostResin
 lossLandfill
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       loss_l
-       (0)      DoC_obj
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 29
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 29
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
 
      lossLandfill  
 
+       (0)      DoC_obj
 
 
 ---- lossIncineration  
@@ -1528,6 +1553,7 @@ costBenifitCompost
         1       cost_c
        (0)      loss_c
         1       Cost_obj
+       -1       DoC_obj1
 
 
 ---- cbc2  
@@ -1548,10 +1574,10 @@ lossCompost
 
 DoC
                 (.LO, .L, .UP, .M = 0, 0, 2, 0)
-       (0)      DoC_obj
+       (8.51)   DoC_obj
        -1       eps1
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 30
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 30
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
 
@@ -1575,6 +1601,7 @@ CostBag
 costRecycled
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         0.9072  costRecycled1
+      (-1)      DoC_obj1
 
 
 ---- costIn  
@@ -1582,6 +1609,7 @@ costRecycled
 costIn
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       costIn1
+       -1       DoC_obj1
 
 
 ---- costPy  
@@ -1589,6 +1617,7 @@ costIn
 costPy
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       costPy1
+       -1       DoC_obj1
 
 
 ---- costCl  
@@ -1596,6 +1625,7 @@ costPy
 costCl
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       costCl1
+       -1       DoC_obj1
 
 
 ---- costLu  
@@ -1603,10 +1633,18 @@ costCl
 costLu
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       costLu1
+       -1       DoC_obj1
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 31
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 31
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ToyProblem Using NLP From line 697
+
+
+---- DoC1  
+
+DoC1
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       (0)      DoC_obj1
 
 
 ---- losshotspot  
@@ -1655,6 +1693,13 @@ sumlosses
        (0)      losshotspoteq(P23)
        (0)      losshotspoteq(P24)
        (0)      losshotspoteq(P25)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 32
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ToyProblem Using NLP From line 697
+
+
+     sumlosses  
+
        (0)      losshotspoteq(P26)
        (0)      losshotspoteq(P27)
        (0)      losshotspoteq(P28)
@@ -1662,13 +1707,6 @@ sumlosses
        (0)      losshotspoteq(P30)
        (0)      losshotspoteq(P31)
        (0)      losshotspoteq(P32)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 32
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ToyProblem Using NLP From line 697
-
-
-     sumlosses  
-
        (0)      losshotspoteq(P33)
        (0)      losshotspoteq(P34)
        (0)      losshotspoteq(P35)
@@ -1713,6 +1751,13 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      losshotspoteq(P74)
        (0)      losshotspoteq(P75)
        (0)      losshotspoteq(P76)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 33
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ToyProblem Using NLP From line 697
+
+
+     sumlosses  
+
        (0)      losshotspoteq(P77)
        (0)      losshotspoteq(P78)
        (0)      losshotspoteq(P79)
@@ -1720,13 +1765,6 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      losshotspoteq(P81)
        (0)      losshotspoteq(P82)
        (0)      losshotspoteq(P83)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 33
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ToyProblem Using NLP From line 697
-
-
-     sumlosses  
-
        (0)      losshotspoteq(P84)
        (0)      losshotspoteq(P85)
        (0)      losshotspoteq(P86)
@@ -1771,6 +1809,13 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      losshotspoteq(P125)
        (0)      losshotspoteq(P126)
        (0)      losshotspoteq(P127)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 34
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ToyProblem Using NLP From line 697
+
+
+     sumlosses  
+
        (0)      losshotspoteq(P128)
        (0)      losshotspoteq(P129)
        (0)      losshotspoteq(P130)
@@ -1778,13 +1823,6 @@ Column Listing      SOLVE ToyProblem Using NLP From line 697
        (0)      losshotspoteq(P132)
        (0)      losshotspoteq(P133)
        (0)      losshotspoteq(P134)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 34
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ToyProblem Using NLP From line 697
-
-
-     sumlosses  
-
        (0)      losshotspoteq(P135)
        (0)      losshotspoteq(P136)
        (0)      losshotspoteq(P137)
@@ -1829,15 +1867,18 @@ wasteMgmtValues(Pyrolysis)
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       eqw2
 
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 35
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ToyProblem Using NLP From line 697
+
+
+     wasteMgmtValues  
+
 wasteMgmtValues(Landfill)
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       eqw3
 
 REMAINING ENTRY SKIPPED
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 35
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ToyProblem Using NLP From line 697
-
 
 ---- g  
 
@@ -1884,6 +1925,13 @@ gwp
 slack1
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
            EPS  eps1
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 36
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ToyProblem Using NLP From line 697
+
+
+     slack1  
+
 
 
 ---- slack2  
@@ -1892,10 +1940,6 @@ slack2
                 (.LO, .L, .UP, .M = 0, 0, +INF, 0)
            EPS  eps1
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 36
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ToyProblem Using NLP From line 697
-
 
 ---- epsObj  
 
@@ -1903,25 +1947,25 @@ epsObj
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       eps1
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 37
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 37
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE ToyProblem Using NLP From line 697
 
 
 MODEL STATISTICS
 
-BLOCKS OF EQUATIONS          60     SINGLE EQUATIONS        3,377
-BLOCKS OF VARIABLES          34     SINGLE VARIABLES       21,348
-NON ZERO ELEMENTS        42,025     NON LINEAR N-Z         36,708
+BLOCKS OF EQUATIONS          65     SINGLE EQUATIONS        3,382
+BLOCKS OF VARIABLES          35     SINGLE VARIABLES       21,349
+NON ZERO ELEMENTS        42,055     NON LINEAR N-Z         36,711
 DERIVATIVE POOL              20     CONSTANT POOL              54
-CODE LENGTH              55,775
+CODE LENGTH              55,782
 
 
-GENERATION TIME      =        0.046 SECONDS      9 MB  24.7.4 r58773 LEX-LEG
+GENERATION TIME      =        0.052 SECONDS      9 MB  24.7.4 r58773 LEX-LEG
 
 
-EXECUTION TIME       =        0.093 SECONDS      9 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 38
+EXECUTION TIME       =        0.094 SECONDS      9 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 38
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE ToyProblem Using NLP From line 697
 
@@ -1932,11 +1976,11 @@ Solution Report     SOLVE ToyProblem Using NLP From line 697
      TYPE    NLP                 DIRECTION  MAXIMIZE
      SOLVER  BARON               FROM LINE  697
 
-**** SOLVER STATUS     3 Resource Interrupt        
-**** MODEL STATUS      14 No Solution Returned     
+**** SOLVER STATUS     8 User Interrupt            
+**** MODEL STATUS      12 Error Unknown            
 **** OBJECTIVE VALUE               NA
 
- RESOURCE USAGE, LIMIT       1000.060      1000.000
+ RESOURCE USAGE, LIMIT          0.140      1000.000
  ITERATION COUNT, LIMIT        NA    2000000000
  EVALUATION ERRORS              0             0
 
@@ -1946,8 +1990,7 @@ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
 Parts of the BARON software were created at the
 University of Illinois at Urbana-Champaign.
 
-*** Time or user interrupt, gap calculations
-*** are invalid because of an incomplete solution.
+*** no solution found
 
 ===========================================================================
  BARON version 16.8.24. Built: LNX-64 Wed Aug 24 08:52:24 EDT 2016
@@ -1965,10 +2008,140 @@ University of Illinois at Urbana-Champaign.
  For LP/MIP: ILOG CPLEX                                      
  For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
 ===========================================================================
-*** No solution found - further Baron post processing aborted
 
 No solution returned
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 39
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 39
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE ToyProblem Using NLP From line 697
+
+
+**** SOLVER STATUS FILE LISTED BELOW
+=0GAMS/BARON       24.7.4 r58773 Released Sep 19, 2016 LEG x86 64bit/Linux      
+=C
+=CGAMS/BARON       24.7.4 r58773 Released Sep 19, 2016 LEG x86 64bit/Linux      
+=C
+=CBARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+=CParts of the BARON software were created at the
+=CUniversity of Illinois at Urbana-Champaign.
+=C
+ /home/vyom/Design-SCE/Design-SCE/225a/sum.dat    = problem    3382 21349 0 39583 -.100000000000E+52 0.100000000000E+52 6 5 -1 -3 -3 0 0.14 0.07   
+ skip       = 3382
+ skip       = 21349
+ skip       = 0
+ skip       = 39583
+ zlbest     = 1E51
+ zub        = -1E51
+ barstatus  = 6
+ modelstatus= 5
+ missingbnd = -1
+ itera      = -3
+ nodeopt    = -3
+ nodememmax = 0
+ totaltime  = 0.14
+=9_
+_2
+===========================================================================
+ BARON version 16.8.24. Built: LNX-64 Wed Aug 24 08:52:24 EDT 2016
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+_2
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: ILOG CPLEX                                      
+ For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
+_2
+===========================================================================
+    The options used in solving the problem are as follows:
+       maxtime        =  0.1000E+04
+       maxiter        =      -1
+       numsol         =       1
+       firstfeas      =       0
+       cutoff         =  0.1000E+52
+       epsa           =  0.1000E-08
+       epsr           =  0.1000E+00
+       deltaterm      =       0
+       deltaa         =  0.1000E+52
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 40
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE ToyProblem Using NLP From line 697
+
+
+       deltar         =  0.1000E+01
+       deltat         = -0.1000E+03
+       boxtol         =  0.1000E-07
+       isoltol        =  0.1000E-03
+       absconfeastol  =  0.1000E-04
+       relconfeastol  =  0.0000E+00
+       absintfeastol  =  0.1000E-04
+       relintfeastol  =  0.0000E+00
+       results        =       1
+       summary        =       1
+       times          =       1
+       prtimefreq     =  0.3000E+02
+       prfreq         = 1000000
+       prlevel        =       1
+       numprint       =      -1
+       numprintdual   =      -1
+       bpint          =  0.5000E+01
+       fraint         =  0.7000E+00
+       minint         =  0.1000E-01
+       lpsol          =       3
+       nlpsol         =      -1
+       allowminos     =       1
+       allowsnopt     =       1
+       allowexternal  =       1
+       allowipopt     =       1
+       allowfiltersd  =       1
+       allowfiltersqp =       0
+       baronx         =       F
+       dolocal        =       1
+       numloc         =      -2
+       locres         =       0
+       pdo            =      -2
+       brvarstra      =       0
+       brptstra       =       0
+       nodesel        =       0
+       compiis        =       0
+       iisint         =       1
+       iisorder       =      -1
+       threads        =       1
+_2
+===========================================================================
+ Doing local search
+_9=
+=C*** no solution found
+=C
+=C===========================================================================
+=C BARON version 16.8.24. Built: LNX-64 Wed Aug 24 08:52:24 EDT 2016
+=C
+=C If you use this software, please cite:
+=C Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+=C branch-and-cut approach to global optimization,
+=C Mathematical Programming, 103(2), 225-249, 2005.
+=C
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 41
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE ToyProblem Using NLP From line 697
+
+
+=C BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+=C Parts of the BARON software were created at the
+=C University of Illinois at Urbana-Champaign.
+=C===========================================================================
+=C This BARON run may utilize the following subsolver(s)
+=C For LP/MIP: ILOG CPLEX                                      
+=C For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
+=C===========================================================================
+
+**** SOLVER STATUS FILE LISTED ABOVE
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 42
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1994,7 +2167,10 @@ E x e c u t i o n
 
 ----    757 VARIABLE s.L  scaling factors
 
-                      ( ALL       0.000 )
+P1     3.520,    P2     7.090,    P5     3.710,    P6     0.020,    P7     2.720,    P8     0.020,    P9    11.720,    P11    0.550,    P13    0.700,    P15    0.100,    P16    0.510,    P17   17.010,    P18   18.260,    P19    0.480,    P20    0.030
+P21    0.190,    P22    1.060,    P24    0.690,    P26    0.030,    P27    0.020,    P28    3.220,    P32   19.680,    P34    0.010,    P37    0.390,    P38    0.270,    P39    2.010,    P40    0.040,    P58    0.260,    P59   10.390,    P61    0.100
+P63    3.680,    P67    0.340,    P68    7.970,    P69    1.610,    P70    3.370,    P71    0.090,    P74    0.560,    P76    0.420,    P87    7.500,    P90    6.840,    P92    2.790,    P103   0.020,    P106   0.010,    P131   8.680,    P132   8.510
+P133   2.150,    P134 215.440,    P135   2.290
 
 
 ----    758 VARIABLE aggWasteLossVal.L     =        0.000  
@@ -2017,34 +2193,33 @@ E x e c u t i o n
 
                       ( ALL       0.000 )
 
-**** Exec Error at line 794: division by zero (0)
-**** Exec Error at line 795: division by zero (0)
-**** Exec Error at line 799: division by zero (0)
-**** Exec Error at line 800: division by zero (0)
-**** Exec Error at line 802: division by zero (0)
-**** Exec Error at line 803: division by zero (0)
-**** Exec Error at line 807: division by zero (0)
-**** Exec Error at line 808: division by zero (0)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/24/20 19:21:52 Page 40
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-E x e c u t i o n
-
 
 ----    854 PARAMETER recyclevalLDPE       =        0.000  
             PARAMETER recyclevalHDPE       =        0.000  
             PARAMETER recyclevalPP         =        0.000  
             PARAMETER recyclevalPLA        =        0.000  
-**** Exec Error at line 870: Execute has nonzero return code RC=127
-**** Exec Error at line 878: Execute has nonzero return code RC=127
-**** Exec Error at line 879: Execute has nonzero return code RC=127
-**** Exec Error at line 880: Execute has nonzero return code RC=127
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/19/21 11:55:14 Page 43
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
 
-----    892 VARIABLE cD.L  
 
-                      Pyrolysis    Landfill  Incinerat~  Segregati~
+----    862 VARIABLE DoC1.L                =        0.000  
 
-Curbside Collection        UNDF        UNDF        UNDF        UNDF
-Dropoff                    UNDF        UNDF        UNDF        UNDF
+----    863 VARIABLE DoC.L                 =        0.000  
+
+----    864 VARIABLE gwp.L                 =        0.000  
+
+----    865 VARIABLE Cost.L                =        0.000  
+
+----    894 VARIABLE cD.L  
+
+                       Landfill       Paper  Households  Curbside ~  Segregati~      rPaper      Losses
+
+Paper                                             8.510
+Households                                                    7.502                               1.010
+Curbside Collection                                                       2.790                   0.604
+Segregation               0.492                                                       2.290
+rPaper                                2.258                                                       0.030
 
 
 **** REPORT FILE SUMMARY
@@ -2052,7 +2227,7 @@ Dropoff                    UNDF        UNDF        UNDF        UNDF
 pareto /home/vyom/Design-SCE/Design-SCE/pareto0.txt
 
 
-EXECUTION TIME       =        0.215 SECONDS      5 MB  24.7.4 r58773 LEX-LEG
+EXECUTION TIME       =        0.027 SECONDS      5 MB  24.7.4 r58773 LEX-LEG
 
 
 USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
@@ -2064,5 +2239,3 @@ USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
 
 Input      /home/vyom/Design-SCE/Design-SCE/RP8.gms
 Output     /home/vyom/Design-SCE/Design-SCE/RP8.lst
-
-**** USER ERROR(S) ENCOUNTERED

@@ -44,7 +44,7 @@ parameter absLandfill(j) /P82 0.9,P83 0.9,P84 0.95, P85 0.2,P86 0.3,P132 0/;
 $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
-B(k,j) = round(B(k,j), 6);
+B(k,j) = round(B(k,j), 4);
 
 $onText
 *For allocation
@@ -68,6 +68,8 @@ C(l,'I1765')=0;
 
 *A('E97','P91')=0.08825;
 *A('E97','P89')=-1.0968;
+A('E127','P87')=-10;
+*A('E126','P134')=0;
 
 
 *No Caps on Recycled Content
@@ -75,21 +77,19 @@ C(l,'I1765')=0;
 *A('E78','P94')=0.55;
 *A('E80','P95')=0.55;
 *A('E81','P96')=0.45;
-*A('E97','P93')=0.026;
-*A('E97','P94')=0.026;
-*A('E97','P95')=0.025;
-*A('E97','P96')=0.018;
-*A('E79','P93')=1;
-*A('E78','P94')=1;
-*A('E80','P95')=1;
-*A('E81','P96')=1;
-*A('E117','P93')=0.0;
-*A('E118','P94')=0;
-*A('E119','P95')=0.0;
-*A('E120','P96')=0.0;
-*A('E121','P96')=0.0;
-A('E127','P87')=-10;
-*A('E126','P134')=0;
+A('E97','P93')=0.236;
+A('E97','P94')=0.236;
+A('E97','P95')=0.235;
+A('E97','P96')=0.018;
+A('E79','P93')=1-A('E97','P93');
+A('E78','P94')=1-A('E97','P94');
+A('E80','P95')=1-A('E97','P95');
+A('E81','P96')=1-A('E97','P96');
+A('E117','P93')=0.0;
+A('E118','P94')=0;
+A('E119','P95')=0.0;
+A('E120','P96')=0.0;
+A('E121','P96')=0.0;
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
@@ -132,10 +132,10 @@ positive variables
 variables
 	f(i) final demand;	
 
-*s.l(j)=0;
 $onlisting
 $include scalingVector.inc
 $offlisting
+s.l(j)=0;
 
 *type of bags
 *s.fx('P82')=0;
@@ -150,7 +150,7 @@ $offlisting
 
 
 
-*s.fx('P130')=0;
+s.fx('P130')=0;
 *s.fx('P115')=0;
 
 $ontext
@@ -538,7 +538,6 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *put /;
 *Display from;
 
-
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
@@ -556,7 +555,6 @@ execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'
-
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'

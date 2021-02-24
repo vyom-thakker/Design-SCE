@@ -44,13 +44,15 @@ parameter absLandfill(j) /P82 0.9,P83 0.9,P84 0.95, P85 0.2,P86 0.3,P132 0/;
 $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
-B(k,j) = round(B(k,j), 5);
+B(k,j) = round(B(k,j), 4);
 
+$onText
+*For allocation
+set noAlloc(j) /P103,P106,P114/;
+B(k,noAlloc)=0;
+B(k,'P115')=B(k,'P115')/6;
+$offText
 
-*uncomment to remove food waste in mixed household waste
-*set noAlloc(j) /P103,P106,P114/;
-*B(k,noAlloc)=0;
-*B(k,'P115')=B(k,'P115')/6;
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -130,11 +132,10 @@ positive variables
 variables
 	f(i) final demand;	
 
-
 $onlisting
 $include scalingVector.inc
 $offlisting
-*s.l(j)=0;
+s.l(j)=0;
 
 *type of bags
 *s.fx('P82')=0;
@@ -149,11 +150,8 @@ $offlisting
 
 
 
-*s.fx('P130')=0;
+s.fx('P130')=0;
 *s.fx('P115')=0;
-
-
-
 
 $ontext
 equation litt;
@@ -251,7 +249,7 @@ loss_i.. lossIncineration=e=sum(j$ifill_indices(j),s(j)*907.18*(1-(((techMat('E1
 
 *biofuel
 variable lossBioFuel;
-scalar biofuelCost /[0.041*%q12%]/;
+scalar biofuelCost /[0.0125*%q12%]/;
 equation loss_b;
 set bio_new(j) /P122*P125/;
 loss_b.. lossBioFuel*normalizedCostInput=e=(((-1*s('P115')/techMat('E91','P115')+sum(j$bio_new(j),s(j)))*normalizedCostInput)-(s('P116')*biofuelCost));
@@ -278,10 +276,11 @@ processLCA(i).. f(i)=e=sum(j,techMat(i,j)*s(j));
 
 **************************************Objectives************************************************
 
-variables DoC,Cost;
-equations DoC_obj,Cost_obj;
-	DoC.lo=0;
-	DoC.up=2;
+variables DoC1,DoC2,Cost;
+equations DoC_obj1,DoC_obj2,Cost_obj;
+	DoC1.lo=0;
+	DoC2.lo=0;
+	DoC2.up=1;
 
 set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
 parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
@@ -310,25 +309,15 @@ scalar lumberCost /[0.036*%q14%]/;
 costCl1.. costCl=e=s('P129')*clinkerCost/1000;
 *clinker 34$/ton, lumber=45$/1000 board feet i.e. 2.35 m3 and 320 kg/m3 density
 costLu1.. costLu=e=s('P130')*lumberCost;
-*pyrolysis 0.044 kg biofuel generated, 7.3 lb/gal density, 3$/gal
+*pyrolysis 0.044 kg biofuel generated, 7.3 lb/gal density, 1$/gal
 *degreeofcircularity
-DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97',j)*s(j)*regenFact('E97',j))+lossLandfill*aggLFval);
+DoC_obj2.. DoC2*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(sum(j,A('E97',j)*s(j)*regenFact('E97',j))+lossLandfill*aggLFval);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+DoC_obj1.. DoC1*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy-(0.89*sum(j,A('E97',j)*s(j)*regenFact('E97',j)));
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
-variable DoC1;
-equation DoC_obj1;
-DoC_obj1.. DoC1*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
 
-
-
-variable losshotspot(j);
-variable sumlosses;
-equation sumlosseseq;
-equation losshotspoteq(j);
-sumlosseseq.. sumlosses=e=sum(j,A('E97',j)*s(j)*regenFact('E97',j));
-losshotspoteq(j).. losshotspot(j)*sumlosses=e=A('E97',j)*s(j)*regenFact('E97',j);
 
 $ontext
 equation dumm;
@@ -369,42 +358,45 @@ eq_gwp.. gwp=e=mp_indicators('MPI4');
 *equation constrainttrial;
 *constrainttrial.. wasteMgMtValues('Reprocess')=l=0.5;
 
-positive variable slack1,slack2;
+positive variable slack1;
 
-parameter gwpC,costC,docC;
+parameter docC1,docC2;
+$if not set docC1 $set docC1 -1;
+docC1=%docC1%;
+equation addCons1;
+addCons1$(docC1>0).. doc1=g=docC1;
+$if not set docC2 $set docC2 -1;
+docC2=%docC2%;
+equation addCons2;
+addCons2$(docC2>0).. DoC2=g=docC2+slack1;
+
+positive variable slack2,slack3;
+parameter gwpC,costC;
 $if not set gwpC $set gwpC -1;
 gwpC=%gwpC%;
-*slack1.lo=-1*gwpC*0;    
-*slack1.up=gwpC*0;    
-equation addCons1;
-addCons1$(gwpC>0).. gwp+slack1=e=gwpC;
+equation addCons3;
+addCons3$(gwpC>0).. gwp+slack2=e=gwpC;
 $if not set costC $set costC -1;
 costC=%costC%;
-*slack2.lo=-1*costC*0;    
-*slack2.up=costC*0;
-equation addCons2;
-addCons2$(costC>0).. cost+slack2=e=costC;
+equation addCons4;
+addCons4$(costC>0).. cost+slack3=e=costC;
 
-$if not set docC $set docC -1;
-docC=%docC%;
-equation addCons3;
-addCons3$(docC>0).. DoC=g=docC;
 
 
 *Ellen Mcarthur Constraints
 
-*equation elmc1;
-*equation elmc2;
-*equations elmc3;
-*equations elmc4;
-*elmc1.. sum(j$ifill_indices(j),s(j)*907.18)=g=0.14*(s('P90')+s('P91'));
-*elmc2.. sum(j$lfill_indices(j),s(j)*907.18)=e=0.5*(s('P90')+s('P91'));
-*elmc3.. s('P92')=e=0.14*(s('P90')+s('P91'));
-*elmc4.. s('P115')=e=0.01*(s('P90')+s('P91'));
+equation elmc1;
+equation elmc2;
+equations elmc3;
+equations elmc4;
+elmc1.. sum(j$ifill_indices(j),s(j)*907.18)=g=0.14*(s('P90')+s('P91'));
+elmc2.. sum(j$lfill_indices(j),s(j)*907.18)=e=0.5*(s('P90')+s('P91'));
+elmc3.. s('P92')=e=0.14*(s('P90')+s('P91'));
+elmc4.. s('P115')=e=0.01*(s('P90')+s('P91'));
 
 equation eps1;
 variable epsObj;
-eps1.. epsObj=e=DoC+eps*(slack1+slack2);
+eps1.. epsObj=e=DoC1+eps*(slack1+slack2+slack3);
 
     Model ToyProblem /ALL/;
 	Option NLP=BARON;
@@ -416,42 +408,16 @@ $offecho
 *	Option limrow=120;
 *    Option resLim=5000;
 *    Option optcr=0.1;
-parameter zD,zG,zC;
 *******************************************Objectives**********************************************
-DoC.lo=0;
-DoC.up=2;
-If(docC<0, Solve ToyProblem Using NLP maximizing DoC; 
-zD = DoC.l;
-DoC.lo=zD;
-zG = gwp.l;
-gwp.l=zG;
-*Solve ToyProblem Using NLP minimizing gwp;
-zG = gwp.l;
-gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
-zC=cost.l;
-cost.up=zC;
+If(docC1<0, Solve ToyProblem Using NLP maximizing DoC1; 
 
+Elseif (docC2<0), Solve ToyProblem Using NLP maximizing DoC2;
 
 Elseif (gwpC<0), Solve ToyProblem Using NLP minimizing gwp;
-zG = gwp.l;
-gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
-zC=Cost.l;
-Cost.up=zC;
-*Solve ToyProblem Using NLP maximizing DoC;
-zD = DoC.l;
-DoC.fx=zD;
 
-else  Solve ToyProblem Using NLP minimizing Cost;
-zC = Cost.l;
-Cost.up=zC;
-*Solve ToyProblem Using NLP maximizing DoC;
-zD = DoC.l;
-DoC.lo=zD;
-*Solve ToyProblem Using NLP minimizing gwp;
-zG=gwp.l;
-gwp.fx=zG;
+Elseif (costC<0), Solve ToyProblem Using NLP minimizing cost;
+
+else  Solve ToyProblem Using NLP minimizing DoC1;
 );
 
 $ontext
@@ -478,7 +444,8 @@ mp_indicators.fx(l)=sum(k,C(l,k)*g.l(k));
 $offtext
 
 Display pchoiceitems.l,pchoicemass.l,wasteMgmtValues.l;
-Display DoC.l;
+Display DoC1.l;
+Display DoC2.l;
 Display Cost.l;
 Display s.l;
 Display aggWasteLossVal.l;
@@ -492,9 +459,11 @@ $if not set file $set file 0
 File pareto /pareto%file%.txt/;
 pareto.ap=1;
 pareto.nd=4;
+pareto.pw=32567;
 put pareto"";
 put Cost.l",";
-put DoC.l",";
+put DoC1.l",";
+put DoC2.l",";
 put totpdtmass.l",";
 loop(j$bagAmnts(j),put s.l(j)",");
 loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
@@ -585,12 +554,6 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *put /;
 *Display from;
 
-Display DoC1.l;
-Display DoC.l;
-Display gwp.l;
-Display cost.l;
-$onText
-
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
@@ -600,20 +563,14 @@ execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
-execute_unload 'losshotspot.gdx', losshotspot; 
-execute 'gdxdump losshotspot.gdx output=losshotspot.csv symb=losshotspot format=csv'
-execute 'rm scalingVector.gdx'
+*execute 'rm scalingVector.gdx'
 execute 'python initialGuessSV.py'
 execute 'python hotspotFinder.py scalingVector.csv'
-execute 'python circularityHotspotFinder.py scalingVector.csv'
 execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
 execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
-execute 'mv circularityfig.png ./%file%/circularityhotspot_%fileS%.png'
-execute 'mv circularityfig.svg ./%file%/circularityhotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'
-$offText
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
