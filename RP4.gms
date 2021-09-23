@@ -234,13 +234,19 @@ lossCompost.lo=0;
 loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*offsetCostInput('E96'))=e=((s('P117')+s('P104'))+s('P105'))*907.18*(((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*offsetCostInput('E96'))-costBenifitCompost);
 *loss_c.. lossCompost=e=(s('P105')+s('P104'))*907.18;
 
+binary variable epsilons(i,j);
+
 *s.fx('P113')=0;
 s.fx('P89')=0;
 *s.fx('P115')=0;
 *s.fx('P92')=0;
 *s.fx('P85')=0;
 *s.fx('P86')=0;
-processLCA(i).. f(i)=e=sum(j,techMat(i,j)*s(j));
+processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+0.1*epsilons(i,j))*s(j));
+
+equation eqMaxFreq;
+eqMaxFreq.. sum(i,sum(j,epsilons(i,j)))=l=3;
+
 
 **************************************Objectives************************************************
 
@@ -290,8 +296,8 @@ equation dumm;
 variable dum;
 dumm.. dum=e=10;
 	Model ToyProblem /ALL/;
-	Option NLP=BARON;
-	Solve ToyProblem using NLP maximizing dum; 
+	Option MINLP=BARON;
+	Solve ToyProblem using MINLP maximizing dum; 
 $offtext
 
 variable pchoicemass(j);
@@ -362,7 +368,7 @@ variable epsObj;
 eps1.. epsObj=e=DoC+eps*(slack1+slack2);
 
     Model ToyProblem /ALL/;
-	Option NLP=BARON;
+	Option MINLP=BARON;
 $onecho > baron.opt
 DoLocal 0
 NumLoc 0
@@ -375,36 +381,37 @@ parameter zD,zG,zC;
 *******************************************Objectives**********************************************
 DoC.lo=0;
 DoC.up=2;
-If(docC<0, Solve ToyProblem Using NLP maximizing DoC; 
+
+If(docC<0, Solve ToyProblem Using MINLP maximizing DoC; 
 zD = DoC.l;
 DoC.lo=zD;
 zG = gwp.l;
 gwp.l=zG;
-*Solve ToyProblem Using NLP minimizing gwp;
+*Solve ToyProblem Using MINLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
+*Solve ToyProblem Using MINLP minimizing Cost;
 zC=cost.l;
 cost.up=zC;
 
 
-Elseif (gwpC<0), Solve ToyProblem Using NLP minimizing gwp;
+Elseif (gwpC<0), Solve ToyProblem Using MINLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
+*Solve ToyProblem Using MINLP minimizing Cost;
 zC=Cost.l;
 Cost.up=zC;
-*Solve ToyProblem Using NLP maximizing DoC;
+*Solve ToyProblem Using MINLP maximizing DoC;
 zD = DoC.l;
 DoC.fx=zD;
 
-else  Solve ToyProblem Using NLP minimizing Cost;
+else  Solve ToyProblem Using MINLP minimizing Cost;
 zC = Cost.l;
 Cost.up=zC;
-*Solve ToyProblem Using NLP maximizing DoC;
+*Solve ToyProblem Using MINLP maximizing DoC;
 zD = DoC.l;
 DoC.lo=zD;
-*Solve ToyProblem Using NLP minimizing gwp;
+*Solve ToyProblem Using MINLP minimizing gwp;
 zG=gwp.l;
 gwp.fx=zG;
 );
@@ -440,6 +447,8 @@ Display g.l;
 Display cbc2.l,costBenifitCompost.l,lossCompost.l,lossIncineration.l,lossBiofuel.l,lossLandfill.l;
 Display productionCostResin.l;
 Display mp_indicators.l;
+
+
 
 $if not set file $set file 0
 
