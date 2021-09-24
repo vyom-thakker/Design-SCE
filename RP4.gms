@@ -235,6 +235,10 @@ loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*off
 *loss_c.. lossCompost=e=(s('P105')+s('P104'))*907.18;
 
 binary variable epsilons(i,j);
+epsilons.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
+epsilons.fx(i,j)$(A(i,j)=0)=0;
+
+
 
 *s.fx('P113')=0;
 s.fx('P89')=0;
@@ -245,7 +249,7 @@ s.fx('P89')=0;
 processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+0.1*epsilons(i,j))*s(j));
 
 equation eqMaxFreq;
-eqMaxFreq.. sum(i,sum(j,epsilons(i,j)))=l=3;
+eqMaxFreq.. sum(i,sum(j,epsilons(i,j)))=l=30;
 
 
 **************************************Objectives************************************************
@@ -552,13 +556,13 @@ execute_unload 'Sankey_%fileS%.gdx', cD,from;
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
 execute 'sh removeUndf.sh Sankey_%fileS%.csv'
-execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
+execute 'python3 finalJSConstructor.py Sankey_%fileS%.csv'
 execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
 *execute 'rm scalingVector.gdx'
-execute 'python hotspotFinder.py scalingVector.csv'
+execute 'python3 hotspotFinder.py scalingVector.csv'
 execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
 execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
