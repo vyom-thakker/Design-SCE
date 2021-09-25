@@ -238,6 +238,8 @@ binary variable epsilons(i,j);
 epsilons.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
 epsilons.fx(i,j)$(A(i,j)=0)=0;
 
+$if not set limEpsilon $set limEpsilon 5
+$if not set delta $set delta 0.1
 
 
 *s.fx('P113')=0;
@@ -246,10 +248,10 @@ s.fx('P89')=0;
 *s.fx('P92')=0;
 *s.fx('P85')=0;
 *s.fx('P86')=0;
-processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+0.1*epsilons(i,j))*s(j));
+processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+%delta%*epsilons(i,j))*s(j));
 
 equation eqMaxFreq;
-eqMaxFreq.. sum(i,sum(j,epsilons(i,j)))=l=30;
+eqMaxFreq.. sum(i,sum(j,epsilons(i,j)))=l=%limEpsilon%;
 
 
 **************************************Objectives************************************************
@@ -373,10 +375,13 @@ eps1.. epsObj=e=DoC+eps*(slack1+slack2);
 
     Model ToyProblem /ALL/;
 	Option MINLP=BARON;
+
 $onecho > baron.opt
 DoLocal 0
 NumLoc 0
 $offecho
+
+
 *	ToyProblem.OptFile=1;
 *	Option limrow=120;
 *    Option resLim=5000;
@@ -553,11 +558,14 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *Display from;
 
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
+execute_unload 'epsilons_%fileS%.gdx', epsilons; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
+execute 'gdxdump epsilons_%fileS%.gdx output=epsilons_%fileS%.csv symb=epsilons format=csv'
 execute 'rm Sankey_%fileS%.gdx'
 execute 'sh removeUndf.sh Sankey_%fileS%.csv'
 execute 'python3 finalJSConstructor.py Sankey_%fileS%.csv'
 execute 'mv Sankey_%fileS%.* ./%file%/'
+execute 'mv epsilons_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
