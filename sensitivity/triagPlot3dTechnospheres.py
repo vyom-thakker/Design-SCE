@@ -31,7 +31,7 @@ triang = mtri.Triangulation(x, y)
 ax.plot_trisurf(triang, z, color='blue', alpha=0.5 )
 ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
 
-ax.view_init(elev=60, azim=-45)
+#ax.view_init(elev=60, azim=-45)
 
 data=pd.read_csv("pareto"+sys.argv[3]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
@@ -46,7 +46,7 @@ triang = mtri.Triangulation(x, y)
 ax.plot_trisurf(triang, z, color='red', alpha=0.5 )
 ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
 
-ax.view_init(elev=60, azim=-45)
+#ax.view_init(elev=60, azim=-45)
 
 
 ax.set_xlabel('Life Cycle Cost\n ($/house-yr)',labelpad=20,rotation=0)
