@@ -7,9 +7,9 @@ from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
 import sys
 
-font = {'family':'sans-serif','weight':'bold','size':12};
+#font = {'family':'sans-serif','weight':'bold','size':12};
 
-matplotlib.rc('font',**font);
+#matplotlib.rc('font',**font);
 
 
 fig = plt.figure()
@@ -29,7 +29,7 @@ triang = mtri.Triangulation(x, y)
 
 
 ax.plot_trisurf(triang, z, color='blue', alpha=0.5 )
-ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
+ax.scatter(x,y,z, marker='.', s=12, c="black", alpha=0.7)
 
 #ax.view_init(elev=60, azim=-45)
 
@@ -44,7 +44,7 @@ triang = mtri.Triangulation(x, y)
 
 
 ax.plot_trisurf(triang, z, color='red', alpha=0.5 )
-ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
+ax.scatter(x,y,z, marker='.', s=12, c="black", alpha=0.7)
 
 #ax.view_init(elev=60, azim=-45)
 
