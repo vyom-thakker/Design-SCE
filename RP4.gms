@@ -32,7 +32,7 @@ A(ecoinventI,'P80')=0;
 $GDXIN intMatrix5.gdx
 $LOAD B
 $GDXIN
-B(k,j) = round(B(k,j), 6);
+B(k,j) = round(B(k,j), 4);
 
 $GDXIN CharacFactors3.gdx
 $LOAD C
@@ -110,14 +110,16 @@ variables
 	f(i) final demand;	
 
 s.l(j)=0;
+$onText
 
 *type of bags
 *s.fx('P82')=0;
-s.fx('P83')=0;
-s.fx('P84')=0;
-s.fx('P85')=0;
-s.fx('P86')=0;
+*s.fx('P83')=0;
+*s.fx('P84')=0;
+*s.fx('P85')=0;
+*s.fx('P86')=0;
 
+$offText
 set paperJ(j) /P131*P137/;
 A(i,paperJ)=0;
 s.fx('P131')=0;
@@ -234,9 +236,13 @@ lossCompost.lo=0;
 loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*offsetCostInput('E96'))=e=((s('P117')+s('P104'))+s('P105'))*907.18*(((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*offsetCostInput('E96'))-costBenifitCompost);
 *loss_c.. lossCompost=e=(s('P105')+s('P104'))*907.18;
 
-binary variable epsilons(i,j);
-epsilons.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
-epsilons.fx(i,j)$(A(i,j)=0)=0;
+binary variable epsilons1(i,j);
+epsilons1.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
+epsilons1.fx(i,j)$(A(i,j)=0)=0;
+
+binary variable epsilons2(i,j);
+epsilons2.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
+epsilons2.fx(i,j)$(A(i,j)=0)=0;
 
 $if not set limEpsilon $set limEpsilon 5
 $if not set delta $set delta 0.1
@@ -248,10 +254,10 @@ s.fx('P89')=0;
 *s.fx('P92')=0;
 *s.fx('P85')=0;
 *s.fx('P86')=0;
-processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+%delta%*epsilons(i,j))*s(j));
+processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+%delta%*epsilons1(i,j)-%delta%*epsilons2(i,j))*s(j));
 
 equation eqMaxFreq;
-eqMaxFreq.. sum(i,sum(j,epsilons(i,j)))=l=%limEpsilon%;
+eqMaxFreq.. sum(i,sum(j,epsilons1(i,j)+epsilons2(i,j)))=l=%limEpsilon%;
 
 
 **************************************Objectives************************************************
@@ -389,7 +395,7 @@ $offecho
 parameter zD,zG,zC;
 *******************************************Objectives**********************************************
 DoC.lo=0;
-DoC.up=2;
+*DoC.up=2;
 
 If(docC<0, Solve ToyProblem Using MINLP maximizing DoC; 
 zD = DoC.l;
@@ -556,6 +562,9 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *loop(from, loop(to, put cd.l(from,to)); put /;);
 *put /;
 *Display from;
+
+parameter epsilons(i,j);
+epsilons(i,j)=epsilons1.l(i,j)+epsilons2.l(i,j);
 
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute_unload 'epsilons_%fileS%.gdx', epsilons; 
