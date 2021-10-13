@@ -1,7 +1,7 @@
 ** new matrix, for max recycled content in bags
 
 sets
-	i substances /E1*E131/
+	i substances /E1*E132/
 	j activities /P1*P137/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
@@ -28,6 +28,9 @@ set ecoinventI(i) /E1*E77/;
 A(ecoinventI,'P131')=0;
 A(ecoinventI,'P133')=0;
 A(ecoinventI,'P80')=0;
+
+
+A('E132',j)=0;
 
 $GDXIN intMatrix5.gdx
 $LOAD B
@@ -85,7 +88,6 @@ $if not set q13 $set q13 1
 $if not set q14 $set q14 1
 $if not set q15 $set q15 1
 $if not set q16 $set q16 1
-
 $if not set rL $set rL 10
 $if not set rpp $set rpp 20
 $if not set rpla $set rpla 1
@@ -95,22 +97,30 @@ parameter
 	bagVolumesJ(j) volume /P81 13.75, P82 [29.3*%rL%], P83 [43.3*%rpp%], P84 [14*%rpla%], P134 22.5/;
 
 
-A('E88','P81')=bagVolumes('P81')*131.23;
-A('E88','P82')=bagVolumes('P82')*23.15;
-A('E88','P83')=bagVolumes('P83')*4.425;
-A('E88','P84')=bagVolumes('P84')*83.33;
+A('E88','P81')=bagVolumesJ('P81')*131.23;
+A('E88','P82')=bagVolumesJ('P82')*23.15;
+A('E88','P83')=bagVolumesJ('P83')*4.425;
+A('E88','P84')=bagVolumesJ('P84')*83.33;
 A('E88','P85')=14*125;
-A('E88','P134')=bagVolumes('P134')*1;
+A('E88','P134')=bagVolumesJ('P134')*1;
+
+A(i,j)$Hcon(i,j)=0;
+A('E88','P87')=-3878;
 
 
 parameter 
 	bagVolumes(i) volume /E84 13.75, E85 [29.3*%rL%], E86 [43.3*%rpp%], E87 [14*%rpla%], E88 14, E127 22.5/
 	stockAttributes(bagAmnts) wt of bags;
 
+set oneVarOnly(i,j) /E89.P87/;
+
+
 variable techMat(i,j);
-techMat.fx(i,j)$ (ij(i,j)-HCon(i,j)-SWast(i,j))=A(i,j);
-techMat.l(i,j)$(HCon(i,j)+SWast(i,j))=A(i,j);
-techMat.up(i,j)$HCon(i,j)=0;
+techMat.fx(i,j)$ (ij(i,j)-oneVarOnly(i,j)-SWast(i,j))=A(i,j);
+*techMat.l(i,j)$(HCon(i,j)+SWast(i,j))=A(i,j);
+*techMat.up(i,j)$HCon(i,j)=0;
+
+
 
 $ontext
 techMat.fx('E97','P92')=0;
@@ -151,13 +161,13 @@ equations
 	
 	processLCA fundamental equation
 	zeroIntermediates(i) 
-	homeDemand(homes) home demand constraint
 	stockEqns percent stock constraint;
 
+*homeDemand(homes) home demand constraint
 
     
     zeroIntermediates(i) $ intermediates(i).. f(i)=e=0;
-	homeDemand(homes(j))..-3878=e=sum(i $ supplies(i), techMat(i,j)*s(j)*bagVolumes(i)*0.8);  
+*homeDemand(homes(j))..-3878=e=sum(i $ supplies(i), techMat(i,j)*s(j)*bagVolumes(i)*0.8);  
 	stockEqns.. sum(j$homes(j),s(j)*(1+techMat('E97',j)))=e=sum(j $ bagAmnts(j), s(j)); 
 
 

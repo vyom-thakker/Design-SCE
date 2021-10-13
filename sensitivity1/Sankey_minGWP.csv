@@ -91,7 +91,7 @@
 "LDPE","PP",0
 "LDPE","PLA",0
 "LDPE","Paper",0
-"LDPE","Households",0.6497
+"LDPE","Households",0.7147
 "LDPE","Curbside Collection",0
 "LDPE","Dropoff",0
 "LDPE","Segregation",0
@@ -176,7 +176,7 @@
 "Households","PLA",0
 "Households","Paper",0
 "Households","Households",0
-"Households","Curbside Collection",0.5726
+"Households","Curbside Collection",0.6299
 "Households","Dropoff",0
 "Households","Segregation",0
 "Households","rHDPE",0
@@ -187,7 +187,7 @@
 "Households","Compost",0
 "Households","Clinker",0
 "Households","Lumber",0
-"Households","Losses",0.0771
+"Households","Losses",0.0848
 "Curbside Collection","Pyrolysis",0
 "Curbside Collection","Landfill",0
 "Curbside Collection","Incineration",0
@@ -199,7 +199,7 @@
 "Curbside Collection","Households",0
 "Curbside Collection","Curbside Collection",0
 "Curbside Collection","Dropoff",0
-"Curbside Collection","Segregation",0.5221
+"Curbside Collection","Segregation",0.6317
 "Curbside Collection","rHDPE",0
 "Curbside Collection","rLDPE",0
 "Curbside Collection","rPP",0
@@ -208,7 +208,7 @@
 "Curbside Collection","Compost",0
 "Curbside Collection","Clinker",0
 "Curbside Collection","Lumber",0
-"Curbside Collection","Losses",0.0461
+"Curbside Collection","Losses",0.0507
 "Dropoff","Pyrolysis",0
 "Dropoff","Landfill",0
 "Dropoff","Incineration",0
@@ -231,7 +231,7 @@
 "Dropoff","Lumber",0
 "Dropoff","Losses",0
 "Segregation","Pyrolysis",0
-"Segregation","Landfill",0.0921
+"Segregation","Landfill",0.1115
 "Segregation","Incineration",0
 "Segregation","HDPE",0
 "Segregation","LDPE",0
@@ -243,7 +243,7 @@
 "Segregation","Dropoff",0
 "Segregation","Segregation",0
 "Segregation","rHDPE",0
-"Segregation","rLDPE",0.4777
+"Segregation","rLDPE",0.578
 "Segregation","rPP",0
 "Segregation","rPLA",0
 "Segregation","rPaper",0
@@ -276,7 +276,7 @@
 "rLDPE","Landfill",0
 "rLDPE","Incineration",0
 "rLDPE","HDPE",0
-"rLDPE","LDPE",0.2627
+"rLDPE","LDPE",0.3179
 "rLDPE","PP",0
 "rLDPE","PLA",0
 "rLDPE","Paper",0
@@ -291,8 +291,8 @@
 "rLDPE","rPaper",0
 "rLDPE","Compost",0
 "rLDPE","Clinker",0
-"rLDPE","Lumber",0.1624
-"rLDPE","Losses",0.0525
+"rLDPE","Lumber",0.2184
+"rLDPE","Losses",0.0636
 "rPP","Pyrolysis",0
 "rPP","Landfill",0
 "rPP","Incineration",0

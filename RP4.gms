@@ -113,13 +113,13 @@ s.l(j)=0;
 $onText
 
 *type of bags
-*s.fx('P82')=0;
-*s.fx('P83')=0;
-*s.fx('P84')=0;
-*s.fx('P85')=0;
-*s.fx('P86')=0;
-
+s.fx('P83')=0;
+s.fx('P82')=0;
+s.fx('P84')=0;
+s.fx('P85')=0;
+s.fx('P86')=0;
 $offText
+
 set paperJ(j) /P131*P137/;
 A(i,paperJ)=0;
 s.fx('P131')=0;
@@ -254,6 +254,10 @@ s.fx('P89')=0;
 *s.fx('P92')=0;
 *s.fx('P85')=0;
 *s.fx('P86')=0;
+set restrictEpsilons(j) /P81*P87,P92/;
+epsilons1.fx(i,j)$restrictEpsilons(j)=0;
+epsilons2.fx(i,j)$restrictEpsilons(j)=0;
+
 processLCA(i).. f(i)=e=sum(j,techMat(i,j)*(1+%delta%*epsilons1(i,j)-%delta%*epsilons2(i,j))*s(j));
 
 equation eqMaxFreq;
@@ -265,7 +269,7 @@ eqMaxFreq.. sum(i,sum(j,epsilons1(i,j)+epsilons2(i,j)))=l=%limEpsilon%;
 variables DoC,Cost;
 equations DoC_obj,Cost_obj;
 	DoC.lo=0;
-*	DoC.up=1;
+	DoC.up=1;
 
 set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
 parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
