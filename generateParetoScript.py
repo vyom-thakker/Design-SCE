@@ -30,7 +30,7 @@ k=1;
 for x in X[0]:
     for y in Y:
         #commands.extend("gams RP"+di+".gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file parmfile=moreOptions.txt \n");
-        commands.extend("gams RP"+di+".gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file --fileS="+str(k)+" \n");
+        commands.extend("gams RP"+di+"-new.gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file --fileS="+str(k)+" \n");
         k=k+1;
 
 

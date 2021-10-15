@@ -1,15 +1,16 @@
 ** new matrix, for max recycled content in bags
 
 sets
-	i substances /E1*E132/
-	j activities /P1*P137/
+	i substances /E1*E134/
+	j activities /P1*P143/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
 	losses(i) /E97/
-	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128/
+	intermediates(i) /E1*E77,E78*E82,E89,E91*E96,E107,E113,E115,E117*E122,E124*E126,E128,E132,E133/
 	homes(j) homesubsets /P87/
 	supplies(i) bagsperhome /E84*E88,E127/
 	sortedStuff(i) sortedbagsweights /E92*E96,E128/
+	sortedStuffJ(j) sortedbagsweights /P138*P143/
 	unextrudedAmnts(j) bagspermake /P77*P81,P132/
     bagAmnts(j) extruded plastic /P82*P86,P132/;
 
@@ -31,6 +32,22 @@ A(ecoinventI,'P80')=0;
 
 
 A('E132',j)=0;
+A('E132',j)$bagAmnts(j)=1;
+A('E132','P87')=-1;
+
+
+A('E132',j)=0;
+A('E133','P92')=-1;
+A('E133',j)$sortedstuffJ(j)=1;
+
+A('E92','P138')=1;
+A('E93','P139')=1;
+A('E94','P140')=1;
+A('E95','P141')=1;
+A('E96','P142')=1;
+A('E128','P143')=1;
+
+
 
 $GDXIN intMatrix5.gdx
 $LOAD B
@@ -68,7 +85,7 @@ C(l,k) = round(C(l,k), 2);
 *A('E119','P95')=0.0;
 *A('E120','P96')=0.0;
 *A('E121','P96')=0.0;
-A('E127','P87')=-10;
+*A('E127','P87')=-10;
 *A('E126','P134')=0;
 
 
@@ -97,28 +114,31 @@ parameter
 	bagVolumesJ(j) volume /P81 13.75, P82 [29.3*%rL%], P83 [43.3*%rpp%], P84 [14*%rpla%], P134 22.5/;
 
 
-A('E88','P81')=bagVolumesJ('P81')*131.23;
-A('E88','P82')=bagVolumesJ('P82')*23.15;
-A('E88','P83')=bagVolumesJ('P83')*4.425;
-A('E88','P84')=bagVolumesJ('P84')*83.33;
-A('E88','P85')=14*125;
-A('E88','P134')=bagVolumesJ('P134')*1;
+A('E134','P81')=bagVolumesJ('P81')*131.23;
+A('E134','P82')=bagVolumesJ('P82')*23.15;
+A('E134','P83')=bagVolumesJ('P83')*4.425;
+A('E134','P84')=bagVolumesJ('P84')*83.33;
+A('E134','P85')=14*125;
+A('E134','P134')=bagVolumesJ('P134')*1;
 
 A(i,j)$Hcon(i,j)=0;
-A('E88','P87')=-3878;
+A(i,j)$Swast(i,j)=0;
+*A('E88','P87')=-3878;
 
 
 parameter 
 	bagVolumes(i) volume /E84 13.75, E85 [29.3*%rL%], E86 [43.3*%rpp%], E87 [14*%rpla%], E88 14, E127 22.5/
 	stockAttributes(bagAmnts) wt of bags;
 
-set oneVarOnly(i,j) /E89.P87/;
 
-
-variable techMat(i,j);
-techMat.fx(i,j)$ (ij(i,j)-oneVarOnly(i,j)-SWast(i,j))=A(i,j);
+*variable techMat(i,j);
+*techMat.fx(i,j)=A(i,j);
 *techMat.l(i,j)$(HCon(i,j)+SWast(i,j))=A(i,j);
 *techMat.up(i,j)$HCon(i,j)=0;
+
+parameter techMat(i,j);
+
+techMat(i,j)=A(i,j);
 
 
 
@@ -134,6 +154,12 @@ variables
 	f(i) final demand;	
 
 s.l(j)=0;
+s.lo(j)=0;
+s.up(j)=50;
+*f.lo(i)=0;
+*f.up(i)=4000;
+
+
 $onText
 
 *type of bags
@@ -166,10 +192,11 @@ equations
 *homeDemand(homes) home demand constraint
 
     
-    zeroIntermediates(i) $ intermediates(i).. f(i)=e=0;
+    zeroIntermediates(i) $ (intermediates(i)).. f(i)=e=0;
 *homeDemand(homes(j))..-3878=e=sum(i $ supplies(i), techMat(i,j)*s(j)*bagVolumes(i)*0.8);  
 	stockEqns.. sum(j$homes(j),s(j)*(1+techMat('E97',j)))=e=sum(j $ bagAmnts(j), s(j)); 
 
+f.fx('E134')=3878;
 
 *equation wasteall;
 
@@ -180,19 +207,19 @@ equations
 *****************************Downstream equations**************************
 *sorting
 equations eqs1,eqs2,eqs3,eqs4,eqs5,eqs6,eqs7;
-techMat.up(i,'P92')$sortedStuff(i)=1;
-techMat.lo(i,'P92')$sortedStuff(i)=0;
-eqs1.. techMat('E92','P92')*sum(j$bagAmnts(j), s(j))=e=s('P82')*(1-techMat('E97','P92'));
-eqs2.. techMat('E93','P92')*sum(j$bagAmnts(j), s(j))=e=s('P83')*(1-techMat('E97','P92'));
-eqs3.. techMat('E94','P92')*sum(j$bagAmnts(j), s(j))=e=s('P84')*(1-techMat('E97','P92'));
-eqs4.. techMat('E95','P92')*sum(j$bagAmnts(j), s(j))=e=s('P85')*(1-techMat('E97','P92'));
-eqs5.. techMat('E96','P92')*sum(j$bagAmnts(j), s(j))=e=s('P86')*(1-techMat('E97','P92'));
-eqs6.. techMat('E128','P92')*sum(j$bagAmnts(j), s(j))=e=s('P132')*(1-techMat('E97','P92'));
+eqs1.. s('P138')*sum(j$bagAmnts(j), s(j))=e=s('P82')*(1-techMat('E97','P92'))*s('P92');
+eqs2.. s('P138')*sum(j$bagAmnts(j), s(j))=e=s('P83')*(1-techMat('E97','P92'))*s('P92');
+eqs3.. s('P138')*sum(j$bagAmnts(j), s(j))=e=s('P84')*(1-techMat('E97','P92'))*s('P92');
+eqs4.. s('P138')*sum(j$bagAmnts(j), s(j))=e=s('P85')*(1-techMat('E97','P92'))*s('P92');
+eqs5.. s('P138')*sum(j$bagAmnts(j), s(j))=e=s('P86')*(1-techMat('E97','P92'))*s('P92');
+eqs6.. s('P138')*sum(j$bagAmnts(j), s(j))=e=s('P132')*(1-techMat('E97','P92'))*s('P92');
 eqs7..907.18*s('P106')=e=5*s('P92')*(1-techMat('E97','P92'));
 
-variable pchoiceitems(i);
-equation eqnPchoiceitems(i);
-eqnPchoiceitems(i)$supplies(i).. pchoiceitems(i)=e=techMat(i,'P87')*s('P87');
+variable pchoiceitems(j);
+equation eqnPchoiceitems(j);
+set bags(j) /P82*P86,P134/;
+eqnPchoiceitems(j)$bags(j).. pchoiceitems(j)=e=sum(i$supplies(i),techMat(i,j)*s(j));
+
 
 
 *normalized cost
@@ -202,7 +229,7 @@ set bagRatioProduction(i) /E92*E96,E128/;
 parameter offsetCostInput(i) /E92 [800*%q1%],E93 [990*%q2%],E94 [1080*%q3%],E95 [1240*%q4%],E96 2500,E128 [445*%q5%]/;
 costInput.. normalizedcostinput=e=sum(i$bagRatioProduction(i),techMat(i,'P92')*offsetCostInput(i)/(0.99));
 
-variable productionCostResin;
+positive variable productionCostResin;
 equation pdtcost;
 pdtcost.. productionCostResin=e=(normalizedCostInput*sum(j$unextrudedAmnts(j), s(j))/907.18)+sum(j$bagAmnts(j),s(j)*0.05);
 
@@ -261,16 +288,19 @@ loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*off
 *loss_c.. lossCompost=e=(s('P105')+s('P104'))*907.18;
 
 binary variable epsilons1(i,j);
-epsilons1.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
+*epsilons1.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
 epsilons1.fx(i,j)$(A(i,j)=0)=0;
 
 binary variable epsilons2(i,j);
-epsilons2.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
+*epsilons2.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
 epsilons2.fx(i,j)$(A(i,j)=0)=0;
 
 $if not set limEpsilon $set limEpsilon 5
 $if not set delta $set delta 0.1
 
+set restrictEpsilons(j) /P1*P80/;
+epsilons1.fx(i,j)$restrictEpsilons(j)=0;
+epsilons2.fx(i,j)$restrictEpsilons(j)=0;
 
 *s.fx('P113')=0;
 s.fx('P89')=0;
@@ -288,8 +318,8 @@ eqMaxFreq.. sum(i,sum(j,epsilons1(i,j)+epsilons2(i,j)))=l=%limEpsilon%;
 
 variables DoC,Cost;
 equations DoC_obj,Cost_obj;
-	DoC.lo=0;
-*	DoC.up=1;
+*DoC.lo=0.55;
+*DoC.up=1.2;
 
 set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
 parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
@@ -298,18 +328,27 @@ parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.1299
 
 variable CostBag;
 equation Cost_obj1;
-parameter cost_bags(i) /E84 0.11, E85 0.18, E86 0.6, E87 0.14, E88 0.1/;
-Cost_obj1.. CostBag=e=sum(i$supplies(i),-1*pchoiceitems(i)*cost_bags(i));
+parameter cost_bags(j) /P82 0.11, P83 0.18, P84 0.6, P85 0.14, P86 0.1, P134 0.2/;
+Cost_obj1.. CostBag=e=sum(j$bags(j),-1*pchoiceitems(j)*cost_bags(j));
 
 
 
 
-variable costRecycled;
+positive variable costRecycled;
 equation costRecycled1;
 costRecycled1.. costRecycled*0.90718=e=A('E81','P96')*s('P96')*[1.24*%q9%]+A('E80','P95')*s('P95')*[1.08*%q8%]+A('E79','P93')*s('P93')*[0.9*%q6%]+A('E78','P94')*s('P94')*[0.99*%q7%]+A('E129','P135')*s('P135')*[0.445*%q10%];
 
 variable costIn,costPy,costCl,costLu;
 equation costIn1,costPy1,costCl1,costLu1;
+
+equation manufacturedPositive;
+manufacturedPositive.. productionCostResin+costRecycled=g=0;
+
+productionCostResin.up=10;
+productionCostResin.lo=0;
+costRecycled.up=10;
+costRecycled.lo=0;
+
 
 costIn1.. costIn=e=sum(j$ifill_indices(j),s(j)*techMat('E107',j)*elecCost/360)+sum(j$ifill_indices_new(j),s(j)*techMat('E107',j)*elecCost/360);
 costPy1.. costPy=e=s('P116')*biofuelCost;
@@ -350,6 +389,8 @@ eqw1.. wasteMgmtValues('Reprocess')=e=s('P92')*(1-techMat('E97','p92'));
 eqw2.. wasteMgmtValues('Pyrolysis')=e=(s('P115')*((-1)*techMat('E91','P115')-techMat('E97','P115')));
 eqw3.. wasteMgmtValues('Landfill')=e=(sum(j$lfill_indices(j), s(j)*(907.18-techMat('E97',j))))+(s('P113')*907.18)-(s('P114')*45);
 eqw4.. wasteMgmtValues('Incineration')=e=sum(j$ifill_indices(j), s(j)*(907.18-techMat('E97',j)))+sum(j$ifill_indices_new(j), s(j)*(907.18-techMat('E97',j)));
+
+
 
 
 variable g(k);
@@ -411,6 +452,9 @@ DoLocal 0
 NumLoc 0
 $offecho
 
+variable dummy;
+equation dummyeq;
+dummyeq.. dummy=e=10;
 
 *	ToyProblem.OptFile=1;
 *	Option limrow=120;
@@ -444,7 +488,7 @@ Cost.up=zC;
 zD = DoC.l;
 DoC.fx=zD;
 
-else  Solve ToyProblem Using MINLP minimizing Cost;
+else Solve ToyProblem Using MINLP minimizing Cost;
 zC = Cost.l;
 Cost.up=zC;
 *Solve ToyProblem Using MINLP maximizing DoC;
@@ -514,27 +558,27 @@ cd.fx('LDPE','Households')=s.l('P83');
 cd.fx('PP','Households')=s.l('P84');
 cd.fx('PLA','Households')=s.l('P85');
 cd.fx('Paper','Households')=s.l('P132');
-cd.fx('Households','losses')=s.l('P87')*techMat.l('E97','P87')+s.l('P88');
-cd.fx('Households','Curbside Collection')=-1*s.l('P90')*techMat.l('E89','P90');
-cd.fx('Households','Dropoff')=s.l('P91')*(-1)*techMat.l('E89','P91');
-cd.fx('Curbside Collection','losses')=s.l('P90')*techMat.l('E97','P90');
-cd.fx('Dropoff','losses')=s.l('P91')*techMat.l('E97','P91');
+cd.fx('Households','losses')=s.l('P87')*techMat('E97','P87')+s.l('P88');
+cd.fx('Households','Curbside Collection')=-1*s.l('P90')*techMat('E89','P90');
+cd.fx('Households','Dropoff')=s.l('P91')*(-1)*techMat('E89','P91');
+cd.fx('Curbside Collection','losses')=s.l('P90')*techMat('E97','P90');
+cd.fx('Dropoff','losses')=s.l('P91')*techMat('E97','P91');
 cd.fx('Curbside Collection','Segregation')=s.l('P90')*s.l('P92')/(s.l('P90')+s.l('P91'));
 cd.fx('Dropoff','Segregation')=s.l('P91')*s.l('P92')/(s.l('P90')+s.l('P91'));
 set repr_lfill(j) /P92*P97/;
-cd.fx('Segregation','Landfill')=s.l('P92')*techMat.l('E97','P92')+sum(j$repr_lfill(j),s.l(j)*techMat.l('E113',j));
+cd.fx('Segregation','Landfill')=s.l('P92')*techMat('E97','P92')+sum(j$repr_lfill(j),s.l(j)*techMat('E113',j));
 
-cd.fx('Curbside Collection','Landfill')=s.l('P90')*(sum(j$lfill_indices(j), s.l(j)*(907.18-techMat.l('E97',j))))/(s.l('P90')+s.l('P91'));
-cd.fx('Dropoff','Landfill')=s.l('P91')*(sum(j$lfill_indices(j), s.l(j)*(907.18-techMat.l('E97',j))))/(s.l('P90')+s.l('P91'));
+cd.fx('Curbside Collection','Landfill')=s.l('P90')*(sum(j$lfill_indices(j), s.l(j)*(907.18-techMat('E97',j))))/(s.l('P90')+s.l('P91'));
+cd.fx('Dropoff','Landfill')=s.l('P91')*(sum(j$lfill_indices(j), s.l(j)*(907.18-techMat('E97',j))))/(s.l('P90')+s.l('P91'));
 
-cd.fx('Curbside Collection','Incineration')=s.l('P90')*sum(j$ifill_indices(j), s.l(j)*(907.18-techMat.l('E97',j)))/(s.l('P90')+s.l('P91'));
-cd.fx('Dropoff','Incineration')=s.l('P91')*sum(j$ifill_indices(j), s.l(j)*(907.18-techMat.l('E97',j)))/(s.l('P90')+s.l('P91'));
-cd.fx('Incineration','Landfill')=sum(j$ifill_indices(j),s.l(j)*techMat.l('E113',j));
-cd.fx('Incineration','losses')=sum(j$ifill_indices(j),s.l(j)*techMat.l('E97',j));
+cd.fx('Curbside Collection','Incineration')=s.l('P90')*sum(j$ifill_indices(j), s.l(j)*(907.18-techMat('E97',j)))/(s.l('P90')+s.l('P91'));
+cd.fx('Dropoff','Incineration')=s.l('P91')*sum(j$ifill_indices(j), s.l(j)*(907.18-techMat('E97',j)))/(s.l('P90')+s.l('P91'));
+cd.fx('Incineration','Landfill')=sum(j$ifill_indices(j),s.l(j)*techMat('E113',j));
+cd.fx('Incineration','losses')=sum(j$ifill_indices(j),s.l(j)*techMat('E97',j));
 
-cd.fx('Curbside Collection','Pyrolysis')=s.l('P90')*(s.l('P115')*((-1)*techMat.l('E91','P115')-techMat.l('E97','P115')))/(s.l('P90')+s.l('P91'));
-cd.fx('Dropoff','Pyrolysis')=s.l('P91')*(s.l('P115')*((-1)*techMat.l('E91','P115')-techMat.l('E97','P115')))/(s.l('P90')+s.l('P91'));
-cd.fx('Pyrolysis','losses')=s.l('P115')*techMat.l('E97','P115');
+cd.fx('Curbside Collection','Pyrolysis')=s.l('P90')*(s.l('P115')*((-1)*techMat('E91','P115')-techMat('E97','P115')))/(s.l('P90')+s.l('P91'));
+cd.fx('Dropoff','Pyrolysis')=s.l('P91')*(s.l('P115')*((-1)*techMat('E91','P115')-techMat('E97','P115')))/(s.l('P90')+s.l('P91'));
+cd.fx('Pyrolysis','losses')=s.l('P115')*techMat('E97','P115');
 
 cd.fx('Segregation','rHDPE')=s.l('P93');
 cd.fx('Segregation','rLDPE')=s.l('P94');
@@ -542,36 +586,36 @@ cd.fx('Segregation','rPP')=s.l('P95');
 cd.fx('Segregation','rPLA')=s.l('P96');
 cd.fx('Segregation','rPaper')=s.l('P135');
 cd.fx('Segregation','Compost')=907.18*(s.l('P117')+s.l('P104')+s.l('P105'));
-cd.fx('Segregation','Incineration')=sum(j$ifill_indices(j), s.l(j)*(907.18-techMat.l('E97',j)));
+cd.fx('Segregation','Incineration')=sum(j$ifill_indices(j), s.l(j)*(907.18-techMat('E97',j)));
 
 
 
-cd.fx('rHDPE','HDPE')=s.l('P93')*techMat.l('E79','P93');
-cd.fx('rHDPE','Incineration')=s.l('P118')*(907.18-techMat.l('E79','P118'));
+cd.fx('rHDPE','HDPE')=s.l('P93')*techMat('E79','P93');
+cd.fx('rHDPE','Incineration')=s.l('P118')*(907.18-techMat('E79','P118'));
 cd.fx('rHDPE','Pyrolysis')=s.l('P122');
 cd.fx('rHDPE','Clinker')$(s.l('P129')>0 or s.l('P130')>0)=s.l('P126')*(s.l('P129')/(s.l('P129')+s.l('P130')));
 cd.fx('rHDPE','Lumber')$(s.l('P129')>0 or s.l('P130')>0)=s.l('P126')*(s.l('P130')/(s.l('P129')+s.l('P130')));
-cd.fx('rLDPE','LDPE')=s.l('P94')*techMat.l('E78','P94');
-cd.fx('rLDPE','Incineration')=s.l('P119')*(907.18-techMat.l('E79','P119'));
+cd.fx('rLDPE','LDPE')=s.l('P94')*techMat('E78','P94');
+cd.fx('rLDPE','Incineration')=s.l('P119')*(907.18-techMat('E79','P119'));
 cd.fx('rLDPE','Pyrolysis')=s.l('P123');
 cd.fx('rLDPE','Clinker')$(s.l('P129')>0 or s.l('P130')>0)=s.l('P127')*(s.l('P129')/(s.l('P129')+s.l('P130')));
 cd.fx('rLDPE','Lumber')$(s.l('P129')>0 or s.l('P130')>0)=s.l('P127')*(s.l('P130')/(s.l('P129')+s.l('P130')));
-cd.fx('rPP','PP')=s.l('P95')*techMat.l('E80','P95');
-cd.fx('rPP','Incineration')=s.l('P120')*(907.18-techMat.l('E79','P118'));
+cd.fx('rPP','PP')=s.l('P95')*techMat('E80','P95');
+cd.fx('rPP','Incineration')=s.l('P120')*(907.18-techMat('E79','P118'));
 cd.fx('rPP','Pyrolysis')=s.l('P124');
 cd.fx('rPP','Clinker')$(s.l('P129')>0 or s.l('P130')>0)=s.l('P128')*(s.l('P129')/(s.l('P129')+s.l('P130')));
 cd.fx('rPP','Lumber')$(s.l('P129')>0 or s.l('P130')>0)=s.l('P128')*(s.l('P130')/(s.l('P129')+s.l('P130')));
-cd.fx('rPLA','PLA')=s.l('P96')*techMat.l('E81','P96');
-cd.fx('rPLA','Incineration')=s.l('P121')*(907.18-techMat.l('E79','P118'));
+cd.fx('rPLA','PLA')=s.l('P96')*techMat('E81','P96');
+cd.fx('rPLA','Incineration')=s.l('P121')*(907.18-techMat('E79','P118'));
 cd.fx('rPLA','Pyrolysis')=s.l('P125');
 cd.fx('rPLA','Compost')=s.l('P117')*(907.18);
-cd.fx('rPaper','Paper')=s.l('P135')*techMat.l('E125','P135');
-cd.fx('rHDPE','Losses')=s.l('P93')*techMat.l('E97','P93');
-cd.fx('rLDPE','Losses')=s.l('P94')*techMat.l('E97','P94');
-cd.fx('rPP','Losses')=s.l('P95')*techMat.l('E97','P95');
-cd.fx('rPLA','Losses')=s.l('P96')*techMat.l('E97','P96');
-cd.fx('rPaper','Losses')=s.l('P135')*techMat.l('E97','P135');
-*cd.fx('Segregation','Landfill')=sum(j$repr_lfill(j),s.l(j)*techMat.l('E113',j));
+cd.fx('rPaper','Paper')=s.l('P135')*techMat('E125','P135');
+cd.fx('rHDPE','Losses')=s.l('P93')*techMat('E97','P93');
+cd.fx('rLDPE','Losses')=s.l('P94')*techMat('E97','P94');
+cd.fx('rPP','Losses')=s.l('P95')*techMat('E97','P95');
+cd.fx('rPLA','Losses')=s.l('P96')*techMat('E97','P96');
+cd.fx('rPaper','Losses')=s.l('P135')*techMat('E97','P135');
+*cd.fx('Segregation','Landfill')=sum(j$repr_lfill(j),s.l(j)*techMat('E113',j));
 
 cd.fx(from,to) = round(cd.l(from,to), 4);
 parameter recyclevalLDPE,recyclevalPLA,recyclevalPP,recyclevalHDPE;
