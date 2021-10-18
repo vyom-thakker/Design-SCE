@@ -182,8 +182,6 @@ s.lo(j)=0;
 *s.up(j)=50;
 *f.lo(i)=0;
 *f.up(i)=4000;
-s.fx('P85')=0;
-
 
 $onText
 
@@ -237,7 +235,7 @@ eqs3.. s('P140')*sum(j$bagAmnts(j),s(j))=e=s('P84')*sum(j$sortedStuffJ(j),s(j));
 eqs4.. s('P141')*sum(j$bagAmnts(j),s(j))=e=s('P85')*sum(j$sortedStuffJ(j),s(j));
 eqs5.. s('P142')*sum(j$bagAmnts(j),s(j))=e=s('P86')*sum(j$sortedStuffJ(j),s(j));
 eqs6.. s('P143')*sum(j$bagAmnts(j),s(j))=e=s('P132')*sum(j$sortedStuffJ(j),s(j));
-eqs7..907.18*s('P106')=e=5*s('P92')*(1-techMat('E97','P92'));
+eqs7..907.18*s('P106')=e=5*s('P92')*(1-techMat('E97','P92')*(1+%delta%*epsilons1('E97','P92')-%delta%*epsilons2('E97','P92')));
 
 $onText
 equations eqs1,eqs2,eqs3,eqs4,eqs5,eqs6,eqs7;
@@ -300,7 +298,7 @@ eqi7.. s('P114')=e=5*sum(j$ifill_indices(j), s(j));
 
 Scalar elecCost /[10*%q11%]/;
 
-loss_i.. lossIncineration=e=sum(j$ifill_indices(j),s(j)*907.18*(1-(((techMat('E107',j))*elecCost/360)/offsetCost(j))))+sum(j$ifill_indices_new(j),s(j)*907.18*(1-(((techMat('E107',j))*elecCost/360)/offsetCost_new(j))));
+loss_i.. lossIncineration=e=sum(j$ifill_indices(j),s(j)*907.18*(1-(((techMat('E107',j)*(1+%delta%*epsilons1('E107',j)-%delta%*epsilons2('E107',j)))*elecCost/360)/offsetCost(j))))+sum(j$ifill_indices_new(j),s(j)*907.18*(1-(((techMat('E107',j)*(1+%delta%*epsilons1('E107',j)-%delta%*epsilons2('E107',j)))*elecCost/360)/offsetCost_new(j))));
 
 *biofuel
 variable lossBioFuel;
@@ -310,15 +308,16 @@ set bio_new(j) /P122*P125/;
 loss_b.. lossBioFuel*normalizedCostInput=e=(((-1*s('P115')/techMat('E91','P115')+sum(j$bio_new(j),s(j)))*normalizedCostInput)-(s('P116')*biofuelCost));
 lossBioFuel.lo=0;
 
-
 *composting
-variable costBenifitCompost,cbc2, lossCompost;
-equation cost_c,cc2,loss_c;
+variable costBenifitCompost;
+*,cbc2, lossCompost;
+equation cost_c;
+*,cc2,loss_c;
 scalar compostCost /[0.030183*%q13%]/;
 cost_c.. costBenifitCompost=e=(s('P117')+s('P104')+s('P105'))*907.18*compostCost;
-cc2.. cbc2=e=s('P104')*offsetCostInput('P141')+s('P105')*offsetCostInput('P142');
-lossCompost.lo=0;
-loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('P141')+s('P105')*offsetCostInput('P142'))=e=((s('P117')+s('P104'))+s('P105'))*907.18*(((s('P117')+s('P104'))*offsetCostInput('P141')+s('P105')*offsetCostInput('P142'))-costBenifitCompost);
+*cc2.. cbc2=e=s('P104')*offsetCostInput('P141')+s('P105')*offsetCostInput('P142');
+*lossCompost.lo=0;
+*loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('P141')+s('P105')*offsetCostInput('P142'))=e=((s('P117')+s('P104'))+s('P105'))*907.18*(((s('P117')+s('P104'))*offsetCostInput('P141')+s('P105')*offsetCostInput('P142'))-costBenifitCompost);
 *loss_c.. lossCompost=e=(s('P105')+s('P104'))*907.18;
 
 
@@ -371,7 +370,7 @@ manufacturedPositive.. productionCostResin+costRecycled=g=0;
 
 
 
-costIn1.. costIn=e=sum(j$ifill_indices(j),s(j)*techMat('E107',j)*elecCost/360)+sum(j$ifill_indices_new(j),s(j)*techMat('E107',j)*elecCost/360);
+costIn1.. costIn=e=sum(j$ifill_indices(j),s(j)*techMat('E107',j)*(1+%delta%*epsilons1('E107',j)-%delta%*epsilons2('E107',j))*elecCost/360)+sum(j$ifill_indices_new(j),s(j)*techMat('E107',j)*(1+%delta%*epsilons1('E107',j)-%delta%*epsilons2('E107',j))*elecCost/360);
 costPy1.. costPy=e=s('P116')*biofuelCost;
 scalar clinkerCost /[34*%q14%]/;
 scalar lumberCost /[0.036*%q14%]/;
@@ -552,7 +551,7 @@ Display DoC.l;
 Display Cost.l;
 Display s.l;
 Display g.l;
-Display cbc2.l,costBenifitCompost.l,lossCompost.l,lossIncineration.l,lossBiofuel.l,lossLandfill.l;
+*Display costBenifitCompost.l,lossIncineration.l,lossLandfill.l;
 Display productionCostResin.l;
 Display mp_indicators.l;
 Display normalizedCostInput.l;
