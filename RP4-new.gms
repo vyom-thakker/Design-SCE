@@ -33,7 +33,9 @@ A(ecoinventI,'P80')=0;
 
 *A('E132',j)=0;
 A('E132',j)$bagAmnts(j)=1;
-A('E132','P87')=-1;
+A('E132','P87')=-0.8653;
+A('E89','P87')=0.8653;
+A('E90','P87')=4.3265;
 A('E83','P87')=0;
 *A('E97','P87')=0.1186;
 
@@ -69,14 +71,14 @@ C(l,k) = round(C(l,k), 2);
 
 
 *No Caps on Recycled Content
-*A('E79','P93')=0.55;
-*A('E78','P94')=0.55;
-*A('E80','P95')=0.55;
-*A('E81','P96')=0.15;
-*A('E97','P93')=0.026;
-*A('E97','P94')=0.026;
-*A('E97','P95')=0.025;
-*A('E97','P96')=0.018;
+A('E79','P93')=0.55;
+A('E78','P94')=0.55;
+A('E80','P95')=0.55;
+A('E81','P96')=0.15;
+A('E97','P93')=0.026;
+A('E97','P94')=0.026;
+A('E97','P95')=0.025;
+A('E97','P96')=0.018;
 *A('E79','P93')=1;
 *A('E78','P94')=1;
 *A('E80','P95')=1;
@@ -180,6 +182,7 @@ s.lo(j)=0;
 *s.up(j)=50;
 *f.lo(i)=0;
 *f.up(i)=4000;
+s.fx('P85')=0;
 
 
 $onText
@@ -228,6 +231,16 @@ f.fx('E134')=3878;
 *****************************Downstream equations**************************
 *sorting
 equations eqs1,eqs2,eqs3,eqs4,eqs5,eqs6,eqs7;
+eqs1.. sum(j$bagAmnts(j),s('P138')*s(j))=e=sum(j$sortedStuffJ(j),s('P82')*s(j));
+eqs2.. s('P139')*sum(j$bagAmnts(j),s(j))=e=s('P83')*sum(j$sortedStuffJ(j),s(j));
+eqs3.. s('P140')*sum(j$bagAmnts(j),s(j))=e=s('P84')*sum(j$sortedStuffJ(j),s(j));
+eqs4.. s('P141')*sum(j$bagAmnts(j),s(j))=e=s('P85')*sum(j$sortedStuffJ(j),s(j));
+eqs5.. s('P142')*sum(j$bagAmnts(j),s(j))=e=s('P86')*sum(j$sortedStuffJ(j),s(j));
+eqs6.. s('P143')*sum(j$bagAmnts(j),s(j))=e=s('P132')*sum(j$sortedStuffJ(j),s(j));
+eqs7..907.18*s('P106')=e=5*s('P92')*(1-techMat('E97','P92'));
+
+$onText
+equations eqs1,eqs2,eqs3,eqs4,eqs5,eqs6,eqs7;
 eqs1.. s('P138')*sum(j$bagAmnts(j),s(j))=e=s('P82')*(1-techMat('E97','P92'))*s('P92');
 eqs2.. s('P139')*sum(j$bagAmnts(j),s(j))=e=s('P83')*(1-techMat('E97','P92'))*s('P92');
 eqs3.. s('P140')*sum(j$bagAmnts(j),s(j))=e=s('P84')*(1-techMat('E97','P92'))*s('P92');
@@ -235,20 +248,20 @@ eqs4.. s('P141')*sum(j$bagAmnts(j),s(j))=e=s('P85')*(1-techMat('E97','P92'))*s('
 eqs5.. s('P142')*sum(j$bagAmnts(j),s(j))=e=s('P86')*(1-techMat('E97','P92'))*s('P92');
 eqs6.. s('P143')*sum(j$bagAmnts(j),s(j))=e=s('P132')*(1-techMat('E97','P92'))*s('P92');
 eqs7..907.18*s('P106')=e=5*s('P92')*(1-techMat('E97','P92'));
+$offText
 
 variable pchoiceitems(j);
 equation eqnPchoiceitems(j);
 set bags(j) /P82*P86,P134/;
-eqnPchoiceitems(j)$bags(j).. pchoiceitems(j)=e=sum(i$supplies(i),techMat(i,j)*s(j));
+eqnPchoiceitems(j)$bags(j).. pchoiceitems(j)=e=s(j);
 
 
 
 *normalized cost
 variable normalizedcostInput;
 equation costInput;
-set bagRatioProduction(i) /E92*E96,E128/;
-parameter offsetCostInput(i) /E92 [800*%q1%],E93 [990*%q2%],E94 [1080*%q3%],E95 [1240*%q4%],E96 2500,E128 [445*%q5%]/;
-costInput.. normalizedcostinput=e=sum(i$bagRatioProduction(i),techMat(i,'P92')*offsetCostInput(i)/(0.99));
+parameter offsetCostInput(j) /P82 [800*%q1%],P83 [990*%q2%],P84 [1080*%q3%],P85 [1240*%q4%],P86 2500,P132 [445*%q5%]/;
+costInput.. normalizedcostinput*sum(j$bagAmnts(j),s(j))=e=sum(j$bagAmnts(j),s(j)*offsetCostInput(j)/(0.99));
 
 positive variable productionCostResin;
 equation pdtcost;
@@ -303,13 +316,13 @@ variable costBenifitCompost,cbc2, lossCompost;
 equation cost_c,cc2,loss_c;
 scalar compostCost /[0.030183*%q13%]/;
 cost_c.. costBenifitCompost=e=(s('P117')+s('P104')+s('P105'))*907.18*compostCost;
-cc2.. cbc2=e=s('P104')*offsetCostInput('E95')+s('P105')*offsetCostInput('E96');
+cc2.. cbc2=e=s('P104')*offsetCostInput('P141')+s('P105')*offsetCostInput('P142');
 lossCompost.lo=0;
-loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*offsetCostInput('E96'))=e=((s('P117')+s('P104'))+s('P105'))*907.18*(((s('P117')+s('P104'))*offsetCostInput('E95')+s('P105')*offsetCostInput('E96'))-costBenifitCompost);
+loss_c.. lossCompost*((s('P117')+s('P104'))*offsetCostInput('P141')+s('P105')*offsetCostInput('P142'))=e=((s('P117')+s('P104'))+s('P105'))*907.18*(((s('P117')+s('P104'))*offsetCostInput('P141')+s('P105')*offsetCostInput('P142'))-costBenifitCompost);
 *loss_c.. lossCompost=e=(s('P105')+s('P104'))*907.18;
 
 
-*s.fx('P113')=0;
+*s.fx('P116')=0;
 s.fx('P89')=0;
 *s.fx('P115')=0;
 *s.fx('P92')=0;
@@ -341,7 +354,7 @@ parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.1299
 variable CostBag;
 equation Cost_obj1;
 parameter cost_bags(j) /P82 0.11, P83 0.18, P84 0.6, P85 0.14, P86 0.1, P134 0.2/;
-Cost_obj1.. CostBag=e=sum(j$bags(j),-1*pchoiceitems(j)*cost_bags(j));
+Cost_obj1.. CostBag=e=sum(j$bags(j),pchoiceitems(j)*cost_bags(j));
 
 
 
@@ -461,7 +474,7 @@ DoLocal 0
 NumLoc 0
 $offecho
 
-option resLim=100;
+option resLim=220;
 
 variable dummy;
 equation dummyeq;
@@ -542,7 +555,7 @@ Display g.l;
 Display cbc2.l,costBenifitCompost.l,lossCompost.l,lossIncineration.l,lossBiofuel.l,lossLandfill.l;
 Display productionCostResin.l;
 Display mp_indicators.l;
-
+Display normalizedCostInput.l;
 
 
 $if not set file $set file 0
