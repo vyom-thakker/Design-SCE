@@ -243,6 +243,8 @@ epsilons1.fx(i,j)$(A(i,j)=0)=0;
 binary variable epsilons2(i,j);
 epsilons2.fx(i,j)$(HCon(i,j)+SWast(i,j))=0;
 epsilons2.fx(i,j)$(A(i,j)=0)=0;
+equation eachEpsilon(i,j);
+eachEpsilon(i,j)..epsilons1(i,j)+epsilons2(i,j)=l=1;
 
 $if not set limEpsilon $set limEpsilon 5
 $if not set delta $set delta 0.1
@@ -394,7 +396,7 @@ $offecho
 
 *	ToyProblem.OptFile=1;
 *	Option limrow=120;
-*    Option resLim=5000;
+    Option resLim=5000;
 *    Option optcr=0.1;
 parameter zD,zG,zC;
 *******************************************Objectives**********************************************
