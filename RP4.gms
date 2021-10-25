@@ -47,6 +47,53 @@ C(l,k) = round(C(l,k), 2);
 *A('E97','P89')=-1.0968;
 
 
+positive variables
+	s(j) scaling factors;
+
+variables
+	f(i) final demand;	
+
+s.l(j)=0;
+
+*******************************************Innovation**************************************
+
+$onText
+
+*Smart segregation - losses reduce to 25 percent
+A('E97','P92')=0.044;
+
+*source segregated plastic waste
+A('E97','P92')=0;
+A('E97','P92')=0;
+A('E17','P92')=0;
+A('E17','P92')=0;
+A('E90',j)=0;
+A('E89','P90')=-1;
+A('E89','P90')=-1;
+A('E97','P91')=-1;
+A('E97','P91')=-1;
+
+* Highly efficient pyrolysis
+A('E113','P115')=0;
+A('E17','P115')=0.12;
+A('E17','P116')=0.09;
+*A('E7','P116')=0.044;
+
+$offText
+
+*zero emissions grid
+A(i,'P17')=0;
+A('E17','P21')=3.6;
+A(i,'P21')=0;
+A('E21','P21')=3.6;
+*A('E17','P107')=0;
+*A('E15','P107')=0;
+*A('E63','P107')=1;
+*B(k,'P17')=0;
+*B(k,'P21')=0;
+*s.fx('P107')=0;
+
+
 *No Caps on Recycled Content
 *A('E79','P93')=0.55;
 *A('E78','P94')=0.55;
@@ -103,20 +150,13 @@ techMat.fx('E97','P92')=0;
 set makezerolosses(j) /P93*P97/;
 techMat.fx('E97',j)$makezerolosses(j)=0;
 $offtext
-positive variables
-	s(j) scaling factors;
-
-variables
-	f(i) final demand;	
-
-s.l(j)=0;
 
 *type of bags
 *s.fx('P82')=0;
-s.fx('P83')=0;
-s.fx('P84')=0;
-s.fx('P85')=0;
-s.fx('P86')=0;
+*s.fx('P83')=0;
+*s.fx('P84')=0;
+*s.fx('P85')=0;
+*s.fx('P86')=0;
 
 set paperJ(j) /P131*P137/;
 A(i,paperJ)=0;
@@ -217,7 +257,7 @@ loss_i.. lossIncineration=e=sum(j$ifill_indices(j),s(j)*907.18*(1-(((techMat('E1
 
 *biofuel
 variable lossBioFuel;
-scalar biofuelCost /[0.041*%q12%]/;
+scalar biofuelCost /[0.101*%q12%]/;
 equation loss_b;
 set bio_new(j) /P122*P125/;
 loss_b.. lossBioFuel*normalizedCostInput=e=(((-1*s('P115')/techMat('E91','P115')+sum(j$bio_new(j),s(j)))*normalizedCostInput)-(s('P116')*biofuelCost));
@@ -319,7 +359,7 @@ eqMPI(l).. mp_indicators(l)=e=sum(k,C(l,k)*g(k));
 
 variable gwp;
 equation eq_gwp;
-eq_gwp.. gwp=e=mp_indicators('MPI4');
+eq_gwp.. gwp=e=mp_indicators('MPI4')-0.15*s('P116');
 *$if not set constrVal $set constrVal=0;
 *equation constrainttrial;
 *constrainttrial.. wasteMgMtValues('Reprocess')=l=0.5;
@@ -453,7 +493,7 @@ put totpdtmass.l",";
 loop(j$bagAmnts(j),put s.l(j)",");
 loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
 *loop(l,put mp_indicators.l(l)",");
-put mp_indicators.l('MPI4')"";
+put gwp.l"";
 put /;
 
 set from /'HDPE','LDPE','PP','PLA','Paper','Households','Curbside Collection','Dropoff','Segregation','rHDPE','rLDPE','rPP','rPLA','rPaper','Compost','Landfill','Incineration','Pyrolysis','Clinker','Lumber','Losses'/;
