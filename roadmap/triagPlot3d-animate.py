@@ -52,7 +52,8 @@ def init():
 
 
      triang = mtri.Triangulation(x, y)
-     uval=np.sqrt(np.square(max(z)/zo-1)+np.square(min(y)/yo-1)+np.square(min(x)/xo-1));
+     uval=np.sqrt(np.square(max(z)-zo)+np.square(min(y)-yo)+np.square(min(x)-xo));
+     uval1=np.sqrt(np.square(max(z)/zo-1)+np.square(min(y)/yo-1)+np.square(min(x)/xo-1));
      uval2=((max(z)/zo-1)+(min(y)/yo-1)+(min(x)/xo-1));
      ax.scatter(xo,yo,zo, marker='+', s=40, c="red", alpha=0.7)
      ax.scatter(min(x),min(y),max(z), marker='*', s=40, c="blue", alpha=0.7)
@@ -77,7 +78,7 @@ def animate(i):
 ani = animation.FuncAnimation(fig, animate, init_func=init,frames=90, interval=50, blit=True)
 
 fn ="pareto"+sys.argv[1]
-#ani.save(fn+'.gif',writer='imagemagick',fps=1000/50)
+ani.save(fn+'.gif',writer='imagemagick',fps=500/50)
 #ax.view_init(elev=15,azim=-160)
 
 #plt.savefig("pareto"+sys.argv[1]+".svg",format='svg')
