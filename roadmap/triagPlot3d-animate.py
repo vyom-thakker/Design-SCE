@@ -56,6 +56,9 @@ def init():
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
      ax.set_xlabel('LCC',labelpad=10,rotation=0)
      ax.set_ylabel('GWP',labelpad=10,rotation=0)
+     ax.set_xlim(0,10)
+     ax.set_ylim(0,16)
+     ax.set_zlim(0,0.9)
      ax.set_zlabel('Circularity',labelpad=10,rotation=0)
      return fig,
 
