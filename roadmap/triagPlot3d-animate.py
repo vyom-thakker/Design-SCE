@@ -31,7 +31,9 @@ def init():
      x = data['Cost']
      y = data['GWP']
      z = data['DoC']
-
+     xo=min(x)
+     yo=min(y)
+     zo=max(z)
 
      triang = mtri.Triangulation(x, y)
      ax.plot_trisurf(triang, z, color='red' , alpha=1)
@@ -50,16 +52,19 @@ def init():
 
 
      triang = mtri.Triangulation(x, y)
-
+     uval=np.sqrt(np.square(max(z)-zo)+np.square(min(y)-yo)+np.square(min(x)-xo));
 
      ax.plot_trisurf(triang, z, color='blue' , alpha=0.5)
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
+     ax.scatter(xo,yo,zo, marker='+', s=40, c="red", alpha=0.7)
+     ax.scatter(min(x),min(y),max(z), marker='*', s=40, c="blue", alpha=0.7)
      ax.set_xlabel('LCC',labelpad=10,rotation=0)
      ax.set_ylabel('GWP',labelpad=10,rotation=0)
      ax.set_xlim(0,10)
      ax.set_ylim(0,16)
      ax.set_zlim(0,0.9)
      ax.set_zlabel('Circularity',labelpad=10,rotation=0)
+     ax.set_title('UU*='+str(round(uval,1)))
      return fig,
 
 def animate(i):
