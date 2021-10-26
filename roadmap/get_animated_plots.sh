@@ -1,4 +1,4 @@
-for i in 2 3 4 5
-do
-    python triagPlot3d-animate.py roadmap$1
-done
+python triagPlot3d-animate.py roadmap2
+python triagPlot3d-animate.py roadmap3
+python triagPlot3d-animate.py roadmap4
+python triagPlot3d-animate.py roadmap5
