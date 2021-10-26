@@ -54,9 +54,9 @@ def init():
 
      ax.plot_trisurf(triang, z, color='blue' , alpha=0.5)
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
-     ax.set_xlabel('Life Cycle Cost\n ($/house-yr)',labelpad=10,rotation=0)
-     ax.set_ylabel('Global Warming Potential\n (kgCO2eq/house-yr)',labelpad=10,rotation=0)
-     ax.set_zlabel('Circularity\n (Economic perspective)',labelpad=10,rotation=0)
+     ax.set_xlabel('LCC',labelpad=10,rotation=0)
+     ax.set_ylabel('GWP',labelpad=10,rotation=0)
+     ax.set_zlabel('Circularity',labelpad=10,rotation=0)
      return fig,
 
 def animate(i):
@@ -65,7 +65,7 @@ def animate(i):
 
 ani = animation.FuncAnimation(fig, animate, init_func=init,frames=90, interval=50, blit=True)
 
-fn = 'rotate_azimuth_angle_3d_surf'
+fn ="pareto"+sys.argv[1]
 ani.save(fn+'.gif',writer='imagemagick',fps=1000/50)
 #ax.view_init(elev=15,azim=-160)
 
