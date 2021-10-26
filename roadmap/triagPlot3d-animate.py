@@ -52,11 +52,13 @@ def init():
 
 
      triang = mtri.Triangulation(x, y)
-     uval=np.sqrt(np.square(max(z)-zo)+np.square(min(y)-yo)+np.square(min(x)-xo));
+     uval=np.sqrt(np.square(max(z)/zo-1)+np.square(min(y)/yo-1)+np.square(min(x)/xo-1));
+     uval2=((max(z)/zo-1)+(min(y)/yo-1)+(min(x)/xo-1));
      ax.scatter(xo,yo,zo, marker='+', s=40, c="red", alpha=0.7)
      ax.scatter(min(x),min(y),max(z), marker='*', s=40, c="blue", alpha=0.7)
      ax.plot([xo,min(x)],[yo,min(y)],[zo,max(z)], marker='', linestyle='dashed', alpha=0.7)
-
+     print(uval);
+     print(uval2);
      ax.plot_trisurf(triang, z, color='blue' , alpha=0.5)
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
      ax.set_xlabel('LCC',labelpad=10,rotation=0)
@@ -75,7 +77,7 @@ def animate(i):
 ani = animation.FuncAnimation(fig, animate, init_func=init,frames=90, interval=50, blit=True)
 
 fn ="pareto"+sys.argv[1]
-ani.save(fn+'.gif',writer='imagemagick',fps=1000/50)
+#ani.save(fn+'.gif',writer='imagemagick',fps=1000/50)
 #ax.view_init(elev=15,azim=-160)
 
 #plt.savefig("pareto"+sys.argv[1]+".svg",format='svg')
