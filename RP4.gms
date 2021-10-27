@@ -475,6 +475,7 @@ Display cbc2.l,costBenifitCompost.l,lossCompost.l,lossIncineration.l,lossBiofuel
 Display productionCostResin.l;
 Display mp_indicators.l;
 
+$ontext
 $if not set file $set file 0
 
 File pareto /pareto%file%.txt/;
@@ -574,6 +575,9 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *put /;
 *Display from;
 
+$offtext
+
+execute_unload 'merged.gdx', A,B,C; 
 
 $onText
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
@@ -598,7 +602,7 @@ $offText
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
-Display cd.l;
+*Display cd.l;
 *execute_unload "pareto%filename%.gdx", techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute_unload 'Find.gdx', techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute 'gdxdump Find.gdx output=Find.csv symb=techMat format=csv'
