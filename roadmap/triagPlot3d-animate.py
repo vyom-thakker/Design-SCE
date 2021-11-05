@@ -69,7 +69,7 @@ def init():
      ax.set_ylim(0,16)
      ax.set_zlim(0,0.9)
      ax.set_zlabel('Circularity',labelpad=10,rotation=0)
-     ax.set_title('Utopia point shift (UU*)='+str(round(uval,3)))
+     ax.set_title('Utopia point shift (UU*)='+str(round(uval1,3)))
      return fig,
 
 def animate(i):
