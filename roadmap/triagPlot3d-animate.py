@@ -59,6 +59,7 @@ def init():
      ax.scatter(min(x),min(y),max(z), marker='*', s=40, c="blue", alpha=0.7)
      ax.plot([xo,min(x)],[yo,min(y)],[zo,max(z)], marker='', linestyle='dashed', alpha=0.7)
      print(uval);
+     print(uval1);
      print(uval2);
      ax.plot_trisurf(triang, z, color='blue' , alpha=0.5)
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
@@ -78,10 +79,10 @@ def animate(i):
 ani = animation.FuncAnimation(fig, animate, init_func=init,frames=90, interval=50, blit=True)
 
 fn ="pareto"+sys.argv[1]
-ani.save(fn+'.gif',writer='imagemagick',fps=500/50)
-#ax.view_init(elev=15,azim=-160)
+ani.save(fn+'.gif',writer='pillow',fps=500/50)
+ax.view_init(elev=15,azim=-160)
 
-#plt.savefig("pareto"+sys.argv[1]+".svg",format='svg')
+plt.savefig("pareto"+sys.argv[1]+".svg",format='svg')
 #plt.show()
 
 
