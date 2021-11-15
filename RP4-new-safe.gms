@@ -494,7 +494,7 @@ variable mp_indicators(l);
 *equation eqMPI(l);
 mp_indicators.l(l)=0.05;
 mp_indicators.fx(l)=sum(k,C(l,k)*g.l(k));
-$offtext
+*offtext
 
 Display pchoiceitems.l,pchoicemass.l,wasteMgmtValues.l;
 Display DoC.l;
@@ -634,3 +634,5 @@ Display cd.l;
 *execute_unload "pareto%filename%.gdx", techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute_unload 'Find.gdx', techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute 'gdxdump Find.gdx output=Find.csv symb=techMat format=csv'
+$onText
+$offText

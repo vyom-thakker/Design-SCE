@@ -304,7 +304,8 @@ costLu1.. costLu=e=s('P130')*lumberCost;
 *degreeofcircularity
 *DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+DoC_obj.. DoC =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
@@ -470,22 +471,6 @@ Display productionCostResin.l;
 Display mp_indicators.l;
 
 
-
-$if not set file $set file 0
-
-File pareto /pareto%file%.txt/;
-pareto.ap=1;
-pareto.nd=4;
-put pareto"";
-put Cost.l",";
-put DoC.l",";
-put totpdtmass.l",";
-loop(j$bagAmnts(j),put s.l(j)",");
-loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
-*loop(l,put mp_indicators.l(l)",");
-put mp_indicators.l('MPI4')"";
-put /;
-
 set from /'HDPE','LDPE','PP','PLA','Paper','Households','Curbside Collection','Dropoff','Segregation','rHDPE','rLDPE','rPP','rPLA','rPaper','Compost','Landfill','Incineration','Pyrolysis','Clinker','Lumber','Losses'/;
 *set to /HDPE,LDPE,PP,PLA,Paper,Households,Curbside Collection,Dropoff,Segregation,rHDPE,rLDPE,rPP,rPLA,rPaper,Compost,Landfill,Incineration,Pyrolysis,Losses/;
 set to /'HDPE','LDPE','PP','PLA','Paper','Households','Curbside Collection','Dropoff','Segregation','rHDPE','rLDPE','rPP','rPLA','rPaper','Compost','Landfill','Incineration','Pyrolysis','Clinker','Lumber','Losses'/;
@@ -572,6 +557,27 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 parameter epsilons(i,j);
 epsilons(i,j)=epsilons1.l(i,j)+epsilons2.l(i,j);
 
+Display cd.l;
+Display epsilons1.l;
+Display epsilons2.l;
+
+$onText
+
+$if not set file $set file 0
+
+File pareto /pareto%file%.txt/;
+pareto.ap=1;
+pareto.nd=4;
+put pareto"";
+put Cost.l",";
+put DoC.l",";
+put totpdtmass.l",";
+loop(j$bagAmnts(j),put s.l(j)",");
+loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
+*loop(l,put mp_indicators.l(l)",");
+put mp_indicators.l('MPI4')"";
+put /;
+
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute_unload 'epsilons_%fileS%.gdx', epsilons; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
@@ -598,3 +604,7 @@ Display cd.l;
 *execute_unload "pareto%filename%.gdx", techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute_unload 'Find.gdx', techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute 'gdxdump Find.gdx output=Find.csv symb=techMat format=csv'
+
+
+$onText
+$offText
