@@ -1,7 +1,7 @@
 ** new matrix, for max recycled content in bags
 
 sets
-	i substances /E1*E131/
+	i substances /E1*E132/
 	j activities /P1*P137/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
@@ -23,6 +23,8 @@ parameter s1(j);
 $GDXIN techMatrix3.gdx
 $LOAD A
 $GDXIN
+
+A('E132',j)=0;
 
 set ecoinventI(i) /E1*E77/;
 A(ecoinventI,'P131')=0;
@@ -80,12 +82,11 @@ A('E17','P116')=0.09;
 *A('E7','P116')=0.044;
 
 $offText
-
 *zero emissions grid
-A(i,'P17')=0;
-A('E17','P21')=3.6;
-A(i,'P21')=0;
-A('E21','P21')=3.6;
+*A(i,'P17')=0;
+*A('E17','P21')=3.6;
+*A(i,'P21')=0;
+*A('E21','P21')=3.6;
 *A('E17','P107')=0;
 *A('E15','P107')=0;
 *A('E63','P107')=1;
@@ -159,8 +160,8 @@ $offtext
 *s.fx('P86')=0;
 
 set paperJ(j) /P131*P137/;
-A(i,paperJ)=0;
-s.fx('P131')=0;
+*A(i,paperJ)=0;
+*s.fx('P131')=0;
 
 
 
@@ -405,7 +406,7 @@ eps1.. epsObj=e=DoC+eps*(slack1+slack2);
 	Option NLP=BARON;
 $onecho > baron.opt
 DoLocal 0
-NumLoc 0
+NumLoc 1
 $offecho
 *	ToyProblem.OptFile=1;
 *	Option limrow=120;
