@@ -1,12 +1,12 @@
 ** new matrix, for max recycled content in bags
 
 sets
-	i substances /E1*E132/
-	j activities /P1*P137/
+	i substances /E1*E136/
+	j activities /P1*P150/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
 	losses(i) /E97/
-	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128/
+	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E136/
 	homes(j) homesubsets /P87/
 	supplies(i) bagsperhome /E84*E88,E127/
 	sortedStuff(i) sortedbagsweights /E92*E96,E128/
@@ -116,6 +116,31 @@ $offText
 A('E127','P87')=-10;
 *A('E126','P134')=0;
 
+
+*inn-algo include
+$offlisting
+$include ./innovations_chem.inc
+$onlisting
+
+
+$if not set s140labs $set s140labs 0
+$if not set s142pyldpe $set s142pyldpe 0
+$if not set s143pyhdpe $set s143pyhdpe 0
+$if not set s144pypp $set s144pypp 0
+$if not set s147claypla $set s147claypla 0
+$if not set s149acidpla $set s149acidpla 0
+$if not set s150alcpla $set s150alcpla 0
+
+s.up('P140')=%s140labs%;
+s.up('P142')=%s142pyldpe%;
+s.up('P143')=%s143pyhdpe%;
+s.up('P144')=%s144pypp%;
+s.up('P147')=%s147claypla%;
+s.up('P149')=%s149acidpla%;
+s.up('P150')=%s150alcpla%;
+
+
+
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
 $if not set q3 $set q3 1
@@ -160,8 +185,8 @@ $offtext
 *s.fx('P86')=0;
 
 set paperJ(j) /P131*P137/;
-*A(i,paperJ)=0;
-*s.fx('P131')=0;
+A(i,paperJ)=0;
+s.fx('P131')=0;
 
 
 
@@ -258,7 +283,10 @@ loss_i.. lossIncineration=e=sum(j$ifill_indices(j),s(j)*907.18*(1-(((techMat('E1
 
 *biofuel
 variable lossBioFuel;
-scalar biofuelCost /[0.101*%q12%]/;
+scalar biofuelCost /[0.041*%q12%]/;
+*0.101 for pyrolysis optimal
+
+
 equation loss_b;
 set bio_new(j) /P122*P125/;
 loss_b.. lossBioFuel*normalizedCostInput=e=(((-1*s('P115')/techMat('E91','P115')+sum(j$bio_new(j),s(j)))*normalizedCostInput)-(s('P116')*biofuelCost));
@@ -318,10 +346,23 @@ costCl1.. costCl=e=s('P129')*clinkerCost/1000;
 *clinker 34$/ton, lumber=45$/1000 board feet i.e. 2.35 m3 and 320 kg/m3 density
 costLu1.. costLu=e=s('P130')*lumberCost;
 *pyrolysis 0.044 kg biofuel generated, 7.3 lb/gal density, 3$/gal
+
+
+******************************Innovations revenue**************
+
+set inn_prc(j) /P140,P145*P150/;
+
+parameter inn_dpkg(j) /P140 2.1,P145 1.4,P146 1.65,P147 [0.63*1.31],P148 0,P149 [0.92*1.09],P150 [0.76*1.78]/;
+variable cost_inn;
+equation cost_inn1;
+cost_inn1.. cost_inn=e=sum(j$inn_prc(j),inn_dpkg(j)*s(j));
+
+
+
 *degreeofcircularity
 *DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy;
+DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
@@ -349,6 +390,8 @@ eqw1.. wasteMgmtValues('Reprocess')=e=s('P92')*(1-techMat('E97','p92'));
 eqw2.. wasteMgmtValues('Pyrolysis')=e=(s('P115')*((-1)*techMat('E91','P115')-techMat('E97','P115')));
 eqw3.. wasteMgmtValues('Landfill')=e=(sum(j$lfill_indices(j), s(j)*(907.18-techMat('E97',j))))+(s('P113')*907.18)-(s('P114')*45);
 eqw4.. wasteMgmtValues('Incineration')=e=sum(j$ifill_indices(j), s(j)*(907.18-techMat('E97',j)))+sum(j$ifill_indices_new(j), s(j)*(907.18-techMat('E97',j)));
+
+
 
 
 variable g(k);
@@ -406,7 +449,7 @@ eps1.. epsObj=e=DoC+eps*(slack1+slack2);
 	Option NLP=BARON;
 $onecho > baron.opt
 DoLocal 0
-NumLoc 1
+NumLoc 0
 $offecho
 *	ToyProblem.OptFile=1;
 *	Option limrow=120;
@@ -487,19 +530,25 @@ $if not set file $set file 0
 File pareto /pareto%file%.txt/;
 pareto.ap=1;
 pareto.nd=4;
+pareto.pw=20000;
 put pareto"";
 put Cost.l",";
 put DoC.l",";
+put gwp.l",";
 put totpdtmass.l",";
 loop(j$bagAmnts(j),put s.l(j)",");
 loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
+loop(j$inn_prc(j),put s.l(j)",");
 *loop(l,put mp_indicators.l(l)",");
-put gwp.l"";
+put s.l('P129')",";
+put s.l('P130')"";
 put /;
+
+*'LABS from chemical recycling of PE','C4 Gas Mixture Pyrolysis','Light Liquid Fuel Pyrolysis','Clay reycled PLA','Lipase based PLA recycling','Lactic acid from acid hydrolysis','Me-Lactate from alcoholysis','Clinker','Lumber'
 
 set from /'HDPE','LDPE','PP','PLA','Paper','Households','Curbside Collection','Dropoff','Segregation','rHDPE','rLDPE','rPP','rPLA','rPaper','Compost','Landfill','Incineration','Pyrolysis','Clinker','Lumber','Losses'/;
 *set to /HDPE,LDPE,PP,PLA,Paper,Households,Curbside Collection,Dropoff,Segregation,rHDPE,rLDPE,rPP,rPLA,rPaper,Compost,Landfill,Incineration,Pyrolysis,Losses/;
-set to /'HDPE','LDPE','PP','PLA','Paper','Households','Curbside Collection','Dropoff','Segregation','rHDPE','rLDPE','rPP','rPLA','rPaper','Compost','Landfill','Incineration','Pyrolysis','Clinker','Lumber','Losses'/;
+set to /'HDPE','LDPE','PP','PLA','Paper','Households','Curbside Collection','Dropoff','Segregation','rHDPE','rLDPE','rPP','rPLA','rPaper','Compost','Landfill','Incineration','Pyrolysis','LABS from chemical recycling of PE','C4 Gas Mixture Pyrolysis','Light Liquid Fuel Pyrolysis','Clay reycled PLA','Lactic acid from acid hydrolysis','Me-Lactate from alcoholysis','Clinker','Lumber','Losses'/;
 variable cD(from,to);
 cd.l(from,to)=0.0000;
 cd.fx('HDPE','Households')=s.l('P82');
@@ -537,7 +586,12 @@ cd.fx('Segregation','rPaper')=s.l('P135');
 cd.fx('Segregation','Compost')=907.18*(s.l('P117')+s.l('P104')+s.l('P105'));
 cd.fx('Segregation','Incineration')=sum(j$ifill_indices(j), s.l(j)*(907.18-techMat.l('E97',j)));
 
-
+cd.fx('Segregation','LABS from chemical recycling of PE')=s.l('P140'); 
+cd.fx('Segregation','C4 Gas Mixture Pyrolysis')=s.l('P145');
+cd.fx('Segregation','Light Liquid Fuel Pyrolysis')=s.l('P146');
+cd.fx('Segregation','Clay reycled PLA')=s.l('P147');
+cd.fx('Segregation','Lactic acid from acid hydrolysis')=s.l('P149');
+cd.fx('Segregation','Me-Lactate from alcoholysis')=s.l('P150');
 
 cd.fx('rHDPE','HDPE')=s.l('P93')*techMat.l('E79','P93');
 cd.fx('rHDPE','Incineration')=s.l('P118')*(907.18-techMat.l('E79','P118'));
