@@ -44,7 +44,7 @@ def init():
      ax.view_init(elev=60, azim=-45)
 
 
-     data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =1,names=names_val)
+     data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val)
 
 
      x = data['Cost']
@@ -66,11 +66,11 @@ def init():
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
      ax.set_xlabel('LCC',labelpad=10,rotation=0)
      ax.set_ylabel('GWP',labelpad=10,rotation=0)
-     ax.set_xlim(0,10)
-     ax.set_ylim(0,16)
-     ax.set_zlim(0,0.9)
+     ax.set_xlim(0,8)
+     ax.set_ylim(0,18)
+     ax.set_zlim(0,1.2)
      ax.set_zlabel('Circularity',labelpad=10,rotation=0)
-     ax.set_title('Utopia point shift (UU*)='+str(round(uval1,3)))
+     ax.set_title('Inn:'+sys.argv[1][4:]+'\n Utopia point shift (UU*)='+str(round(uval1,3)))
      return fig,
 
 def animate(i):
