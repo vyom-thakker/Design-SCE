@@ -16,7 +16,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in1 --fileS=$i$in1 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+        gams RP4.gms --file=$in1 --fileS=$i$in1 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
@@ -33,7 +33,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in2 --fileS=$i$in2 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+		gams RP4.gms --file=$in2 --fileS=$i$in2 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
@@ -50,7 +50,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in3 --fileS=$i$in3 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+		gams RP4.gms --file=$in3 --fileS=$i$in3 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
@@ -67,7 +67,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in4 --fileS=$i$in4 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+		gams RP4.gms --file=$in4 --fileS=$i$in4 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
@@ -82,7 +82,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in5 --fileS=$i$in5 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+		gams RP4.gms --file=$in5 --fileS=$i$in5 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
@@ -98,7 +98,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in6 --fileS=$i$in6 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+		gams RP4.gms --file=$in6 --fileS=$i$in6 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
@@ -114,7 +114,7 @@ for i in 1 2 3 4 5
 do
 	for j in 1 2 3 4 5
 	do
-		gams RP4.gms --file=$in7 --fileS=$i$in7 --costc=$cmax-$cmax/$i+$cmin/$i --gwpC=$gmax-$gmax/$j+$gmin/$j
+		gams RP4.gms --file=$in7 --fileS=$i$in7 --costc=$cmax*0.9-\(\($i*$cmax*0.9\)/5\)+\(\($i*$cmin\)/5\) --gwpC=$gmax*0.9-\(\($i*$gmax*0.9\)/5\)+\(\($i*$gmin\)/5\) -optfile=1
 	done
 done
 
