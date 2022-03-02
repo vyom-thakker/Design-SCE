@@ -136,6 +136,7 @@ s.up('P142')=%s142pyldpe%;
 s.up('P143')=%s143pyhdpe%;
 s.up('P144')=%s144pypp%;
 s.up('P147')=%s147claypla%;
+s.up('P148')=0.01;
 s.up('P149')=%s149acidpla%;
 s.up('P150')=%s150alcpla%;
 

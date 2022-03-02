@@ -52,6 +52,8 @@ def init():
      z = data['DoC']
 
 
+     print(y);
+
      triang = mtri.Triangulation(x, y)
      uval=np.sqrt(np.square(max(z)-zo)+np.square(min(y)-yo)+np.square(min(x)-xo));
      uval1=np.sqrt(np.square(max(z)/zo-1)+np.square(min(y)/yo-1)+np.square(min(x)/xo-1));
