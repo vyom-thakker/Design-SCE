@@ -645,9 +645,9 @@ execute 'rm scalingVector.csv'
 execute_unload 'scalingVector.gdx', s; 
 execute 'gdxdump scalingVector.gdx output=scalingVector.csv symb=s format=csv'
 *execute 'rm scalingVector.gdx'
-execute 'python hotspotFinder.py scalingVector.csv'
-execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
-execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
+*execute 'python hotspotFinder.py scalingVector.csv'
+*execute 'mv fig.png ./%file%/hotspot_%fileS%.png'
+*execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 *execute_unload 'Intervention.gdx', g; 
 *execute 'gdxdump Intervention.gdx output=Intervention.csv symb=g format=csv'
 *execute 'rm Intervention.gdx'
