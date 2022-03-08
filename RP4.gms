@@ -131,16 +131,17 @@ $if not set s147claypla $set s147claypla 0
 $if not set s149acidpla $set s149acidpla 0
 $if not set s150alcpla $set s150alcpla 0
 
+$onText
 s.up('P140')=%s140labs%;
 s.up('P142')=%s142pyldpe%;
 s.up('P143')=%s143pyhdpe%;
 s.up('P144')=%s144pypp%;
 s.up('P147')=%s147claypla%;
-s.up('P148')=0.01;
 s.up('P149')=%s149acidpla%;
 s.up('P150')=%s150alcpla%;
+$offText
 
-
+s.up('P148')=0.01;
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
