@@ -2,7 +2,7 @@
 
 sets
 	i substances /E1*E136/
-	j activities /P1*P150/
+	j activities /P1*P153/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
 	losses(i) /E97/
@@ -48,6 +48,8 @@ C(l,k) = round(C(l,k), 2);
 *A('E97','P91')=0.08825;
 *A('E97','P89')=-1.0968;
 
+set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
+parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
 
 positive variables
 	s(j) scaling factors;
@@ -120,6 +122,7 @@ A('E127','P87')=-10;
 *inn-algo include
 $offlisting
 $include ./innovations_chem.inc
+$include ./innovations_nzero.inc
 $onlisting
 
 
@@ -130,8 +133,12 @@ $if not set s144pypp $set s144pypp 0
 $if not set s147claypla $set s147claypla 0
 $if not set s149acidpla $set s149acidpla 0
 $if not set s150alcpla $set s150alcpla 0
+$if not set s151wind $set s151wind 0
+$if not set s152solar $set s152solar 0
+$if not set s153bioet $set s153bioet 0
+$if not set litter $set litter 1000
 
-$onText
+s.up('P88')=%litter%;
 s.up('P140')=%s140labs%;
 s.up('P142')=%s142pyldpe%;
 s.up('P143')=%s143pyhdpe%;
@@ -139,8 +146,9 @@ s.up('P144')=%s144pypp%;
 s.up('P147')=%s147claypla%;
 s.up('P149')=%s149acidpla%;
 s.up('P150')=%s150alcpla%;
-$offText
-
+s.up('P151')=%s151wind%;
+s.up('P152')=%s152solar%;
+s.up('P153')=%s153bioet%;
 s.up('P148')=0.01;
 
 $if not set q1 $set q1 1
@@ -320,8 +328,6 @@ equations DoC_obj,Cost_obj;
 	DoC.lo=0;
 *	DoC.up=1;
 
-set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
-parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
 
 	Cost_obj.. Cost =e=sum(j$inputs(j), s(j)*cost_inputs(j))-costBenifitCompost;
 
@@ -460,7 +466,7 @@ $offecho
 parameter zD,zG,zC;
 *******************************************Objectives**********************************************
 DoC.lo=0;
-DoC.up=2;
+*DoC.up=2;
 If(docC<0, Solve ToyProblem Using NLP maximizing DoC; 
 zD = DoC.l;
 DoC.lo=zD;
@@ -528,6 +534,8 @@ Display productionCostResin.l;
 Display mp_indicators.l;
 
 $if not set file $set file 0
+
+
 
 File pareto /pareto%file%.txt/;
 pareto.ap=1;
@@ -636,6 +644,9 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *put /;
 *Display from;
 
+Display cd.l;
+
+$onText
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
@@ -655,7 +666,9 @@ execute 'mv fig.svg ./%file%/hotspot_%fileS%.svg'
 
 *execute 'cd ~/Data/GAMS_Codes/LCD-Plastics/Graphics/Sankey/'
 *execute 'python finalJSConstructor.py Sankey_%fileS%.csv'
-Display cd.l;
 *execute_unload "pareto%filename%.gdx", techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute_unload 'Find.gdx', techMat,s,f,Cost,DoC,productionCostResin, pchoiceitems, pchoicemass, wasteMgmtValues,mp_indicators;
 *execute 'gdxdump Find.gdx output=Find.csv symb=techMat format=csv'
+$onText
+$offText
+
