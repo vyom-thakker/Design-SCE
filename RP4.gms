@@ -138,6 +138,7 @@ $if not set s152solar $set s152solar 0
 $if not set s153bioet $set s153bioet 0
 $if not set litter $set litter 1000
 
+$onText
 s.up('P88')=%litter%;
 s.up('P140')=%s140labs%;
 s.up('P142')=%s142pyldpe%;
@@ -150,6 +151,7 @@ s.up('P151')=%s151wind%;
 s.up('P152')=%s152solar%;
 s.up('P153')=%s153bioet%;
 s.up('P148')=0.01;
+$offText
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
@@ -494,10 +496,10 @@ DoC.fx=zD;
 else  Solve ToyProblem Using NLP minimizing Cost;
 zC = Cost.l;
 Cost.up=zC;
-*Solve ToyProblem Using NLP maximizing DoC;
+Solve ToyProblem Using NLP maximizing DoC;
 zD = DoC.l;
 DoC.lo=zD;
-*Solve ToyProblem Using NLP minimizing gwp;
+Solve ToyProblem Using NLP minimizing gwp;
 zG=gwp.l;
 gwp.fx=zG;
 );
