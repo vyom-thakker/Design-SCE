@@ -1,12 +1,12 @@
 ** new matrix, for max recycled content in bags
 
 sets
-	i substances /E1*E136/
-	j activities /P1*P153/
+	i substances /E1*E138/
+	j activities /P1*P157/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
 	losses(i) /E97/
-	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E136/
+	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E138/
 	homes(j) homesubsets /P87/
 	supplies(i) bagsperhome /E84*E88,E127/
 	sortedStuff(i) sortedbagsweights /E92*E96,E128/
@@ -370,7 +370,8 @@ cost_inn1.. cost_inn=e=sum(j$inn_prc(j),inn_dpkg(j)*s(j));
 *degreeofcircularity
 *DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
+DoC_obj.. DoC*(productionCostResin+costRecycled+s('P153')*1.26) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
+*same as previous DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
@@ -472,10 +473,10 @@ zD = DoC.l;
 DoC.lo=zD;
 zG = gwp.l;
 gwp.l=zG;
-*Solve ToyProblem Using NLP minimizing gwp;
+Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
+Solve ToyProblem Using NLP minimizing Cost;
 zC=cost.l;
 cost.up=zC;
 
@@ -483,10 +484,10 @@ cost.up=zC;
 Elseif (gwpC<0), Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
+Solve ToyProblem Using NLP minimizing Cost;
 zC=Cost.l;
 Cost.up=zC;
-*Solve ToyProblem Using NLP maximizing DoC;
+Solve ToyProblem Using NLP maximizing DoC;
 zD = DoC.l;
 DoC.fx=zD;
 
@@ -551,7 +552,12 @@ loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
 loop(j$inn_prc(j),put s.l(j)",");
 *loop(l,put mp_indicators.l(l)",");
 put s.l('P129')",";
-put s.l('P130')"";
+put s.l('P130')",";
+put s.l('P17')",";
+put s.l('P21')",";
+put s.l('P151')",";
+put s.l('P152')",";
+put s.l('P153')"";
 put /;
 
 *'LABS from chemical recycling of PE','C4 Gas Mixture Pyrolysis','Light Liquid Fuel Pyrolysis','Clay reycled PLA','Lipase based PLA recycling','Lactic acid from acid hydrolysis','Me-Lactate from alcoholysis','Clinker','Lumber'
@@ -646,7 +652,6 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 
 Display cd.l;
 
-$onText
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
