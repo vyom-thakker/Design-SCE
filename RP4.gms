@@ -427,7 +427,7 @@ gwpC=%gwpC%;
 *slack1.lo=-1*gwpC*0;    
 *slack1.up=gwpC*0;    
 equation addCons1;
-addCons1$(gwpC>0).. gwp+slack1=e=gwpC;
+addCons1$(gwpC<>0).. gwp+slack1=e=gwpC;
 $if not set costC $set costC -1;
 costC=%costC%;
 *slack2.lo=-1*costC*0;    
@@ -483,7 +483,7 @@ zC=cost.l;
 cost.up=zC;
 
 
-Elseif (gwpC<0), Solve ToyProblem Using NLP minimizing gwp;
+Elseif (gwpC=-1), Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
 Solve ToyProblem Using NLP minimizing Cost;
@@ -496,10 +496,10 @@ DoC.fx=zD;
 else  Solve ToyProblem Using NLP minimizing Cost;
 zC = Cost.l;
 Cost.up=zC;
-Solve ToyProblem Using NLP maximizing DoC;
+*Solve ToyProblem Using NLP maximizing DoC;
 zD = DoC.l;
 DoC.lo=zD;
-Solve ToyProblem Using NLP minimizing gwp;
+*Solve ToyProblem Using NLP minimizing gwp;
 zG=gwp.l;
 gwp.fx=zG;
 );
@@ -540,27 +540,6 @@ $if not set file $set file 0
 
 
 
-File pareto /pareto%file%.txt/;
-pareto.ap=1;
-pareto.nd=4;
-pareto.pw=20000;
-put pareto"";
-put Cost.l",";
-put DoC.l",";
-put gwp.l",";
-put totpdtmass.l",";
-loop(j$bagAmnts(j),put s.l(j)",");
-loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
-loop(j$inn_prc(j),put s.l(j)",");
-*loop(l,put mp_indicators.l(l)",");
-put s.l('P129')",";
-put s.l('P130')",";
-put s.l('P17')",";
-put s.l('P21')",";
-put s.l('P151')",";
-put s.l('P152')",";
-put s.l('P153')"";
-put /;
 
 *'LABS from chemical recycling of PE','C4 Gas Mixture Pyrolysis','Light Liquid Fuel Pyrolysis','Clay reycled PLA','Lipase based PLA recycling','Lactic acid from acid hydrolysis','Me-Lactate from alcoholysis','Clinker','Lumber'
 
@@ -639,8 +618,10 @@ cd.fx('rPaper','Losses')=s.l('P135')*techMat.l('E97','P135');
 *cd.fx('Segregation','Landfill')=sum(j$repr_lfill(j),s.l(j)*techMat.l('E113',j));
 
 cd.fx(from,to) = round(cd.l(from,to), 4);
+set plarecy(j) / P96,P147,P149,P150/;
+
 parameter recyclevalLDPE,recyclevalPLA,recyclevalPP,recyclevalHDPE;
-recyclevalPLA$(s.l('P80')>0)=A('E81','P96')*s.l('P96')/(s.l('P80')+A('E81','P96')*s.l('P96'));
+recyclevalPLA$(s.l('P80')>0)=sum(j$plarecy(j),A('E81',j)*s.l(j))/(s.l('P80')+A('E81','P96')*s.l('P96'));
 recyclevalPP$(s.l('P79')>0)=A('E80','P95')*s.l('P95')/(s.l('P79')+A('E80','P95')*s.l('P95'));
 recyclevalHDPE$(s.l('P77')>0)=A('E79','P93')*s.l('P93')/(s.l('P77')+A('E79','P93')*s.l('P93'));
 recyclevalLDPE$(s.l('P78')>0)=A('E78','P94')*s.l('P94')/(s.l('P78')+A('E78','P94')*s.l('P94'));
@@ -653,6 +634,33 @@ Display recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA;
 *Display from;
 
 Display cd.l;
+
+File pareto /pareto%file%.txt/;
+pareto.ap=1;
+pareto.nd=4;
+pareto.pw=20000;
+put pareto"";
+put Cost.l",";
+put DoC.l",";
+put gwp.l",";
+put totpdtmass.l",";
+loop(j$bagAmnts(j),put s.l(j)",");
+loop(wasteMgmt,put wasteMgmtValues.l(wasteMgmt)",");
+loop(j$inn_prc(j),put s.l(j)",");
+*loop(l,put mp_indicators.l(l)",");
+put s.l('P129')",";
+put s.l('P130')",";
+put s.l('P17')",";
+put s.l('P21')",";
+put s.l('P151')",";
+put s.l('P152')",";
+put s.l('P153')",";
+put ((s.l('P17')+s.l('P21'))/(s.l('P17')+s.l('P21')+s.l('P151')+s.l('P152')))",";
+put ((s.l('P151'))/(s.l('P17')+s.l('P21')+s.l('P151')+s.l('P152')))",";
+put ((s.l('P152'))/(s.l('P17')+s.l('P21')+s.l('P151')+s.l('P152')))",";
+put min(recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA)",";
+put ((s.l('P153')+s.l('P85'))/(totpdtmass.l))"";
+put /;
 
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'

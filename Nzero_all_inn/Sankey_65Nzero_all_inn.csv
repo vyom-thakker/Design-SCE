@@ -224,7 +224,7 @@
 "Households","PLA",0
 "Households","Paper",0
 "Households","Households",0
-"Households","Curbside Collection",3.6618
+"Households","Curbside Collection",2.1343
 "Households","Dropoff",0
 "Households","Segregation",0
 "Households","rHDPE",0
@@ -235,7 +235,7 @@
 "Households","Compost",0
 "Households","Clinker",0
 "Households","Lumber",0
-"Households","Losses",0.4932
+"Households","Losses",2.0207
 "Households","LABS from chemical recycling of PE",0
 "Households","C4 Gas Mixture Pyrolysis",0
 "Households","Light Liquid Fuel Pyrolysis",0
@@ -253,7 +253,7 @@
 "Curbside Collection","Households",0
 "Curbside Collection","Curbside Collection",0
 "Curbside Collection","Dropoff",0
-"Curbside Collection","Segregation",3.3386
+"Curbside Collection","Segregation",1.9459
 "Curbside Collection","rHDPE",0
 "Curbside Collection","rLDPE",0
 "Curbside Collection","rPP",0
@@ -262,7 +262,7 @@
 "Curbside Collection","Compost",0
 "Curbside Collection","Clinker",0
 "Curbside Collection","Lumber",0
-"Curbside Collection","Losses",0.2946
+"Curbside Collection","Losses",0.1717
 "Curbside Collection","LABS from chemical recycling of PE",0
 "Curbside Collection","C4 Gas Mixture Pyrolysis",0
 "Curbside Collection","Light Liquid Fuel Pyrolysis",0
@@ -297,7 +297,7 @@
 "Dropoff","Lactic acid from acid hydrolysis",0
 "Dropoff","Me-Lactate from alcoholysis",0
 "Segregation","Pyrolysis",0
-"Segregation","Landfill",0.5893
+"Segregation","Landfill",0.3435
 "Segregation","Incineration",0
 "Segregation","HDPE",0
 "Segregation","LDPE",0
@@ -321,8 +321,8 @@
 "Segregation","C4 Gas Mixture Pyrolysis",0
 "Segregation","Light Liquid Fuel Pyrolysis",0
 "Segregation","Clay reycled PLA",0
-"Segregation","Lactic acid from acid hydrolysis",2.6185
-"Segregation","Me-Lactate from alcoholysis",0.1308
+"Segregation","Lactic acid from acid hydrolysis",0
+"Segregation","Me-Lactate from alcoholysis",1.6025
 "rHDPE","Pyrolysis",0
 "rHDPE","Landfill",0
 "rHDPE","Incineration",0
