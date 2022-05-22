@@ -48,8 +48,9 @@ C(l,k) = round(C(l,k), 2);
 *A('E97','P91')=0.08825;
 *A('E97','P89')=-1.0968;
 
-set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76/;
-parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442/;
+set inputs(j) /P1,P2,P7,P12,P14,P17,P18,P21,P26,P39,P42,P49,P52,P57,P58,P59, P76, P151*P153/;
+parameter cost_inputs(j) /P1 0.0496,P2 0.01624,P7 0.1766,P12 0.559977,P14 0.12996,P17 0.067,P18 0.37725,P21 0.067,P26 0.0287605,P39 0.1766,
+                            P42 110.2293,P49 0.12,P52 80,P57 0.13227,P58 0.022046,P59 0.020923,P76 0.000000030442, P151 0.0175, P152 0.012, P153 0.04/;
 
 positive variables
 	s(j) scaling factors;
@@ -57,7 +58,7 @@ positive variables
 variables
 	f(i) final demand;	
 
-s.l(j)=0;
+*s.l(j)=0;
 
 *******************************************Innovation**************************************
 
@@ -152,6 +153,7 @@ s.up('P152')=%s152solar%;
 s.up('P153')=%s153bioet%;
 s.up('P148')=0.01;
 $offText
+
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
@@ -327,8 +329,6 @@ processLCA(i).. f(i)=e=sum(j,techMat(i,j)*s(j));
 
 variables DoC,Cost;
 equations DoC_obj,Cost_obj;
-	DoC.lo=0;
-*	DoC.up=1;
 
 
 	Cost_obj.. Cost =e=sum(j$inputs(j), s(j)*cost_inputs(j))-costBenifitCompost;
@@ -373,7 +373,7 @@ cost_inn1.. cost_inn=e=sum(j$inn_prc(j),inn_dpkg(j)*s(j));
 *DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
 DoC_obj.. DoC*(productionCostResin+costRecycled+s('P153')*1.26) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
-*same as previous DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
+*DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
 
@@ -427,7 +427,7 @@ gwpC=%gwpC%;
 *slack1.lo=-1*gwpC*0;    
 *slack1.up=gwpC*0;    
 equation addCons1;
-addCons1$(gwpC<>0).. gwp+slack1=e=gwpC;
+addCons1$(gwpC<>-1).. gwp+slack1=e=gwpC;
 $if not set costC $set costC -1;
 costC=%costC%;
 *slack2.lo=-1*costC*0;    
@@ -475,10 +475,10 @@ zD = DoC.l;
 DoC.lo=zD;
 zG = gwp.l;
 gwp.l=zG;
-Solve ToyProblem Using NLP minimizing gwp;
+*Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-Solve ToyProblem Using NLP minimizing Cost;
+*Solve ToyProblem Using NLP minimizing Cost;
 zC=cost.l;
 cost.up=zC;
 
@@ -662,6 +662,7 @@ put min(recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA)",";
 put ((s.l('P153')+s.l('P85'))/(totpdtmass.l))"";
 put /;
 
+$onText
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
