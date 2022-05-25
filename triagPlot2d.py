@@ -38,7 +38,7 @@ names_val=['Cost','DoC','GWP']
 
 #data=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
-data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[0,1,2])
+data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[1,2,3])
 
 #data=data.append(data1)
 
@@ -52,7 +52,7 @@ fig,ax=plt.subplots()
 scatter=ax.scatter(y,z,s=x*100, c=x,cmap=orange_blue, alpha=0.7,edgecolors='black')
 plt.vlines(x = 0, ymin = 0, ymax = max(z), colors = 'red',label='Net-zero', linestyle='dashed',alpha=0.7)
 
-ax.annotate('Net-zero\nEmissions',xy=(0,1.25),xycoords='data',xytext=(1,1.25),textcoords='data', arrowprops=dict(arrowstyle="->",
+ax.annotate('Net-zero\nEmissions',xy=(0,max(z)*0.85),xycoords='data',xytext=(0.3*max(y),max(z)*0.85),textcoords='data', arrowprops=dict(arrowstyle="->",
                         connectionstyle="angle3,angleA=5,angleB=45"))
 
 #for i in range(0,len(y)):
@@ -63,6 +63,8 @@ ax.annotate('Net-zero\nEmissions',xy=(0,1.25),xycoords='data',xytext=(1,1.25),te
 legend1=ax.legend(*scatter.legend_elements(num=5),loc="lower right",title="LCC\n(\$/house-yr)")
 ax.add_artist(legend1)
 
+#ax.set_xlim([-3,10])
+#ax.set_ylim([0,1.4])
 
 
 ax.set_xlabel('Global Warming Potential (kgCO2eq/house-yr)')

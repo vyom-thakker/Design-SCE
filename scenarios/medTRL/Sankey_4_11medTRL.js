@@ -1,0 +1,25 @@
+let dataV={"nodes": [
+{"name":"Landfill"},
+{"name":"LDPE"},
+{"name":"PLA"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"rLDPE"},
+{"name":"Lumber"},
+{"name":"Me-Lactate from alcoholysis"},
+{"name": "Losses"}
+],
+ "links": [
+ {"source":"LDPE", "target":"Households", "value":0.3757, "optimal":"yes"} , 
+{"source":"PLA", "target":"Households", "value":1.9706, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":1.4944, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":0.8519, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":1.3625, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.1202, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Landfill", "value":0.2405, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rLDPE", "value":0.1797, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Me-Lactate from alcoholysis", "value":0.9423, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"LDPE", "value":0.0988, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Lumber", "value":0.0611, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Losses", "value":0.0198, "optimal":"yes"} ]}; 

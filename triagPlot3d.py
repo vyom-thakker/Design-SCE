@@ -38,7 +38,7 @@ names_val=['Cost','DoC','GWP']
 
 #data=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
-data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[0,1,2])
+data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[1,2,3])
 
 #data=data.append(data1)
 
@@ -72,19 +72,22 @@ ax = fig.add_subplot(1,1,1, projection='3d')
 ax.plot_trisurf(triang, z, cmap=orange_blue, alpha=0.95)
 ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
 
-for i in range(0,len(y)):
-    if y[i]<=0:
+#for i in range(0,len(y)):
+ #   if y[i]<=0:
         #ax.annotate("Nzero",(x[i],y[i],z[i]), xytext=(x[i]*(1-0.05), y[i]*(1-0.03), z[i]*(1-0.03)), arrowprops = dict(  arrowstyle="->", connectionstyle="angle3,angleA=0,angleB=-90"))
-       ax.text(x[i],y[i],z[i],"  -ve", size=7, zorder=1,color='k')
+#       ax.text(x[i],y[i],z[i],"  -ve", size=7, zorder=1,color='k')
 
+X1, Z1=np.meshgrid(np.linspace(min(x),max(x),num=10),np.linspace(min(z),max(z),num=10))
+Y1=0
 
+ax.plot_surface(X1,Y1,Z1,color='red',alpha=0.5)
 
 ax.view_init(elev=22,azim=-115)
 
 ax.set_xlabel('Life Cycle Cost\n ($/house-yr)',labelpad=10,rotation=0)
 ax.set_ylabel('Global Warming Potential\n (kgCO2eq/house-yr)',labelpad=10,rotation=0)
-ax.set_zlabel('Circularity\n (Fraction of economic value regenerated)',labelpad=10,rotation=0)
-plt.savefig("paretoAnn"+sys.argv[1]+".svg",format='svg')
+ax.set_zlabel('Circularity',labelpad=10,rotation=0)
+plt.savefig("pareto3d"+sys.argv[1]+".svg",format='svg')
 plt.show()
 
 

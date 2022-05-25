@@ -139,21 +139,22 @@ $if not set s152solar $set s152solar 0
 $if not set s153bioet $set s153bioet 0
 $if not set litter $set litter 1000
 
-$onText
-s.up('P88')=%litter%;
-s.up('P140')=%s140labs%;
-s.up('P142')=%s142pyldpe%;
-s.up('P143')=%s143pyhdpe%;
-s.up('P144')=%s144pypp%;
-s.up('P147')=%s147claypla%;
-s.up('P149')=%s149acidpla%;
-s.up('P150')=%s150alcpla%;
-s.up('P151')=%s151wind%;
-s.up('P152')=%s152solar%;
-s.up('P153')=%s153bioet%;
-s.up('P148')=0.01;
-$offText
+*s.up('P88')=%litter%;
+*s.up('P140')=%s140labs%;
+*s.up('P142')=%s142pyldpe%;
+*s.up('P143')=%s143pyhdpe%;
+*s.up('P144')=%s144pypp%;
+*s.up('P147')=%s147claypla%;
+*s.up('P149')=%s149acidpla%;
+*s.up('P150')=%s150alcpla%;
+*s.up('P151')=%s151wind%;
+*s.up('P152')=%s152solar%;
+*s.up('P153')=%s153bioet%;
+*s.up('P148')=0.01;
 
+*source segregated plastic waste
+A('E97','P92')=0;
+A('E17','P92')=0;
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
@@ -475,10 +476,10 @@ zD = DoC.l;
 DoC.lo=zD;
 zG = gwp.l;
 gwp.l=zG;
-*Solve ToyProblem Using NLP minimizing gwp;
+Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-*Solve ToyProblem Using NLP minimizing Cost;
+Solve ToyProblem Using NLP minimizing Cost;
 zC=cost.l;
 cost.up=zC;
 
@@ -662,7 +663,6 @@ put min(recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA)",";
 put ((s.l('P153')+s.l('P85'))/(totpdtmass.l))"";
 put /;
 
-$onText
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
