@@ -1,4 +1,9 @@
 
+gmax=0.11
+gmin=2.5
+cmax=0.9
+cmin=0.1
+
 #gmax=8.4
 #gmin=2.5
 #cmax=1.3
@@ -9,16 +14,16 @@
 #cmax=0.45
 #cmin=0.1
 
-gmax=1.8
-gmin=4
-cmax=1.8
-cmin=0.1
+#gmax=1.8
+#gmin=4
+#cmax=1.8
+#cmin=0.1
 
 for i in 6 5 4 3 2 1
 do
 	for j in 6 5 4 3 2 1
 	do
-        gams RP4.gms --file=$1 --fileS=6$i$j$1 --docc=$cmax-\(\($i*$cmax\)/6\)+\(\($i*$cmin\)/6\) --gwpC=$gmax*1-\(\($j*$gmax\)/6\)-\(\($j*$gmin\)/6\) -optfile=1
+        gams RP4.gms --file=$1 --fileS=l$i$j$1 --docc=$cmax-\(\($i*$cmax\)/6\)+\(\($i*$cmin\)/6\) --gwpC=$gmax*1-\(\($j*$gmax\)/6\)-\(\($j*$gmin\)/6\) -optfile=1
     done
 done
 
