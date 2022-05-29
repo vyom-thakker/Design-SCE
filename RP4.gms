@@ -139,7 +139,7 @@ $if not set s152solar $set s152solar 0
 $if not set s153bioet $set s153bioet 0
 $if not set litter $set litter 1000
 
-*s.up('P88')=%litter%;
+s.up('P88')=%litter%;
 *s.up('P140')=%s140labs%;
 *s.up('P142')=%s142pyldpe%;
 *s.up('P143')=%s143pyhdpe%;
@@ -156,8 +156,8 @@ $if not set litter $set litter 1000
 s.up('P148')=0.01;
 
 *source segregated plastic waste
-*A('E97','P92')=0;
-*A('E17','P92')=0;
+A('E97','P92')=0;
+A('E17','P92')=0;
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1

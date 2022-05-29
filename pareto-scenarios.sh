@@ -1,8 +1,8 @@
 
-gmax=0.11
-gmin=2.5
-cmax=0.9
-cmin=0.1
+#gmax=2.2
+#gmin=2.5
+#cmax=0.9
+#cmin=0.1
 
 #gmax=8.4
 #gmin=2.5
@@ -19,11 +19,16 @@ cmin=0.1
 #cmax=1.8
 #cmin=0.1
 
+gmax=3.6
+gmin=3.6
+cmax=1.6
+cmin=0.17
+
 for i in 6 5 4 3 2 1
 do
 	for j in 6 5 4 3 2 1
 	do
-        gams RP4.gms --file=$1 --fileS=l$i$j$1 --docc=$cmax-\(\($i*$cmax\)/6\)+\(\($i*$cmin\)/6\) --gwpC=$gmax*1-\(\($j*$gmax\)/6\)-\(\($j*$gmin\)/6\) -optfile=1
+        gams RP4.gms --file=$1 --fileS=$i$j$1 --docc=$cmax-\(\($i*$cmax\)/6\)+\(\($i*$cmin\)/6\) --gwpC=$gmax*1-\(\($j*$gmax\)/6\)-\(\($j*$gmin\)/6\) -optfile=1
     done
 done
 
@@ -33,5 +38,5 @@ sh CleanData.sh pareto$1.txt
 python triagPlot3d.py $1
 python triagPlot2d.py $1
 
-mv pareto2d$1.svg ./$1/
-mv pareto3d$1.svg ./$1/
+#mv pareto2d$1.svg ./$1/
+#mv pareto3d$1.svg ./$1/

@@ -24,19 +24,24 @@ for i in range(len(linkvals)):
 for i in range(len(nodenames)):
     if listnodepresent[i]>0:# or sum(listnodepresent[i+1:len(listnodepresent)-1])==0:
         if i == len(nodenames)-1:
-            filejs.writelines("{\"name\": \""+nodenames.iloc[i,0]+"\"},\n{\"name\":\"LCUpstream\"} \n],\n \"links\": [\n ");
+            filejs.writelines("{\"name\": \""+nodenames.iloc[i,0]+"\"},\n{\"name\":\"Value-chain Upstream\"} \n],\n \"links\": [\n ");
         else:
             filejs.writelines("{\"name\":\""+nodenames.iloc[i,0]+"\"},\n");
 
 lineinn=""
 for i in range(len(linkvals)):
-    if linkvals.iloc[i,2]!=0 and linkvals.iloc[i,0]=="Segregation" and (linkvals.iloc[i,1][0]!="r" and linkvals.iloc[i,1]!="Landfill" and linkvals.iloc[i,1]!="Incineration"):
+    if linkvals.iloc[i,2]!=0 and linkvals.iloc[i,0]=="Segregation" and (linkvals.iloc[i,1][0]!="r" and linkvals.iloc[i,1]!="Landfill"):
         lineinn+=",\n{\"source\":\""+linkvals.iloc[i,1]+"\", ";
-        lineinn+="\"target\":\""+"LCUpstream"+"\", ";
+        lineinn+="\"target\":\""+"Value-chain Upstream"+"\", ";
+        lineinn+="\"value\":"+str(linkvals.iloc[i,2])+", ";
+        lineinn+="\"optimal\":\""+"yes"+"\"} ";
+    if linkvals.iloc[i,2]!=0 and linkvals.iloc[i,1]=="Pyrolysis" and (linkvals.iloc[i,1]!="Incineration") and (linkvals.iloc[i,1]!="Lumber"):
+        lineinn+=",\n{\"source\":\""+linkvals.iloc[i,1]+"\", ";
+        lineinn+="\"target\":\""+"Value-chain Upstream"+"\", ";
         lineinn+="\"value\":"+str(linkvals.iloc[i,2])+", ";
         lineinn+="\"optimal\":\""+"yes"+"\"} ";
     if linkvals.iloc[i,2]!=0 and linkvals.iloc[i,1]=="Households":
-        lineinn+=",\n{\"source\":\"LCUpstream\", ";
+        lineinn+=",\n{\"source\":\"Value-chain Upstream\", ";
         lineinn+="\"target\":\""+linkvals.iloc[i,0]+"\", ";
         lineinn+="\"value\":"+str(0.001)+", ";
         lineinn+="\"optimal\":\""+"yes"+"\"} ";
