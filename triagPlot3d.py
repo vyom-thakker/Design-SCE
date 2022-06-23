@@ -10,9 +10,9 @@ from matplotlib import cm
 from matplotlib.colors import ListedColormap,LinearSegmentedColormap
 
 
-#font = {'family':'Arial'};
+font = {'family':'calibri'};
 
-#matplotlib.rc('font',**font);
+matplotlib.rc('font',**font);
 
 new_inferno = cm.get_cmap('inferno', 5)
 
@@ -69,8 +69,8 @@ triang = mtri.Triangulation(x, y)
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1, projection='3d')
 
-ax.plot_trisurf(triang, z, cmap=orange_blue, alpha=0.95)
-ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
+ax.plot_trisurf(triang, z, cmap=orange_blue, alpha=0.75)
+ax.scatter(x,y,z, marker='.', s=10, c="black", alpha=0.7)
 
 #for i in range(0,len(y)):
  #   if y[i]<=0:
@@ -80,7 +80,7 @@ ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
 X1, Z1=np.meshgrid(np.linspace(min(x),max(x),num=10),np.linspace(min(z),max(z),num=10))
 Y1=0
 
-ax.plot_surface(X1,Y1,Z1,color='red',alpha=0.5)
+#ax.plot_surface(X1,Y1,Z1,color='red',alpha=0.5)
 
 ax.view_init(elev=22,azim=-115)
 
