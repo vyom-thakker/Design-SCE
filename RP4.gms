@@ -149,15 +149,15 @@ s.up('P149')=%s149acidpla%;
 s.up('P150')=%s150alcpla%;
 s.up('P151')=%s151wind%;
 s.up('P152')=%s152solar%;
-*s.up('P153')=%s153bioet%;
+s.up('P153')=%s153bioet%;
 
 
 
-s.up('P148')=0.01;
+s.up('P148')=0;
 
 *source segregated plastic waste
-*A('E97','P92')=0;
-*A('E17','P92')=0;
+A('E97','P92')=0;
+A('E17','P92')=0;
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1

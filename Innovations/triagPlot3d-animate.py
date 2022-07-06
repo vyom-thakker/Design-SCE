@@ -19,18 +19,12 @@ from matplotlib import cm
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1, projection='3d')
 
-names_val0=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP']
-
-names_val1=['Cost','DoC','GWP','TotPlastics(kg)','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','LABS from chemical recycling of PE','C4 Gas Mixture Pyrolysis','Light Liquid Fuel Pyrolysis','Clay reycled PLA','Lipase based PLA recycling','Lactic acid from acid hydrolysis','Me-Lactate from alcoholysis','Clinker','Lumber']
-
-names_val=['Cost','DoC','GWP']
-
 
 def init():
 
-     data=pd.read_csv("pareto"+"NoPaperEdgePts_D1"+".txt", sep=',',header =None,names=names_val0)
+     data=pd.read_csv("pareto"+"NoPaperEdgePts_D1"+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
-     data1=pd.read_csv("paretot.txt", sep=',',header =None,names=names_val0)
+     data1=pd.read_csv("paretot.txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
      data=data.append(data1)
 
@@ -46,16 +40,24 @@ def init():
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
      ax.view_init(elev=60, azim=-45)
 
+     #data=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
+#
+#     data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
+#
+#     #data=data.append(data1)
+#
+#     x = data['Cost']
+#     y = data['GWP']
+#     z = data['DoC']
 
-     data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[0,1,2])
+     names_val=['Cost','DoC','GWP']
+     data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[1,2,3])
 
+#data=data.append(data1)
 
      x = data['Cost']
      y = data['GWP']
      z = data['DoC']
-
-
-     print(y);
 
      triang = mtri.Triangulation(x, y)
      uval=np.sqrt(np.square(max(z)-zo)+np.square(min(y)-yo)+np.square(min(x)-xo));
@@ -71,11 +73,11 @@ def init():
      ax.scatter(x,y,z, marker='.', s=30, c="black", alpha=0.7)
      ax.set_xlabel('LCC',labelpad=10,rotation=0)
      ax.set_ylabel('GWP',labelpad=10,rotation=0)
-     ax.set_xlim(0,8)
-     ax.set_ylim(0,18)
-     ax.set_zlim(0,1.2)
+     ax.set_xlim(0,10)
+     ax.set_ylim(0,16)
+     ax.set_zlim(0,0.9)
      ax.set_zlabel('Circularity',labelpad=10,rotation=0)
-     ax.set_title('Inn:'+sys.argv[1][4:]+'\n Utopia point shift (UU*)='+str(round(uval1,3)))
+     ax.set_title('Utopia point shift (UU*)='+str(round(uval1,3)))
      return fig,
 
 def animate(i):

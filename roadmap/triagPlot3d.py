@@ -33,14 +33,22 @@ ax.view_init(elev=60, azim=-45)
 
 #data=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
-data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
+#data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
+
+#data=data.append(data1)
+
+#x = data['Cost']
+#y = data['GWP']
+#z = data['DoC']
+
+names_val=['Cost','DoC','GWP']
+data=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[1,2,3])
 
 #data=data.append(data1)
 
 x = data['Cost']
 y = data['GWP']
 z = data['DoC']
-
 
 triang = mtri.Triangulation(x, y)
 

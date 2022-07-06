@@ -36,6 +36,12 @@ gmin=2.5
 cmax=0.45
 cmin=0
 
+#onlyBioPE
+gmax=11
+gmin=1.9
+cmax=0.47
+cmin=0
+
 
 
 for i in $(seq 1 1 $2)
