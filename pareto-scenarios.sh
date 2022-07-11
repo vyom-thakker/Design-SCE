@@ -48,15 +48,18 @@ for i in $(seq 1 1 $2)
 do
     for j in {$(seq 1 1 $2)
 	do
-        gams RP4.gms --file=$1 --fileS=$2$i$j$1 --docc=$cmax-\(\($i*$cmax\)/$2\)+\(\($i*$cmin\)/$2\) --gwpC=$gmax*1-\(\($j*$gmax\)/$2\)+\(\(\($j\)*$gmin\)/$2\) -optfile=1
+        gams main.gms --file=$1 --fileS=$2$i$j$1 --docc=$cmax-\(\($i*$cmax\)/$2\)+\(\($i*$cmin\)/$2\) --gwpC=$gmax*1-\(\($j*$gmax\)/$2\)+\(\(\($j\)*$gmin\)/$2\) -optfile=1
     done
 done
 
-sh CleanData.sh pareto$1.txt
+sh ./src/CleanData.sh pareto$1.txt
 
 
-python triagPlot3d.py $1
-python triagPlot2d.py $1
+python ./src/triagPlot3d.py ./$1
+python ./src/triagPlot2d.py ./$1
 
 mv pareto2d$1.svg ./$1/
 mv pareto3d$1.svg ./$1/
+
+mv pareto$1.txt ./$1/
+mv $1 ./result/

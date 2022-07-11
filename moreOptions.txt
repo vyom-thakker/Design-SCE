@@ -1,2 +1,0 @@
-resLim=500
-optCR=0.35

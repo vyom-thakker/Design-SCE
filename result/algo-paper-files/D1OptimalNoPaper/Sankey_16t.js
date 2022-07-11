@@ -1,0 +1,28 @@
+let dataV={"nodes": [
+{"name":"Landfill"},
+{"name":"Incineration"},
+{"name":"HDPE"},
+{"name":"LDPE"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"rHDPE"},
+{"name":"rLDPE"},
+{"name": "Losses"}
+],
+ "links": [
+ {"source":"HDPE", "target":"Households", "value":0.8837, "optimal":"yes"} , 
+{"source":"LDPE", "target":"Households", "value":0.4796, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":1.2015, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":0.1618, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":1.0954, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.0967, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Landfill", "value":0.1933, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rHDPE", "value":0.5847, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rLDPE", "value":0.3174, "optimal":"yes"} , 
+{"source":"rHDPE", "target":"Incineration", "value":0.2105, "optimal":"yes"} , 
+{"source":"rHDPE", "target":"HDPE", "value":0.3216, "optimal":"yes"} , 
+{"source":"rHDPE", "target":"Losses", "value":0.0526, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Incineration", "value":0.1079, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"LDPE", "value":0.1745, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Losses", "value":0.0349, "optimal":"yes"} ]}; 

@@ -1,0 +1,25 @@
+let dataV={"nodes": [
+{"name":"LDPE"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"rLDPE"},
+{"name":"Lumber"},
+{"name":"LABS from chemical recycling of PE"},
+{"name":"C4 Gas Mixture Pyrolysis"},
+{"name":"Light Liquid Fuel Pyrolysis"},
+{"name": "Losses"}
+],
+ "links": [
+ {"source":"LDPE", "target":"Households", "value":0.7147, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":0.1636, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":0.5511, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":0.1492, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.0132, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rLDPE", "value":0.0882, "optimal":"yes"} , 
+{"source":"Segregation", "target":"LABS from chemical recycling of PE", "value":0.0317, "optimal":"yes"} , 
+{"source":"Segregation", "target":"C4 Gas Mixture Pyrolysis", "value":0.0008, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Light Liquid Fuel Pyrolysis", "value":0.0219, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"LDPE", "value":0.0485, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Lumber", "value":0.03, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Losses", "value":0.0097, "optimal":"yes"} ]}; 
