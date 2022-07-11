@@ -1,12 +1,12 @@
 ** new matrix, for max recycled content in bags
 
 sets
-	i substances /E1*E138/
-	j activities /P1*P157/
+	i substances /E1*E140/
+	j activities /P1*P159/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
 	losses(i) /E97/
-	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E138/
+	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E138,E140/
 	homes(j) homesubsets /P87/
 	supplies(i) bagsperhome /E84*E88,E127/
 	sortedStuff(i) sortedbagsweights /E92*E96,E128/
@@ -57,6 +57,45 @@ positive variables
 
 variables
 	f(i) final demand;	
+
+*inn-algo include
+$offlisting
+$include ./data/innovations_chem.inc
+$include ./data/innovations_nzero.inc
+$onlisting
+
+
+$if not set s140labs $set s140labs 0
+$if not set s142pyldpe $set s142pyldpe 0
+$if not set s143pyhdpe $set s143pyhdpe 0
+$if not set s144pypp $set s144pypp 0
+$if not set s147claypla $set s147claypla 0
+$if not set s149acidpla $set s149acidpla 0
+$if not set s150alcpla $set s150alcpla 0
+$if not set s151wind $set s151wind 0
+$if not set s152solar $set s152solar 0
+$if not set s153bioet $set s153bioet 0
+$if not set s158ccu $set s158ccu 0
+$if not set litter $set litter 1000
+
+s.up('P88')=%litter%;
+s.up('P140')=%s140labs%;
+s.up('P142')=%s142pyldpe%;
+s.up('P143')=%s143pyhdpe%;
+s.up('P144')=%s144pypp%;
+s.up('P147')=%s147claypla%;
+s.up('P149')=%s149acidpla%;
+s.up('P150')=%s150alcpla%;
+*s.up('P151')=%s151wind%;
+*s.up('P152')=%s152solar%;
+s.up('P153')=%s153bioet%;
+*s.up('P158')=%s158ccu%;
+
+s.up('P148')=0;
+
+*source segregated plastic waste
+*A('E97','P92')=0;
+*A('E17','P92')=0;
 
 *s.l(j)=0;
 
@@ -119,45 +158,6 @@ $offText
 A('E127','P87')=-10;
 *A('E126','P134')=0;
 
-
-*inn-algo include
-$offlisting
-$include ./data/innovations_chem.inc
-$include ./data/innovations_nzero.inc
-$onlisting
-
-
-$if not set s140labs $set s140labs 0
-$if not set s142pyldpe $set s142pyldpe 0
-$if not set s143pyhdpe $set s143pyhdpe 0
-$if not set s144pypp $set s144pypp 0
-$if not set s147claypla $set s147claypla 0
-$if not set s149acidpla $set s149acidpla 0
-$if not set s150alcpla $set s150alcpla 0
-$if not set s151wind $set s151wind 0
-$if not set s152solar $set s152solar 0
-$if not set s153bioet $set s153bioet 0
-$if not set litter $set litter 1000
-
-s.up('P88')=%litter%;
-s.up('P140')=%s140labs%;
-s.up('P142')=%s142pyldpe%;
-s.up('P143')=%s143pyhdpe%;
-s.up('P144')=%s144pypp%;
-s.up('P147')=%s147claypla%;
-s.up('P149')=%s149acidpla%;
-s.up('P150')=%s150alcpla%;
-s.up('P151')=%s151wind%;
-s.up('P152')=%s152solar%;
-s.up('P153')=%s153bioet%;
-
-
-
-s.up('P148')=0;
-
-*source segregated plastic waste
-A('E97','P92')=0;
-A('E17','P92')=0;
 
 $if not set q1 $set q1 1
 $if not set q2 $set q2 1
@@ -371,12 +371,16 @@ variable cost_inn;
 equation cost_inn1;
 cost_inn1.. cost_inn=e=sum(j$inn_prc(j),inn_dpkg(j)*s(j));
 
+variable cost_etFromDAC;
+equation etFromDAC;
+*price of et 1 dollar per kg
+etFromDAC.. cost_etFromDAC=e=A('E64','P159')*s('P159')*1;
 
 
 *degreeofcircularity
 *DoC_obj.. DoC*sum(j$unextrudedAmnts(j), s(j))=e=sum(j$unextrudedAmnts(j), s(j))-(f('E97')+lossLandfill);
 *DoC_obj.. DoC*sum(j$bagAmnts(j), s(j))=e=sum(j$bagAmnts(j), s(j))-(f('E97')+lossLandfill+lossIncineration+lossBioFuel+lossCompost+costCl*s('P129')+costLu*s('P130'));
-DoC_obj.. DoC*(productionCostResin+costRecycled+s('P153')*1.26) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
+DoC_obj.. DoC*(productionCostResin+costRecycled+s('P153')*1.26) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn+cost_etFromDAC;
 *DoC_obj.. DoC*(productionCostResin+costRecycled) =e=costIn +costRecycled+costBenifitCompost+costCl+costLu+costPy+cost_inn;
 *DoC_obj.. DoC*Cost =e=costIn +costRecycled+costBenifitCompost+costPy+costCl+costLu;
 
@@ -479,10 +483,10 @@ zD = DoC.l;
 DoC.lo=zD;
 zG = gwp.l;
 gwp.l=zG;
-Solve ToyProblem Using NLP minimizing gwp;
+*Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-Solve ToyProblem Using NLP minimizing Cost;
+*Solve ToyProblem Using NLP minimizing Cost;
 zC=cost.l;
 cost.up=zC;
 
@@ -490,10 +494,10 @@ cost.up=zC;
 Elseif (gwpC=-1), Solve ToyProblem Using NLP minimizing gwp;
 zG = gwp.l;
 gwp.up=zG;
-Solve ToyProblem Using NLP minimizing Cost;
+*Solve ToyProblem Using NLP minimizing Cost;
 zC=Cost.l;
 Cost.up=zC;
-Solve ToyProblem Using NLP maximizing DoC;
+*Solve ToyProblem Using NLP maximizing DoC;
 zD = DoC.l;
 DoC.fx=zD;
 
@@ -669,7 +673,7 @@ put /;
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
 execute 'rm Sankey_%fileS%.gdx'
-execute 'sh removeUndf.sh Sankey_%fileS%.csv'
+execute 'sh ./src/removeUndf.sh Sankey_%fileS%.csv'
 execute 'python ./src/finalJSConstructor-inn.py Sankey_%fileS%.csv'
 execute 'mv Sankey_%fileS%.* ./%file%/'
 execute 'rm scalingVector.csv'
