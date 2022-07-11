@@ -38,7 +38,7 @@ names_val=['Cost','DoC','GWP']
 
 #data=pd.read_csv("pareto"+sys.argv[2]+".txt", sep=',',header =None,names=['Cost','DoC','MassConsumed','HDPE','LDPE','PP','PLA','PHA','Paper','Reprocess','Pyrolysis','Landfill','Incineration','GWP'])
 
-data=pd.read_csv("../pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[1,2,3])
+data=pd.read_csv("./pareto"+sys.argv[1]+".txt", sep=',',header =None,names=names_val,usecols=[1,2,3])
 
 #data=data.append(data1)
 
@@ -87,7 +87,7 @@ ax.view_init(elev=22,azim=-115)
 ax.set_xlabel('Life Cycle Cost\n ($/house-yr)',labelpad=10,rotation=0)
 ax.set_ylabel('Global Warming Potential\n (kgCO2eq/house-yr)',labelpad=10,rotation=0)
 ax.set_zlabel('Circularity',labelpad=10,rotation=0)
-plt.savefig("../pareto3d"+sys.argv[1]+".svg",format='svg')
+plt.savefig("./pareto3d"+sys.argv[1]+".svg",format='svg')
 plt.show()
 
 

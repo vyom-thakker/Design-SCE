@@ -2,14 +2,14 @@ import pandas as pd
 import numpy as np
 #pd.options.display.float_format='{:.4f}'.format;
 
-A=pd.read_excel("../data/techMatrix5.xlsx",skiprows=[0,1],header=None,usecols=range(2,139));
-names=pd.read_excel("../data/techMatrix3.xlsx",skiprows=range(2,132),header=None,usecols=range(2,139));
-B=pd.read_excel("../data/intMatrix5.xlsx",skiprows=[0,1],header=None,usecols=range(2,139));
+A=pd.read_excel("./data/techMatrix5.xlsx",skiprows=[0,1],header=None,usecols=range(2,139));
+names=pd.read_excel("./data/techMatrix3.xlsx",skiprows=range(2,132),header=None,usecols=range(2,139));
+B=pd.read_excel("./data/intMatrix5.xlsx",skiprows=[0,1],header=None,usecols=range(2,139));
 B.iloc[0,14]=0.0;
 B.iloc[0,15]=0.0;
 
-C=pd.read_excel("../data/CharacFactors3.xlsx",skiprows=[0,1,2,3,4,6,7,8,9,10,11],header=None,usecols=range(2,len(B)+2));
-s=pd.read_csv("../scalingVector.csv",skiprows=[0],header=None,usecols=[1]);
+C=pd.read_excel("./data/CharacFactors3.xlsx",skiprows=[0,1,2,3,4,6,7,8,9,10,11],header=None,usecols=range(2,len(B)+2));
+s=pd.read_csv("./scalingVector.csv",skiprows=[0],header=None,usecols=[1]);
 h=[0]*137;
 f=[0]*137;
 sumH=0.0;
@@ -50,8 +50,8 @@ ax.set_ylabel="GWP contribution in %";
 plt.title("GWP contribution in %");
 #plt.text(0,0,labe,ha='left',va='bottom',transform=ax.transAxes);
 plt.text(1,1,labe,ha='right',va='top',transform=ax.transAxes);
-plt.savefig('../fig.png');
-plt.savefig('../fig.svg')
+plt.savefig('./fig.png');
+plt.savefig('./fig.svg')
 #plt.show();
 
 

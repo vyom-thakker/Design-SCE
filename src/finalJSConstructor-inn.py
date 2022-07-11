@@ -1,8 +1,8 @@
 import pandas as pd
 import sys
-filejs=open("../"+sys.argv[1].split('.')[0]+'.js',"a+");
-nodenames=pd.read_csv("../data/Nodes.csv");
-linkvals=pd.read_csv("../"+sys.argv[1]);
+filejs=open(sys.argv[1].split('.')[0]+'.js',"a+");
+nodenames=pd.read_csv("./data/Nodes.csv");
+linkvals=pd.read_csv(sys.argv[1]);
 filejs.writelines("let dataV={\"nodes\": [\n");
 listnodepresent=[0]*(len(nodenames));
 for i in range(len(linkvals)):
