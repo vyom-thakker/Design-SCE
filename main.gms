@@ -2,11 +2,11 @@
 
 sets
 	i substances /E1*E140/
-	j activities /P1*P159/
+	j activities /P1*P161/
 	k impacts /I1*I2913/
     l MPindicators /MPI1*MPI10/
 	losses(i) /E97/
-	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E138,E140/
+	intermediates(i) /E1*E77,E78*E82,E84*E89,E91*E96,E107,E113,E115,E117*E122,E124*E128,E133*E140/
 	homes(j) homesubsets /P87/
 	supplies(i) bagsperhome /E84*E88,E127/
 	sortedStuff(i) sortedbagsweights /E92*E96,E128/
@@ -62,6 +62,7 @@ variables
 $offlisting
 $include ./data/innovations_chem.inc
 $include ./data/innovations_nzero.inc
+$include ./data/innovations_ccu.inc
 $onlisting
 
 
