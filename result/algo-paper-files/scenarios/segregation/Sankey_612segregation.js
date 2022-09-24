@@ -1,0 +1,27 @@
+let dataV={"nodes": [
+{"name":"LDPE"},
+{"name":"PLA"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"rLDPE"},
+{"name":"Lumber"},
+{"name":"LABS from chemical recycling of PE"},
+{"name":"Light Liquid Fuel Pyrolysis"},
+{"name":"Lactic acid from acid hydrolysis"},
+{"name": "Losses"}
+],
+ "links": [
+ {"source":"LDPE", "target":"Households", "value":0.4813, "optimal":"yes"} , 
+{"source":"PLA", "target":"Households", "value":1.3568, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":1.6189, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":0.2193, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":1.476, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.1303, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rLDPE", "value":0.0397, "optimal":"yes"} , 
+{"source":"Segregation", "target":"LABS from chemical recycling of PE", "value":0.2393, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Light Liquid Fuel Pyrolysis", "value":0.0832, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Lactic acid from acid hydrolysis", "value":1.0895, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"LDPE", "value":0.0218, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Lumber", "value":0.0135, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Losses", "value":0.0044, "optimal":"yes"} ]}; 

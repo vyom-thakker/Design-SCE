@@ -1,0 +1,25 @@
+let dataV={"nodes": [
+{"name":"Landfill"},
+{"name":"LDPE"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"rLDPE"},
+{"name":"Lumber"},
+{"name":"C4 Gas Mixture Pyrolysis"},
+{"name":"Light Liquid Fuel Pyrolysis"},
+{"name": "Losses"}
+],
+ "links": [
+ {"source":"LDPE", "target":"Households", "value":0.7147, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":0.2971, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":0.4176, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":0.2709, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.0239, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Landfill", "value":0.0478, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rLDPE", "value":0.2108, "optimal":"yes"} , 
+{"source":"Segregation", "target":"C4 Gas Mixture Pyrolysis", "value":0.0007, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Light Liquid Fuel Pyrolysis", "value":0.0089, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"LDPE", "value":0.1159, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Lumber", "value":0.0717, "optimal":"yes"} , 
+{"source":"rLDPE", "target":"Losses", "value":0.0232, "optimal":"yes"} ]}; 

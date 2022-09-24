@@ -1,0 +1,25 @@
+let dataV={"nodes": [
+{"name":"Landfill"},
+{"name":"LDPE"},
+{"name":"PLA"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"LABS from chemical recycling of PE"},
+{"name":"C4 Gas Mixture Pyrolysis"},
+{"name":"Light Liquid Fuel Pyrolysis"},
+{"name":"Lactic acid from acid hydrolysis"},
+{"name": "Losses"}
+],
+ "links": [
+ {"source":"LDPE", "target":"Households", "value":0.7002, "optimal":"yes"} , 
+{"source":"PLA", "target":"Households", "value":0.0845, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":0.6916, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":0.0932, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":0.6305, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.0556, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Landfill", "value":0.1113, "optimal":"yes"} , 
+{"source":"Segregation", "target":"LABS from chemical recycling of PE", "value":0.2497, "optimal":"yes"} , 
+{"source":"Segregation", "target":"C4 Gas Mixture Pyrolysis", "value":0.0056, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Light Liquid Fuel Pyrolysis", "value":0.16, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Lactic acid from acid hydrolysis", "value":0.0559, "optimal":"yes"} ]}; 
