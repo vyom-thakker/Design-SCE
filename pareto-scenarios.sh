@@ -55,8 +55,8 @@ done
 sh ./src/CleanData.sh pareto$1.txt
 
 
-python ./src/triagPlot3d.py ./$1
-python ./src/triagPlot2d.py ./$1
+python ./src/triagPlot3d.py $1
+python ./src/triagPlot2d.py $1
 
 mv pareto2d$1.svg ./$1/
 mv pareto3d$1.svg ./$1/

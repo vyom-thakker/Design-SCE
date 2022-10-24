@@ -87,15 +87,16 @@ s.up('P144')=%s144pypp%;
 s.up('P147')=%s147claypla%;
 s.up('P149')=%s149acidpla%;
 s.up('P150')=%s150alcpla%;
-*s.up('P151')=%s151wind%;
-*s.up('P152')=%s152solar%;
+s.up('P151')=%s151wind%;
+s.up('P152')=%s152solar%;
 s.up('P153')=%s153bioet%;
-*s.up('P158')=%s158ccu%;
+s.up('P158')=%s158ccu%;
 
 s.up('P148')=0;
 
 *source segregated plastic waste
 *A('E97','P92')=0;
+*A('E97','P92')=-2.5;
 *A('E17','P92')=0;
 
 *s.l(j)=0;
@@ -670,6 +671,27 @@ put ((s.l('P152'))/(s.l('P17')+s.l('P21')+s.l('P151')+s.l('P152')))",";
 put min(recyclevalLDPE,recyclevalHDPE,recyclevalPP,recyclevalPLA)",";
 put ((s.l('P153')+s.l('P85'))/(totpdtmass.l))"";
 put /;
+
+parameter recyclcontent;
+recyclcontent=(wasteMgmtValues.l('Reprocess')/totpdtmass.l);
+parameter biocontent;
+biocontent=s.l('P85')*((1-(wasteMgmtValues.l('Reprocess')/totpdtmass.l))/totpdtmass.l);
+
+File roadmap /roadmap.txt/;
+roadmap.ap=1;
+roadmap.nd=4;
+roadmap.pw=20000;
+put roadmap"";
+put "%file%,";
+put gwp.l",";
+put DoC.l",";
+put recyclcontent",";
+put biocontent",";
+put (s.l('P17')*0.69+s.l('P21')*0.79)",";
+put (s.l('P32')*0.202)",";
+put Cost.l"";
+put /;
+
 
 execute_unload 'Sankey_%fileS%.gdx', cD,from; 
 execute 'gdxdump Sankey_%fileS%.gdx output=Sankey_%fileS%.csv symb=cD format=csv'
