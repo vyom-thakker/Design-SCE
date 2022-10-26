@@ -13,7 +13,7 @@ df=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',usecols=[0,1,2],header =None
 
 if min(df['GWP'])<0:
     x1=np.linspace(min(df['GWP'])*0.9,max(df['GWP'])*0.95,int(sys.argv[3]));
-    x2=np.linspace(min(df['Cost'])*1.05,max(df['Cost'])*0.95,int(sys.argv[3]));
+    x2=np.linspace(min(df['Cost'])*1.1,max(df['Cost'])*0.95,int(sys.argv[3]));
 else:
     x1=np.linspace(min(df['GWP'])*1.05,max(df['GWP'])*0.95,int(sys.argv[3]));
     x2=np.linspace(min(df['Cost'])*1.05,max(df['Cost'])*0.95,int(sys.argv[3]));

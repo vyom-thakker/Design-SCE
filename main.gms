@@ -96,7 +96,7 @@ s.up('P148')=0;
 
 *source segregated plastic waste
 *A('E97','P92')=0;
-*A('E97','P92')=-2.5;
+A('E17','P92')=-2.75;
 *A('E17','P92')=0;
 
 *s.l(j)=0;
