@@ -1,0 +1,27 @@
+let dataV={"nodes": [
+{"name":"Pyrolysis"},
+{"name":"Landfill"},
+{"name":"Incineration"},
+{"name":"PLA"},
+{"name":"Households"},
+{"name":"Curbside Collection"},
+{"name":"Segregation"},
+{"name":"rPLA"},
+{"name": "Losses"},
+{"name":"Value-chain Upstream"} 
+],
+ "links": [
+ {"source":"Pyrolysis", "target":"Losses", "value":0.0021, "optimal":"yes"} , 
+{"source":"PLA", "target":"Households", "value":4.155, "optimal":"yes"} , 
+{"source":"Households", "target":"Curbside Collection", "value":0.0621, "optimal":"yes"} , 
+{"source":"Households", "target":"Losses", "value":4.0929, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Pyrolysis", "value":0.0105, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Segregation", "value":0.044, "optimal":"yes"} , 
+{"source":"Curbside Collection", "target":"Losses", "value":0.005, "optimal":"yes"} , 
+{"source":"Segregation", "target":"Landfill", "value":0.0078, "optimal":"yes"} , 
+{"source":"Segregation", "target":"rPLA", "value":0.0363, "optimal":"yes"} , 
+{"source":"rPLA", "target":"Incineration", "value":0.0283, "optimal":"yes"} , 
+{"source":"rPLA", "target":"PLA", "value":0.0054, "optimal":"yes"} , 
+{"source":"rPLA", "target":"Losses", "value":0.0025, "optimal":"yes"} ,
+{"source":"Value-chain Upstream", "target":"PLA", "value":0.001, "optimal":"yes"} ,
+{"source":"Pyrolysis", "target":"Value-chain Upstream", "value":0.0105, "optimal":"yes"} ]}; 

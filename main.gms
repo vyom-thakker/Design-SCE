@@ -225,9 +225,10 @@ equations
 	stockEqns percent stock constraint;
 
 
+$if not set fufraction $set fufraction 1
     
     zeroIntermediates(i) $ intermediates(i).. f(i)=e=0;
-	homeDemand(homes(j))..-3878=e=sum(i $ supplies(i), techMat(i,j)*s(j)*bagVolumes(i)*0.8);  
+	homeDemand(homes(j))..-3878*%fufraction%=e=sum(i $ supplies(i), techMat(i,j)*s(j)*bagVolumes(i)*0.8);  
 	stockEqns.. sum(j$homes(j),s(j)*(1+techMat('E97',j)))=e=sum(j $ bagAmnts(j), s(j)); 
 
 
