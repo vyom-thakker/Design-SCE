@@ -12,18 +12,18 @@ df=pd.read_csv("pareto"+sys.argv[1]+".txt", sep=',',usecols=[0,1,2],header =None
 
 
 if min(df['GWP'])<0:
-    x1=np.linspace(min(df['GWP'])*0.9,max(df['GWP'])*0.95,int(sys.argv[3]));
-    x2=np.linspace(min(df['Cost'])*1.1,max(df['Cost'])*0.95,int(sys.argv[3]));
+    x2=np.linspace(min(df['GWP'])*0.9,max(df['GWP'])*0.95,int(sys.argv[2]));
+    x2=np.linspace(min(df['Cost'])*1.1,max(df['Cost'])*0.95,int(sys.argv[2]));
 else:
-    x1=np.linspace(min(df['GWP'])*1.05,max(df['GWP'])*0.95,int(sys.argv[3]));
-    x2=np.linspace(min(df['Cost'])*1.05,max(df['Cost'])*0.95,int(sys.argv[3]));
+    x1=np.linspace(min(df['GWP'])*1.05,max(df['GWP'])*0.95,int(sys.argv[2]));
+    x2=np.linspace(min(df['Cost'])*1.05,max(df['Cost'])*0.95,int(sys.argv[2]));
 
 X,Y = np.meshgrid(x1,x2,sparse=True);
 k=1;
 for x in X[0]:
     for y in Y:
         #commands.extend("gams RP"+di+".gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file parmfile=moreOptions.txt \n");
-        commands.extend("gams main.gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file --fileS="+str(k)+"$file -optFile=1 "+sys.argv[2]+" \n");
+        commands.extend("gams main.gms --gwpC="+str(round(x,4))+" --costC="+str(round(y[0],4))+" --file=$file --fileS="+str(k)+"$file -optFile=1 "+sys.argv[3]+" "+sys.argv[4]+" \n");
         k=k+1;
 
 commands.extend("sh ./src/CleanData.sh pareto$file.txt \npython ./src/triagPlot3d.py $file \npython ./src/triagPlot2d.py $file \n mv *$file.* ./$file/\n mv $file ./result/ \n")
